@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IPO SpaceX 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cyan: #00e5ff;
+    --cyan-dim: #00b8d4;
+    --bg: #030810;
+    --bg2: #060e1c;
+    --bg3: #0a1628;
+    --text: #c8daf0;
+    --text-dim: #6e8aaa;
+    --white: #ffffff;
+    --glow: 0 0 24px rgba(0,229,255,0.4);
+    --glow-sm: 0 0 10px rgba(0,229,255,0.25);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* STARS */
+  .stars-bg {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(0,40,80,0.3) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(0,20,60,0.2) 0%, transparent 50%);
+  }
+  .stars-bg::before, .stars-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,0.6) 0%, transparent 100%),
+      radial-gradient(1px 1px at 25% 40%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 40% 10%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 55% 60%, rgba(255,255,255,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 70% 25%, rgba(255,255,255,0.6) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 80% 75%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 90% 50%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 15% 80%, rgba(255,255,255,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 35% 90%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 60% 85%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 48% 48%, rgba(0,229,255,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 72% 12%, rgba(0,229,255,0.3) 0%, transparent 100%);
+    background-size: 600px 600px;
+    animation: twinkle 8s infinite alternate;
+  }
+  .stars-bg::after { background-size: 900px 900px; animation-delay: -3s; animation-duration: 12s; }
+  @keyframes twinkle { 0%{opacity:0.7} 50%{opacity:1} 100%{opacity:0.6} }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 60px;
+    background: rgba(3,8,16,0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(0,229,255,0.1);
+  }
+  .nav-logo {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.1rem;
+    letter-spacing: 0.3em;
+    color: var(--cyan);
+    text-shadow: var(--glow-sm);
+  }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--cyan); }
+
+  /* SECTIONS */
+  section { position: relative; z-index: 1; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 40px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-gif {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 0;
+  }
+  .hero-gif img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: 0.25;
+  }
+  .gif-placeholder {
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, #030810 0%, #0a1628 50%, #030810 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+    opacity: 0.6;
+  }
+  .gif-placeholder span { color: var(--cyan-dim); font-size: 0.75rem; letter-spacing: 0.2em; }
+  .gif-icon { font-size: 3rem; opacity: 0.4; }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(3,8,16,0.4) 0%, rgba(3,8,16,0.85) 70%);
+    z-index: 1;
+  }
+  .hero-content { position: relative; z-index: 2; }
+
+  .hero-eyebrow {
+    font-family: 'Orbitron', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.5em;
+    color: var(--cyan);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.3s forwards;
+  }
+  .hero-title {
+    font-family: 'Orbitron', monospace;
+    font-size: clamp(2.8rem, 8vw, 7rem);
+    font-weight: 900;
+    line-height: 1.0;
+    color: var(--white);
+    margin-bottom: 12px;
+    text-shadow: 0 0 60px rgba(0,229,255,0.2);
+    opacity: 0;
+    animation: fadeUp 0.8s 0.5s forwards;
+  }
+  .hero-title span { color: var(--cyan); text-shadow: var(--glow); }
+  .hero-sub {
+    font-size: clamp(1rem, 2vw, 1.4rem);
+    color: var(--text-dim);
+    max-width: 680px;
+    margin: 0 auto 40px;
+    line-height: 1.7;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.7s forwards;
+  }
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 44px;
+    background: transparent;
+    border: 1.5px solid var(--cyan);
+    color: var(--cyan);
+    font-family: 'Orbitron', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.25em;
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: var(--glow-sm);
+    opacity: 0;
+    animation: fadeUp 0.8s 0.9s forwards;
+  }
+  .hero-cta:hover {
+    background: rgba(0,229,255,0.1);
+    box-shadow: var(--glow);
+    transform: translateY(-2px);
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    z-index: 2;
+    opacity: 0;
+    animation: fadeIn 1s 1.5s forwards;
+  }
+  .scroll-hint span { font-size: 0.65rem; letter-spacing: 0.3em; color: var(--text-dim); text-transform: uppercase; }
+  .scroll-line {
+    width: 1px; height: 50px;
+    background: linear-gradient(to bottom, var(--cyan), transparent);
+    animation: scrollPulse 2s infinite;
+  }
+  @keyframes scrollPulse { 0%,100%{opacity:0.3} 50%{opacity:1} }
+
+  @keyframes fadeUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes fadeIn { from{opacity:0} to{opacity:1} }
+
+  /* STATS BAR */
+  .stats-bar {
+    background: var(--bg2);
+    border-top: 1px solid rgba(0,229,255,0.15);
+    border-bottom: 1px solid rgba(0,229,255,0.15);
+    padding: 36px 60px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+  .stat-item {
+    text-align: center;
+    padding: 0 20px;
+    border-right: 1px solid rgba(0,229,255,0.1);
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-value {
+    font-family: 'Orbitron', monospace;
+    font-size: clamp(1.4rem, 3vw, 2.2rem);
+    font-weight: 900;
+    color: var(--cyan);
+    text-shadow: var(--glow-sm);
+    display: block;
+    margin-bottom: 6px;
+  }
+  .stat-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+  }
+
+  /* CONTENT SECTIONS */
+  .section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 60px;
+  }
+  .section-tag {
+    font-family: 'Orbitron', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.5em;
+    color: var(--cyan);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-tag::before {
+    content: '';
+    display: block;
+    width: 3px;
+    height: 14px;
+    background: var(--cyan);
+    box-shadow: var(--glow-sm);
+  }
+  .section-title {
+    font-family: 'Orbitron', monospace;
+    font-size: clamp(1.6rem, 4vw, 3rem);
+    font-weight: 900;
+    color: var(--white);
+    margin-bottom: 24px;
+    line-height: 1.2;
+  }
+  .section-body {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text);
+    max-width: 700px;
+  }
+
+  /* ECOSYSTEM */
+  .ecosystem { background: var(--bg); }
+  .eco-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-top: 60px;
+    align-items: center;
+  }
+  .eco-gif {
+    aspect-ratio: 16/10;
+    background: var(--bg3);
+    border: 1px solid rgba(0,229,255,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    color: var(--text-dim);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    position: relative;
+    overflow: hidden;
+  }
+  .eco-gif::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0,229,255,0.03) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .eco-gif img { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; }
+  .eco-cards { display: flex; flex-direction: column; gap: 20px; }
+  .eco-card {
+    background: var(--bg2);
+    border: 1px solid rgba(0,229,255,0.1);
+    border-left: 3px solid var(--cyan);
+    padding: 24px 28px;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .eco-card:hover {
+    border-left-color: var(--cyan);
+    border-color: rgba(0,229,255,0.3);
+    transform: translateX(4px);
+  }
+  .eco-card-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 0.85rem;
+    color: var(--cyan);
+    letter-spacing: 0.15em;
+    margin-bottom: 10px;
+  }
+  .eco-card p { font-size: 0.92rem; color: var(--text); line-height: 1.6; }
+
+  /* FACTS GRID */
+  .facts { background: var(--bg2); }
+  .facts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 60px;
+  }
+  .fact-card {
+    background: var(--bg);
+    border: 1px solid rgba(0,229,255,0.1);
+    padding: 32px 28px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s, border-color 0.3s;
+  }
+  .fact-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .fact-card:hover { transform: translateY(-4px); border-color: rgba(0,229,255,0.3); }
+  .fact-card:hover::before { opacity: 1; }
+  .fact-icon { font-size: 1.8rem; margin-bottom: 16px; }
+  .fact-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    color: var(--cyan);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .fact-card p { font-size: 0.9rem; line-height: 1.6; color: var(--text); }
+  .fact-card strong { color: var(--white); font-weight: 600; }
+
+  /* STARSHIP */
+  .starship-section { background: var(--bg); }
+  .starship-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    margin-top: 50px;
+  }
+  .starship-gif {
+    aspect-ratio: 9/16;
+    max-height: 500px;
+    background: var(--bg3);
+    border: 1px solid rgba(0,229,255,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    color: var(--text-dim);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    position: relative;
+  }
+  .starship-gif img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; }
+  .starship-points { display: flex; flex-direction: column; gap: 28px; }
+  .starship-point { display: flex; gap: 20px; align-items: flex-start; }
+  .sp-num {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: rgba(0,229,255,0.2);
+    line-height: 1;
+    flex-shrink: 0;
+    width: 50px;
+  }
+  .sp-text h4 {
+    font-family: 'Orbitron', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.15em;
+    color: var(--cyan);
+    margin-bottom: 8px;
+  }
+  .sp-text p { font-size: 0.92rem; line-height: 1.6; color: var(--text); }
+
+  /* CHART */
+  .chart-section { background: var(--bg2); }
+  .chart-bars {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .chart-row {
+    display: grid;
+    grid-template-columns: 200px 1fr auto;
+    gap: 20px;
+    align-items: center;
+  }
+  .chart-label { font-size: 0.82rem; color: var(--text-dim); letter-spacing: 0.05em; text-align: right; }
+  .chart-bar-wrap { background: rgba(255,255,255,0.04); height: 38px; position: relative; overflow: hidden; }
+  .chart-bar {
+    height: 100%;
+    background: linear-gradient(90deg, rgba(0,229,255,0.6), var(--cyan));
+    display: flex;
+    align-items: center;
+    padding-left: 14px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 1.2s cubic-bezier(0.25,1,0.5,1);
+  }
+  .chart-bar.animate { transform: scaleX(1); }
+  .chart-val-label {
+    font-family: 'Orbitron', monospace;
+    font-size: 0.72rem;
+    color: var(--white);
+    white-space: nowrap;
+  }
+  .chart-value {
+    font-family: 'Orbitron', monospace;
+    font-size: 0.9rem;
+    color: var(--cyan);
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  /* REVENUE PIE */
+  .revenue-section { background: var(--bg); }
+  .revenue-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    margin-top: 60px;
+  }
+  .pie-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+  .pie-wrap { position: relative; width: 260px; height: 260px; }
+  svg.pie { width: 260px; height: 260px; transform: rotate(-90deg); }
+  .pie-center {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .pie-center-val {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: var(--white);
+  }
+  .pie-center-label { font-size: 0.65rem; letter-spacing: 0.2em; color: var(--text-dim); }
+  .pie-legend { display: flex; flex-direction: column; gap: 14px; width: 100%; }
+  .legend-item { display: flex; align-items: center; gap: 14px; }
+  .legend-dot { width: 12px; height: 12px; border-radius: 2px; flex-shrink: 0; }
+  .legend-text { font-size: 0.88rem; color: var(--text); flex: 1; }
+  .legend-pct { font-family: 'Orbitron', monospace; font-size: 0.85rem; color: var(--cyan); }
+  .revenue-details { display: flex; flex-direction: column; gap: 24px; }
+  .rev-item {
+    border-left: 2px solid rgba(0,229,255,0.2);
+    padding-left: 20px;
+    transition: border-color 0.3s;
+  }
+  .rev-item:hover { border-left-color: var(--cyan); }
+  .rev-item-title { font-family: 'Orbitron', monospace; font-size: 0.75rem; color: var(--cyan); letter-spacing: 0.15em; margin-bottom: 6px; }
+  .rev-item-amount { font-size: 1.6rem; font-weight: 600; color: var(--white); margin-bottom: 4px; }
+  .rev-item-desc { font-size: 0.85rem; color: var(--text-dim); line-height: 1.5; }
+
+  /* TIMELINE */
+  .timeline-section { background: var(--bg2); }
+  .timeline {
+    margin-top: 70px;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    top: 24px;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+    opacity: 0.4;
+  }
+  .tl-item { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 10px; }
+  .tl-dot {
+    width: 48px; height: 48px;
+    border: 2px solid var(--cyan);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg2);
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+    box-shadow: var(--glow-sm);
+    transition: background 0.3s, transform 0.3s;
+  }
+  .tl-item:hover .tl-dot { background: rgba(0,229,255,0.15); transform: scale(1.1); }
+  .tl-dot-inner { width: 8px; height: 8px; background: var(--cyan); border-radius: 50%; }
+  .tl-year {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.1rem;
+    font-weight: 900;
+    color: var(--cyan);
+    margin-bottom: 12px;
+  }
+  .tl-desc { font-size: 0.82rem; color: var(--text-dim); line-height: 1.5; }
+
+  /* PARAMS TABLE */
+  .params-section { background: var(--bg); }
+  .params-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 50px;
+  }
+  .params-table th {
+    font-family: 'Orbitron', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--cyan);
+    text-align: left;
+    padding: 16px 24px;
+    border-bottom: 1px solid rgba(0,229,255,0.2);
+    background: rgba(0,229,255,0.05);
+  }
+  .params-table td {
+    padding: 20px 24px;
+    border-bottom: 1px solid rgba(0,229,255,0.06);
+    font-size: 0.95rem;
+    transition: background 0.2s;
+  }
+  .params-table tr:hover td { background: rgba(0,229,255,0.04); }
+  .params-table td:first-child { color: var(--text-dim); font-size: 0.85rem; letter-spacing: 0.05em; }
+  .params-table td:nth-child(2) { font-family: 'Orbitron', monospace; font-size: 0.9rem; color: var(--white); font-weight: 700; }
+  .params-table td:last-child { color: var(--text-dim); font-size: 0.83rem; }
+
+  /* QUOTE */
+  .quote-section {
+    background: var(--bg2);
+    border-top: 1px solid rgba(0,229,255,0.1);
+    border-bottom: 1px solid rgba(0,229,255,0.1);
+  }
+  .quote-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 100px 60px;
+    text-align: center;
+  }
+  .quote-mark {
+    font-size: 5rem;
+    color: var(--cyan);
+    opacity: 0.2;
+    line-height: 0.5;
+    margin-bottom: 30px;
+    font-family: Georgia, serif;
+  }
+  .quote-text {
+    font-family: 'Orbitron', monospace;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    font-weight: 400;
+    color: var(--white);
+    line-height: 1.6;
+    margin-bottom: 30px;
+  }
+  .quote-author {
+    font-size: 0.82rem;
+    letter-spacing: 0.2em;
+    color: var(--cyan);
+    text-transform: uppercase;
+  }
+
+  /* PARTICIPATION */
+  .participate-section { background: var(--bg); }
+  .participate-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+    margin-top: 60px;
+  }
+  .participate-gif {
+    aspect-ratio: 4/3;
+    background: var(--bg3);
+    border: 1px solid rgba(0,229,255,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    color: var(--text-dim);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+  }
+  .participate-gif img { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; }
+  .steps { display: flex; flex-direction: column; gap: 24px; }
+  .step {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 24px;
+    background: var(--bg2);
+    border: 1px solid rgba(0,229,255,0.08);
+    transition: border-color 0.3s;
+  }
+  .step:hover { border-color: rgba(0,229,255,0.25); }
+  .step-num {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: rgba(0,229,255,0.25);
+    flex-shrink: 0;
+    line-height: 1;
+    min-width: 36px;
+  }
+  .step-content h4 { font-family: 'Orbitron', monospace; font-size: 0.78rem; color: var(--cyan); letter-spacing: 0.15em; margin-bottom: 8px; }
+  .step-content p { font-size: 0.9rem; line-height: 1.6; color: var(--text); }
+
+  /* CTA FOOTER */
+  .cta-footer {
+    background: var(--bg2);
+    text-align: center;
+    padding: 120px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-footer::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center bottom, rgba(0,229,255,0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .cta-footer-gif {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .cta-footer-gif img { width: 100%; height: 100%; object-fit: cover; opacity: 0.12; }
+  .cta-footer-content { position: relative; z-index: 1; }
+  .cta-footer h2 {
+    font-family: 'Orbitron', monospace;
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 900;
+    color: var(--white);
+    margin-bottom: 20px;
+    letter-spacing: 0.05em;
+  }
+  .cta-footer h2 span { color: var(--cyan); text-shadow: var(--glow); }
+  .cta-footer p { font-size: 1.1rem; color: var(--text-dim); margin-bottom: 50px; }
+  .cta-footer-btns { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+  .btn-primary {
+    padding: 18px 50px;
+    background: var(--cyan);
+    color: var(--bg);
+    font-family: 'Orbitron', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.25em;
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s;
+    font-weight: 700;
+  }
+  .btn-primary:hover { background: var(--white); box-shadow: 0 0 40px rgba(0,229,255,0.4); transform: translateY(-2px); }
+  .btn-secondary {
+    padding: 18px 50px;
+    background: transparent;
+    border: 1.5px solid rgba(0,229,255,0.4);
+    color: var(--text);
+    font-family: 'Orbitron', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.25em;
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .btn-secondary:hover { border-color: var(--cyan); color: var(--cyan); }
+  .footer-note { margin-top: 60px; font-size: 0.75rem; color: var(--text-dim); opacity: 0.6; }
+
+  /* GIF PLACEHOLDER STYLING */
+  .gif-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+    background: var(--bg3);
+    border: 1px dashed rgba(0,229,255,0.2);
+    color: var(--text-dim);
+  }
+  .gif-box .gi { font-size: 2.5rem; opacity: 0.3; }
+  .gif-box span { font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; }
+
+  /* SCANLINE EFFECT */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 3px);
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  /* REVEAL ANIMATION */
+  .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s, transform 0.8s; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    .stats-bar { grid-template-columns: repeat(2,1fr); }
+    .section-inner { padding: 70px 24px; }
+    .eco-grid, .starship-layout, .revenue-layout, .participate-layout { grid-template-columns: 1fr; gap: 40px; }
+    .facts-grid { grid-template-columns: repeat(2,1fr); }
+    .timeline { grid-template-columns: 1fr; gap: 30px; }
+    .timeline::before { display: none; }
+    .tl-item { flex-direction: row; text-align: left; gap: 20px; align-items: flex-start; }
+    .tl-dot { margin-bottom: 0; flex-shrink: 0; }
+    .chart-row { grid-template-columns: 120px 1fr auto; }
+    .cta-footer { padding: 80px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="stars-bg"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">SPACEX / IPO</div>
+  <ul class="nav-links">
+    <li><a href="#ecosystem">Экосистема</a></li>
+    <li><a href="#facts">Достижения</a></li>
+    <li><a href="#starship">Starship</a></li>
+    <li><a href="#params">Параметры</a></li>
+    <li><a href="#participate">Участие</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-gif">
+    <div class="gif-box" style="width:100%;height:100%;">
+      <!-- ЗАМЕНИТЕ НА ВАШ GIF: <img src="your-launch.gif" alt="launch"> -->
+      <span class="gi">🚀</span>
+      <span>GIF — фоновый запуск ракеты</span>
+    </div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Величайшее финансовое событие десятилетия</p>
+    <h1 class="hero-title">IPO <span>SPACEX</span><br>2026</h1>
+    <p class="hero-sub">Ваш путь к владению инфраструктурой будущего — от участия в раунде до фиксации исторической прибыли</p>
+    <a href="#participate" class="hero-cta">Принять участие →</a>
+  </div>
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar reveal">
+  <div class="stat-item">
+    <span class="stat-value">$2 трлн</span>
+    <span class="stat-label">Целевая оценка</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-value">$75 млрд</span>
+    <span class="stat-label">Объём размещения</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-value">90%+</span>
+    <span class="stat-label">Доля мировых пусков</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-value">12 июня</span>
+    <span class="stat-label">Дата листинга 2026</span>
+  </div>
+</div>
+
+<!-- ECOSYSTEM -->
+<section class="ecosystem" id="ecosystem">
+  <div class="section-inner">
+    <div class="section-tag">О компании</div>
+    <h2 class="section-title reveal">Глобальная<br>экосистема</h2>
+    <p class="section-body reveal">SpaceX — это вертикально-интегрированный технологический конгломерат, который монополизировал доступ к околоземной орбите и формирует фундамент для экономики будущего стоимостью <strong style="color:var(--white)">$1.1 трлн к 2040 году</strong>.</p>
+
+    <div class="eco-grid">
+      <div class="eco-gif reveal" style="overflow:hidden;">
+        <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbTh0dzVreGFpaXU3M3BhMDU4Zzk3enpwM3c1eHIxZjNhdnBybWVtYSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/dOADhB0thq9zV51OOP/giphy.gif" alt="Starlink Network" style="width:100%;height:100%;object-fit:cover;opacity:0.85;">
+      </div>
+      <div class="eco-cards reveal">
+        <div class="eco-card">
+          <div class="eco-card-title">Starlink</div>
+          <p>Первая в мире глобальная высокоскоростная сеть с более чем 10 000 спутников на орбите. Магистраль для передачи данных нового поколения, включая авиацию, морской флот и военный сектор (Starshield).</p>
+        </div>
+        <div class="eco-card">
+          <div class="eco-card-title">Starship</div>
+          <p>Самая мощная ракетная система в истории — цель радикального снижения стоимости доставки грузов на орбиту в 100 раз. «Грузовой корабль», который сделает Луну и Марс частью нашей экономики.</p>
+        </div>
+        <div class="eco-card">
+          <div class="eco-card-title">ИИ-Экосистема</div>
+          <p>SpaceX объединяет транспорт (Falcon/Starship), телеком (Starlink) и ИИ (синергия с xAI), создавая замкнутый цикл инноваций, защищённый непревзойдёнными технологическими барьерами.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FACTS -->
+<section class="facts" id="facts">
+  <div class="section-inner">
+    <div class="section-tag">Ключевые факты</div>
+    <h2 class="section-title reveal">Достижения<br>и лидерство</h2>
+    <div class="facts-grid">
+      <div class="fact-card reveal">
+        <div class="fact-icon">🚀</div>
+        <div class="fact-title">Лидерство в запусках</div>
+        <p>SpaceX выполняет более <strong>90%</strong> мировых коммерческих пусков. Falcon 9 — самый надёжный носитель в мире с показателем успеха <strong>99.8%</strong>.</p>
+      </div>
+      <div class="fact-card reveal">
+        <div class="fact-icon">🛰️</div>
+        <div class="fact-title">Сетевой гигант</div>
+        <p>Starlink генерирует более <strong>$12.3 млрд выручки</strong> (2025E). Сеть обслуживает миллионы абонентов и правительственные контракты по всему миру.</p>
+      </div>
+      <div class="fact-card reveal">
+        <div class="fact-icon">🌙</div>
+        <div class="fact-title">Госзаказы NASA</div>
+        <p>Эксклюзивные контракты на сумму более <strong>$4.4 млрд</strong> по программе Artemis (высадка на Луну) и снабжению МКС.</p>
+      </div>
+      <div class="fact-card reveal">
+        <div class="fact-icon">♻️</div>
+        <div class="fact-title">Многоразовость</div>
+        <p>Единственная компания, освоившая возврат первой ступени. Некоторые бустеры летали более <strong>20 раз</strong>.</p>
+      </div>
+      <div class="fact-card reveal">
+        <div class="fact-icon">🤖</div>
+        <div class="fact-title">ИИ-Синергия</div>
+        <p>Интеграция с <strong>xAI (Grok)</strong> превращает SpaceX в оператора орбитальных нейросетей, независимых от земных датацентров.</p>
+      </div>
+      <div class="fact-card reveal">
+        <div class="fact-icon">📈</div>
+        <div class="fact-title">Доля рынка</div>
+        <p>Прогнозируемая выручка к моменту IPO составит около <strong>$16 млрд</strong>, демонстрируя рост более <strong>50% в год</strong>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STARSHIP -->
+<section class="starship-section" id="starship">
+  <div class="section-inner">
+    <div class="section-tag">Ключевая технология</div>
+    <h2 class="section-title reveal">Starship: ключ<br>к Луне и Марсу</h2>
+    <div class="starship-layout">
+      <div class="starship-gif reveal" style="overflow:hidden;">
+        <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMXJvamNheTZsNGhycDg2OTNwZGNheXZxcGg5ZDd0a2JvcGd3cGU5OCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/AqIH5v2l55SbSAAzIa/giphy.gif" alt="Starship" style="width:100%;height:100%;object-fit:cover;opacity:0.85;">
+      </div>
+      <div class="starship-points reveal">
+        <div class="starship-point">
+          <div class="sp-num">01</div>
+          <div class="sp-text">
+            <h4>Рекордная грузоподъёмность</h4>
+            <p>При грузоподъёмности 100+ тонн, система обеспечит доставку грузов на Луну по цене билета бизнес-класса — революция в космической логистике.</p>
+          </div>
+        </div>
+        <div class="starship-point">
+          <div class="sp-num">02</div>
+          <div class="sp-text">
+            <h4>Полная многоразовость</h4>
+            <p>До 3 пусков одного корабля в день. Открывает рынки орбитального производства, добычи ресурсов на астероидах и постоянных баз за пределами Земли.</p>
+          </div>
+        </div>
+        <div class="starship-point">
+          <div class="sp-num">03</div>
+          <div class="sp-text">
+            <h4>Минимальные риски для инвесторов</h4>
+            <p>Программа Starship уже профинансирована контрактами NASA на годы вперёд, что минимизирует R&D риски для инвесторов IPO.</p>
+          </div>
+        </div>
+        <div class="starship-point">
+          <div class="sp-num">04</div>
+          <div class="sp-text">
+            <h4>Межпланетная логистика</h4>
+            <p>Первый беспилотный полёт на Марс запланирован на 2029 год. Starship превращает межпланетные миссии в регулярные коммерческие операции.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHART -->
+<section class="chart-section">
+  <div class="section-inner">
+    <div class="section-tag">Динамика роста</div>
+    <h2 class="section-title reveal">Капитализация<br>(млрд $)</h2>
+    <div class="chart-bars" id="chartBars">
+      <div class="chart-row reveal">
+        <div class="chart-label">2010 — Старт</div>
+        <div class="chart-bar-wrap"><div class="chart-bar" style="width:0.05%" data-width="0.05%"><span class="chart-val-label"></span></div></div>
+        <div class="chart-value">$1B</div>
+      </div>
+      <div class="chart-row reveal">
+        <div class="chart-label">2015 — Series G</div>
+        <div class="chart-bar-wrap"><div class="chart-bar" style="width:0.6%" data-width="0.6%"></div></div>
+        <div class="chart-value">$12B</div>
+      </div>
+      <div class="chart-row reveal">
+        <div class="chart-label">2020 — Falcon Re-use</div>
+        <div class="chart-bar-wrap"><div class="chart-bar" style="width:2.3%" data-width="2.3%"></div></div>
+        <div class="chart-value">$46B</div>
+      </div>
+      <div class="chart-row reveal">
+        <div class="chart-label">2023 — Starlink Boom</div>
+        <div class="chart-bar-wrap"><div class="chart-bar" style="width:7.5%" data-width="7.5%"></div></div>
+        <div class="chart-value">$150B</div>
+      </div>
+      <div class="chart-row reveal">
+        <div class="chart-label">2025 — AI Integration</div>
+        <div class="chart-bar-wrap"><div class="chart-bar" style="width:40%" data-width="40%"></div></div>
+        <div class="chart-value">$800B</div>
+      </div>
+      <div class="chart-row reveal">
+        <div class="chart-label">2026 — IPO Target</div>
+        <div class="chart-bar-wrap"><div class="chart-bar" style="width:100%" data-width="100%"></div></div>
+        <div class="chart-value" style="color:var(--white)">$2,000B+</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVENUE -->
+<section class="revenue-section">
+  <div class="section-inner">
+    <div class="section-tag">Финансы 2025E</div>
+    <h2 class="section-title reveal">Структура<br>выручки</h2>
+    <div class="revenue-layout">
+      <div class="pie-container reveal">
+        <div class="pie-wrap">
+          <svg class="pie" viewBox="0 0 100 100">
+            <!-- Starlink 77% -->
+            <circle cx="50" cy="50" r="40" fill="transparent" stroke="#00e5ff" stroke-width="20"
+              stroke-dasharray="193.98 50"
+              stroke-dashoffset="0"/>
+            <!-- Launch 15% -->
+            <circle cx="50" cy="50" r="40" fill="transparent" stroke="#0077b6" stroke-width="20"
+              stroke-dasharray="37.7 206.28"
+              stroke-dashoffset="-194"/>
+            <!-- Gov 8% -->
+            <circle cx="50" cy="50" r="40" fill="transparent" stroke="#1e3a5f" stroke-width="20"
+              stroke-dasharray="20.1 223.98"
+              stroke-dashoffset="-231.7"/>
+          </svg>
+          <div class="pie-center">
+            <div class="pie-center-val">$16.0B</div>
+            <div class="pie-center-label">Итого 2025E</div>
+          </div>
+        </div>
+        <div class="pie-legend">
+          <div class="legend-item">
+            <div class="legend-dot" style="background:#00e5ff"></div>
+            <div class="legend-text">Starlink Data</div>
+            <div class="legend-pct">77%</div>
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background:#0077b6"></div>
+            <div class="legend-text">Launch Services</div>
+            <div class="legend-pct">15%</div>
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background:#1e3a5f"></div>
+            <div class="legend-text">Gov. Contracts</div>
+            <div class="legend-pct">8%</div>
+          </div>
+        </div>
+      </div>
+      <div class="revenue-details reveal">
+        <div class="rev-item">
+          <div class="rev-item-title">Starlink Data</div>
+          <div class="rev-item-amount">$12.3 млрд</div>
+          <div class="rev-item-desc">Глобальный спутниковый интернет нового поколения. Миллионы абонентов и правительственные контракты по всему миру.</div>
+        </div>
+        <div class="rev-item">
+          <div class="rev-item-title">Launch Services</div>
+          <div class="rev-item-amount">$2.4 млрд</div>
+          <div class="rev-item-desc">Коммерческие пуски Falcon 9/Heavy. Более 90% мирового рынка коммерческих запусков.</div>
+        </div>
+        <div class="rev-item">
+          <div class="rev-item-title">Gov. Contracts</div>
+          <div class="rev-item-amount">$1.3 млрд</div>
+          <div class="rev-item-desc">Контракты NASA (Artemis, МКС), Министерство обороны США, программа Starshield.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="timeline-section">
+  <div class="section-inner">
+    <div class="section-tag">Горизонт планирования</div>
+    <h2 class="section-title reveal">2026 — 2030</h2>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
+        <div class="tl-year">2026</div>
+        <div class="tl-desc">Рекордное IPO и старт Starlink 2.0 (Mobile)</div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
+        <div class="tl-year">2027</div>
+        <div class="tl-desc">Первая коммерческая миссия на Луну (HLS)</div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
+        <div class="tl-year">2028</div>
+        <div class="tl-desc">Запуск сети орбитальных датацентров xAI</div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
+        <div class="tl-year">2029</div>
+        <div class="tl-desc">Первый беспилотный полёт на Марс</div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
+        <div class="tl-year">2030</div>
+        <div class="tl-desc">Достижение выручки в $100 млрд в год</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARAMS TABLE -->
+<section class="params-section" id="params">
+  <div class="section-inner">
+    <div class="section-tag">Параметры размещения</div>
+    <h2 class="section-title reveal">Публичное<br>размещение</h2>
+    <table class="params-table reveal">
+      <thead>
+        <tr>
+          <th>Параметр</th>
+          <th>Значение (Прогноз)</th>
+          <th>Комментарий</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Дата листинга</td><td>12 июня 2026</td><td>Конфиденциальная подача S-1 уже состоялась</td></tr>
+        <tr><td>Целевая оценка</td><td>$1.75 — $2.0 трлн</td><td>Крупнейшая капитализация при выходе в истории</td></tr>
+        <tr><td>Объём размещения</td><td>$75 млрд</td><td>Мировой рекорд — в 2.5 раза выше Aramco</td></tr>
+        <tr><td>Тикер / Биржа</td><td>SPXC / NASDAQ</td><td>Ожидается колоссальный ажиотаж в первый день</td></tr>
+        <tr><td>Аллокация</td><td>3% — 12%</td><td>Рекомендуется подача заявки с запасом</td></tr>
+        <tr><td>Мин. капитал</td><td>$69,000</td><td>Не позднее чем за 21 день до анонса цены</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="quote-section">
+  <div class="quote-inner reveal">
+    <div class="quote-mark">"</div>
+    <p class="quote-text">SpaceX — это не просто ракеты. Это владение всем небом и интернетом. Мы ожидаем рост оценки до 10–30 триллионов долларов, когда они станут монополистами космической логистики.</p>
+    <div class="quote-author">— Рон Барон, CEO Baron Capital</div>
+  </div>
+</section>
+
+<!-- PARTICIPATE -->
+<section class="participate-section" id="participate">
+  <div class="section-inner">
+    <div class="section-tag">Инструкция</div>
+    <h2 class="section-title reveal">Как принять<br>участие</h2>
+    <div class="participate-layout">
+      <div class="steps reveal">
+        <div class="step">
+          <div class="step-num">01</div>
+          <div class="step-content">
+            <h4>Проверка аккаунта</h4>
+            <p>Убедитесь, что ваш счёт имеет прямой доступ к секциям Pre-IPO / IPO. Обратитесь к вашему финансовому специалисту за персональной консультацией прямо сейчас.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <div class="step-content">
+            <h4>Тип счёта</h4>
+            <p>Если текущий статус не позволяет участвовать — незамедлительно подайте заявление на переход на тип счёта «Квалифицированный инвестор» или аналогичный.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <div class="step-content">
+            <h4>Формирование капитала</h4>
+            <p>Сформируйте достаточный свободный остаток на балансе (мин. <strong style="color:var(--cyan)">$69,000</strong>) не позднее чем за 21 день до официального анонса цены.</p>
+          </div>
+        </div>
+      </div>
+      <div class="participate-gif reveal" style="aspect-ratio:4/3;overflow:hidden;">
+        <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExNXk2b2dobG55YXkyaXk0dzdjYmd6cHg0eDJic2cwNGZxOXV3dGg0MyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/6XyrZrZXbovBEDb9z6/giphy.gif" alt="IPO participation" style="width:100%;height:100%;object-fit:cover;opacity:0.85;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FOOTER -->
+<section class="cta-footer">
+  <div class="cta-footer-gif">
+    <div class="gif-box" style="width:100%;height:100%;border:none;">
+      <!-- ЗАМЕНИТЕ НА ВАШ GIF: <img src="earth-orbit.gif" alt="orbit"> -->
+    </div>
+  </div>
+  <div class="cta-footer-content reveal">
+    <h2>Готовы к <span>запуску?</span></h2>
+    <p>Станьте частью истории уже сейчас — лимитированный доступ</p>
+    <div class="cta-footer-btns">
+      <a href="mailto:investor-relations@spacex.com" class="btn-primary">Подать заявку</a>
+      <a href="https://www.spacex.com" class="btn-secondary" target="_blank">spacex.com</a>
+    </div>
+    <div class="footer-note">investor-relations@spacex.com · Для подачи заявки обратитесь к персональному финансовому консультанту<br><br>Данный материал носит исключительно информационный характер и не является публичной офертой или инвестиционной рекомендацией.</div>
+  </div>
+</section>
+
+<script>
+// REVEAL ON SCROLL
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// CHART BARS ANIMATE
+const chartObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.querySelectorAll('.chart-bar').forEach((bar, i) => {
+        setTimeout(() => {
+          const w = bar.dataset.width;
+          bar.style.width = w;
+          bar.classList.add('animate');
+        }, i * 180);
+      });
+      chartObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.2 });
+
+const chartSection = document.querySelector('#chartBars');
+if (chartSection) chartObserver.observe(chartSection.closest('section'));
+
+// COUNTER ANIMATION
+function animateCounter(el, target, suffix = '') {
+  let start = 0;
+  const duration = 1800;
+  const step = timestamp => {
+    if (!start) start = timestamp;
+    const progress = Math.min((timestamp - start) / duration, 1);
+    const ease = 1 - Math.pow(1 - progress, 4);
+    el.textContent = Math.floor(ease * target).toLocaleString('ru') + suffix;
+    if (progress < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+
+const statsObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      statsObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.stat-item').forEach(el => statsObserver.observe(el));
+
+// NAV ACTIVE
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('nav');
+  if (window.scrollY > 50) {
+    nav.style.background = 'rgba(3,8,16,0.97)';
+  } else {
+    nav.style.background = 'rgba(3,8,16,0.85)';
+  }
+});
+</script>
+</body>
+</html>
