@@ -1,195 +1,138 @@
-/* Базовые настройки */
+/* Предыдущие базовые настройки остаются без изменений */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
 body {
     font-family: "Helvetica Neue", Arial, sans-serif;
-    background-color: #0A0C0B;
-    color: #E7E7E8;
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
+    background-color: #0A0C0B; color: #E7E7E8;
+    overflow-x: hidden; -webkit-font-smoothing: antialiased;
 }
-
-/* Обязательные стили Lenis */
 html.lenis { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto; }
 .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
 .lenis.lenis-stopped { overflow: hidden; }
 
-/* Общие классы секций */
-.section-padding {
-    padding: 10rem 2rem;
-    display: flex;
-    justify-content: center;
-}
-.container {
-    max-width: 1200px;
-    width: 100%;
-}
+.section-padding { padding: 10rem 2rem; display: flex; justify-content: center; }
+.container { max-width: 1200px; width: 100%; }
 .dark-bg { background-color: #050606; }
 
-/* Типографика */
-.section-title {
-    font-size: 4vw;
-    font-weight: 400;
+.section-title { font-size: 4vw; font-weight: 400; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: -1px; }
+.subtitle { font-size: 1.5rem; color: #888; margin-bottom: 5rem; }
+.large-text { font-size: 3.5vw; line-height: 1.4; font-weight: 300; margin-bottom: 4rem; }
+
+/* Стильные ЧБ Логотипы-заглушки */
+.defense-primes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
     margin-bottom: 2rem;
-    text-transform: uppercase;
-    letter-spacing: -1px;
 }
-.subtitle {
-    font-size: 1.5rem;
-    color: #888;
-    margin-bottom: 5rem;
-}
-.large-text {
-    font-size: 3.5vw;
-    line-height: 1.4;
-    font-weight: 300;
-    margin-bottom: 4rem;
-}
-.reveal-text { opacity: 1; }
-
-/* Навигация */
-.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    padding: 2.5rem 4rem;
-    display: flex;
-    justify-content: space-between;
-    z-index: 100;
-    mix-blend-mode: difference;
-    color: #fff;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    letter-spacing: 1.5px;
-}
-
-/* Главный экран */
-.hero {
-    position: relative;
-    height: 100vh;
+.prime-item-box {
+    background: #111;
+    height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.05);
+    filter: grayscale(100%);
+    opacity: 0.4;
+    transition: opacity 0.3s;
 }
-.hero-image {
-    position: absolute;
-    top: -15%; left: 0; width: 100%; height: 130%; z-index: 1;
-}
-.hero-image img { width: 100%; height: 100%; object-fit: cover; opacity: 0.5; }
-.hero-text { position: relative; z-index: 2; text-align: center; }
-.hero-text h1 {
-    font-size: 14vw; line-height: 0.85; font-weight: 400; text-transform: uppercase; letter-spacing: -3px;
-}
-
-/* Секция: Оценка */
-.defense-primes {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-bottom: 2rem;
-}
-.prime-item {
-    border: 1px solid rgba(255,255,255,0.2);
-    padding: 1rem 2rem;
-    border-radius: 50px;
-    font-size: 1.1rem;
-    text-transform: uppercase;
-}
+.prime-item-box:hover { opacity: 0.9; }
+.logo-stub { font-size: 0.85rem; font-weight: 700; letter-spacing: 2px; color: #fff; }
 .footnote { font-size: 0.8rem; color: #666; }
 
-/* Секция: Таймлайн */
-.timeline {
+/* Навигация и Экран Hero */
+.navbar { position: fixed; top: 0; width: 100%; padding: 2.5rem 4rem; display: flex; justify-content: space-between; z-index: 100; mix-blend-mode: difference; color: #fff; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1.5px; }
+.hero { position: relative; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.hero-image { position: absolute; top: -15%; left: 0; width: 100%; height: 130%; z-index: 1; }
+.hero-image img { width: 100%; height: 100%; object-fit: cover; opacity: 0.4; }
+.hero-text { position: relative; z-index: 2; text-align: center; }
+.hero-text h1 { font-size: 14vw; line-height: 0.85; font-weight: 400; text-transform: uppercase; letter-spacing: -3px; }
+
+/* СЕКЦИЯ STARSHIP */
+.starship-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+    margin-bottom: 6rem;
+}
+.rocket-specs {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
-    border-left: 1px solid rgba(255,255,255,0.1);
-    padding-left: 3rem;
-    margin-left: 1rem;
+    gap: 6rem;
 }
-.timeline-item { position: relative; }
-.timeline-item::before {
-    content: '';
-    position: absolute;
-    left: -3.35rem;
-    top: 5px;
-    width: 10px; height: 10px;
-    background: #fff;
-    border-radius: 50%;
-}
-.timeline-item .year {
-    font-size: 2rem;
-    font-weight: 500;
-    color: #fff;
-    margin-bottom: 0.5rem;
-}
-.timeline-item .event {
-    font-size: 1.2rem;
-    color: #aaa;
-    line-height: 1.5;
-    max-width: 600px;
-}
+.spec-block h3 { font-size: 1.8rem; margin-bottom: 1rem; font-weight: 400; color: #fff;}
+.spec-block p { color: #888; font-size: 1.1rem; line-height: 1.6; margin-bottom: 1rem;}
+.spec-block .highlight { display: block; font-size: 1.3rem; color: #00aeef; margin-bottom: 0.5rem; font-weight: 500;}
+.spec-block .desc { font-size: 0.95rem; color: #666; }
 
-/* Секция: Рынок (Сетка) */
-.market-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 4rem;
-}
-.market-category {
-    background: #121413;
-    padding: 3rem;
-    border-radius: 10px;
-    border: 1px solid rgba(255,255,255,0.05);
-}
-.market-category h3 {
-    font-size: 1.2rem;
-    color: #fff;
-    margin-bottom: 2rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    padding-bottom: 1rem;
-}
-.market-category ul { list-style: none; }
-.market-category li {
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
-    color: #aaa;
+/* Силуэт Falcon 9 */
+.rocket-vector-container {
+    height: 300px;
     display: flex;
-    align-items: center;
+    justify-content: center;
 }
-.market-category li strong {
-    color: #fff;
-    width: 60px;
-    display: inline-block;
-}
+.rocket-svg { height: 100%; opacity: 0.7; }
 
-/* Параллакс галерея */
-.parallax-gallery {
-    display: flex; padding: 5rem; justify-content: center; align-items: center;
+/* Контейнеры графиков */
+.charts-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    position: sticky;
+    top: 15%;
 }
-.gallery-item { width: 100%; height: 60vh; overflow: hidden; max-width: 1200px;}
-.gallery-item img { width: 100%; height: 130%; object-fit: cover; }
+.chart-box {
+    background: #0d0f0e;
+    padding: 2.5rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.03);
+}
+.chart-box h4 { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; color: #fff;}
+.chart-highlight { font-size: 0.9rem; color: #888; margin-bottom: 2rem; }
+.canvas-wrapper { position: relative; width: 100%; height: 220px; }
 
-/* Подвал */
-.footer {
-    height: 80vh; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: #0A0C0B;
+/* Карточки Миссий */
+.applications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 4rem;
 }
-.footer h2 {
-    font-size: 8vw; font-weight: 400; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: -1px;
-}
+.app-card { text-align: center; padding: 2rem; background: #0d0f0e; border-radius: 6px;}
+.app-icon { font-size: 2.5rem; margin-bottom: 1.5rem; }
+.app-card h5 { font-size: 1.2rem; margin-bottom: 0.5rem; font-weight: 400; color: #fff; }
+.app-card p { font-size: 0.95rem; color: #777; line-height: 1.5; }
+
+/* Таймлайн и Рынок космоса */
+.timeline { display: flex; flex-direction: column; gap: 3rem; border-left: 1px solid rgba(255,255,255,0.1); padding-left: 3rem; margin-left: 1rem; }
+.timeline-item { position: relative; }
+.timeline-item::before { content: ''; position: absolute; left: -3.35rem; top: 5px; width: 10px; height: 10px; background: #fff; border-radius: 50%; }
+.timeline-item .year { font-size: 2rem; font-weight: 500; color: #fff; margin-bottom: 0.5rem; }
+.timeline-item .event { font-size: 1.2rem; color: #aaa; line-height: 1.5; max-width: 600px; }
+
+.market-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; margin-top: 4rem; }
+.market-category { background: #121413; padding: 3rem; border-radius: 10px; border: 1px solid rgba(255,255,255,0.05); }
+.market-category h3 { font-size: 1.2rem; color: #fff; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem; }
+.market-category ul { list-style: none; }
+.market-category li { margin-bottom: 1rem; font-size: 1.1rem; color: #aaa; display: flex; align-items: center; }
+.market-category li strong { color: #fff; width: 60px; display: inline-block; }
+
+.footer { height: 80vh; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: #0A0C0B; }
+.footer h2 { font-size: 8vw; font-weight: 400; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: -1px; }
 .footer p { color: #888; letter-spacing: 2px; }
 
-/* Адаптив */
+/* Адаптивность */
+@media (max-width: 900px) {
+    .starship-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .charts-container { position: relative; top: 0; }
+    .large-text { font-size: 5vw; }
+    .section-title { font-size: 7vw; }
+}
 @media (max-width: 768px) {
     .section-padding { padding: 5rem 1.5rem; }
     .hero-text h1 { font-size: 20vw; }
-    .large-text { font-size: 6vw; }
-    .section-title { font-size: 8vw; }
     .timeline { padding-left: 1.5rem; }
     .timeline-item::before { left: -1.85rem; }
-    .gallery-item { height: 40vh; }
 }
