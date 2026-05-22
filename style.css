@@ -1,0 +1,166 @@
+/* Базовые настройки */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    background-color: #0A0C0B; /* Глубокий темный цвет */
+    color: #E7E7E8; /* Мягкий белый */
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Обязательные стили для Lenis Smooth Scroll */
+html.lenis {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Навигация */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 2.5rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    z-index: 100;
+    mix-blend-mode: difference;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1.5px;
+    font-weight: 500;
+}
+
+/* Главный экран */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-image {
+    position: absolute;
+    top: -15%;
+    left: 0;
+    width: 100%;
+    height: 130%;
+    z-index: 1;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+}
+
+.hero-text {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.hero-text h1 {
+    font-size: 14vw;
+    line-height: 0.85;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: -3px;
+}
+
+/* Секция с текстом */
+.about {
+    padding: 15rem 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    max-width: 1000px;
+}
+
+.reveal-text {
+    font-size: 3.5vw;
+    line-height: 1.4;
+    font-weight: 300;
+}
+
+/* Галерея с параллаксом */
+.parallax-gallery {
+    display: flex;
+    padding: 10rem 5rem;
+    gap: 5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.gallery-item {
+    width: 35vw;
+    height: 70vh;
+    overflow: hidden;
+}
+
+/* Изображения делаем больше контейнера, чтобы было место для эффекта параллакса */
+.gallery-item img {
+    width: 100%;
+    height: 130%;
+    object-fit: cover;
+}
+
+/* Подвал */
+.footer {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #121413;
+}
+
+.footer h2 {
+    font-size: 8vw;
+    font-weight: 400;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+/* Адаптив для мобильных */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1.5rem 2rem;
+    }
+    .hero-text h1 {
+        font-size: 20vw;
+    }
+    .reveal-text {
+        font-size: 6vw;
+    }
+    .parallax-gallery {
+        flex-direction: column;
+        padding: 5rem 2rem;
+    }
+    .gallery-item {
+        width: 100%;
+        height: 50vh;
+    }
+    .footer h2 {
+        font-size: 12vw;
+    }
+}
