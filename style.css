@@ -1,137 +1,134 @@
-/* Предыдущие базовые настройки остаются без изменений */
+/* Базовое сглаживание и сброс */
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
 body {
     font-family: "Helvetica Neue", Arial, sans-serif;
-    background-color: #0A0C0B; color: #E7E7E8;
-    overflow-x: hidden; -webkit-font-smoothing: antialiased;
+    background-color: #0A0C0B;
+    color: #E7E7E8;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
 }
+
+/* Настройки плавного скролла Lenis */
 html.lenis { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto; }
 .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
 .lenis.lenis-stopped { overflow: hidden; }
 
+/* Общие секции */
 .section-padding { padding: 10rem 2rem; display: flex; justify-content: center; }
 .container { max-width: 1200px; width: 100%; }
 .dark-bg { background-color: #050606; }
 
 .section-title { font-size: 4vw; font-weight: 400; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: -1px; }
-.subtitle { font-size: 1.5rem; color: #888; margin-bottom: 5rem; }
+.subtitle { font-size: 1.5rem; color: #666; margin-bottom: 5rem; }
 .large-text { font-size: 3.5vw; line-height: 1.4; font-weight: 300; margin-bottom: 4rem; }
 
-/* Стильные ЧБ Логотипы-заглушки */
-.defense-primes {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 2rem;
+/* Навигация */
+.navbar {
+    position: fixed; top: 0; width: 100%; padding: 2.5rem 4rem;
+    display: flex; justify-content: space-between; z-index: 100;
+    mix-blend-mode: difference; color: #fff; text-transform: uppercase;
+    font-size: 0.9rem; letter-spacing: 1.5px;
 }
-.prime-item-box {
-    background: #111;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid rgba(255,255,255,0.05);
-    filter: grayscale(100%);
-    opacity: 0.4;
-    transition: opacity 0.3s;
-}
-.prime-item-box:hover { opacity: 0.9; }
-.logo-stub { font-size: 0.85rem; font-weight: 700; letter-spacing: 2px; color: #fff; }
-.footnote { font-size: 0.8rem; color: #666; }
 
-/* Навигация и Экран Hero */
-.navbar { position: fixed; top: 0; width: 100%; padding: 2.5rem 4rem; display: flex; justify-content: space-between; z-index: 100; mix-blend-mode: difference; color: #fff; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1.5px; }
+/* Главный экран */
 .hero { position: relative; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
 .hero-image { position: absolute; top: -15%; left: 0; width: 100%; height: 130%; z-index: 1; }
-.hero-image img { width: 100%; height: 100%; object-fit: cover; opacity: 0.4; }
+.hero-image img { width: 100%; height: 100%; object-fit: cover; opacity: 0.35; }
 .hero-text { position: relative; z-index: 2; text-align: center; }
 .hero-text h1 { font-size: 14vw; line-height: 0.85; font-weight: 400; text-transform: uppercase; letter-spacing: -3px; }
 
-/* СЕКЦИЯ STARSHIP */
-.starship-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: start;
-    margin-bottom: 6rem;
+/* ЧБ Сетка логотипов подрядчиков */
+.defense-primes { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
+.prime-item-box {
+    background: #111; height: 80px; display: flex; align-items: center; justify-content: center;
+    border: 1px solid rgba(255,255,255,0.04); opacity: 0.4; transition: opacity 0.3s;
 }
-.rocket-specs {
-    display: flex;
-    flex-direction: column;
-    gap: 6rem;
-}
-.spec-block h3 { font-size: 1.8rem; margin-bottom: 1rem; font-weight: 400; color: #fff;}
-.spec-block p { color: #888; font-size: 1.1rem; line-height: 1.6; margin-bottom: 1rem;}
-.spec-block .highlight { display: block; font-size: 1.3rem; color: #00aeef; margin-bottom: 0.5rem; font-weight: 500;}
-.spec-block .desc { font-size: 0.95rem; color: #666; }
+.prime-item-box:hover { opacity: 0.9; }
+.logo-stub { font-size: 0.85rem; font-weight: 700; letter-spacing: 2px; color: #fff; }
+.footnote { font-size: 0.8rem; color: #555; }
 
-/* Силуэт Falcon 9 */
-.rocket-vector-container {
-    height: 300px;
-    display: flex;
-    justify-content: center;
-}
-.rocket-svg { height: 100%; opacity: 0.7; }
+/* Секция графиков */
+.charts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+.chart-box { background: #0d0f0e; padding: 2.5rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.02); }
+.chart-box h4 { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; color: #fff; }
+.chart-highlight { font-size: 0.9rem; color: #666; margin-bottom: 2rem; }
+.canvas-wrapper { position: relative; width: 100%; height: 240px; }
 
-/* Контейнеры графиков */
-.charts-container {
-    display: flex;
-    flex-direction: column;
-    gap: 4rem;
-    position: sticky;
-    top: 15%;
-}
-.chart-box {
-    background: #0d0f0e;
-    padding: 2.5rem;
-    border-radius: 8px;
-    border: 1px solid rgba(255,255,255,0.03);
-}
-.chart-box h4 { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; color: #fff;}
-.chart-highlight { font-size: 0.9rem; color: #888; margin-bottom: 2rem; }
-.canvas-wrapper { position: relative; width: 100%; height: 220px; }
+/* ==========================================================================
+   ИНТЕРАКТИВНЫЙ SCRUB-БЛОК (РАКЕТА И СКРОЛЛ ТЕКСТА)
+   ========================================================================== */
+.starship-interactive { position: relative; width: 100%; background-color: #050606; overflow: hidden; }
+.interactive-wrapper { display: flex; width: 100%; max-width: 1400px; margin: 0 auto; height: 100vh; position: relative; }
 
-/* Карточки Миссий */
-.applications-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 2rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    padding-top: 4rem;
-}
-.app-card { text-align: center; padding: 2rem; background: #0d0f0e; border-radius: 6px;}
-.app-icon { font-size: 2.5rem; margin-bottom: 1.5rem; }
-.app-card h5 { font-size: 1.2rem; margin-bottom: 0.5rem; font-weight: 400; color: #fff; }
-.app-card p { font-size: 0.95rem; color: #777; line-height: 1.5; }
+/* Левая сторона с контентом */
+.info-scroll-container { width: 50%; height: 100%; position: relative; display: flex; align-items: center; padding-left: 4rem; padding-right: 2rem; }
+.info-step { position: absolute; width: 85%; opacity: 0; transform: translateY(60px); visibility: hidden; }
 
-/* Таймлайн и Рынок космоса */
-.timeline { display: flex; flex-direction: column; gap: 3rem; border-left: 1px solid rgba(255,255,255,0.1); padding-left: 3rem; margin-left: 1rem; }
+.info-step .step-number { font-size: 0.85rem; letter-spacing: 3px; color: #555; display: block; margin-bottom: 1.5rem; }
+.info-step h2 { font-size: 5vw; font-weight: 400; line-height: 0.95; text-transform: uppercase; letter-spacing: -2px; margin-bottom: 0.5rem; color: #fff; }
+.info-step .subtitle-caps { font-size: 1rem; letter-spacing: 1px; color: #888; margin-bottom: 3rem; text-transform: uppercase; }
+
+.spec-meta { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 2rem; display: flex; flex-direction: column; gap: 1.2rem; }
+.meta-line { font-size: 1.05rem; line-height: 1.5; color: #999; }
+.meta-line strong { color: #fff; font-weight: 500; }
+
+/* Правая фиксированная часть с большой ракетой */
+.sticky-rocket-container { width: 50%; height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; }
+.rocket-matrix { width: 100%; height: 90vh; display: flex; justify-content: center; align-items: center; position: relative; }
+.starship-svg-monochrome { height: 115%; width: auto; opacity: 0.85; }
+
+/* ========================================================================== */
+
+/* Области применения и ЧБ иконки */
+.applications-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; margin-top: 2rem; }
+.app-card { text-align: center; padding: 3rem 2rem; background: #0d0f0e; border-radius: 4px; border: 1px solid rgba(255,255,255,0.02); }
+.app-icon-wrapper { width: 70px; height: 70px; margin: 0 auto 2rem auto; display: flex; align-items: center; justify-content: center; }
+
+/* Наш фильтр, превращающий цветной SVG в чистый элегантный монохром */
+.svg-icon-blackwhite {
+    width: 100%; height: 100%; object-fit: contain;
+    filter: brightness(0) invert(1) opacity(0.7); /* Делает иконку бело-серой */
+    transition: filter 0.3s;
+}
+.app-card:hover .svg-icon-blackwhite { filter: brightness(0) invert(1) opacity(1); }
+.app-card h5 { font-size: 1.2rem; margin-bottom: 0.7rem; font-weight: 400; color: #fff; }
+.app-card p { font-size: 0.95rem; color: #666; line-height: 1.5; }
+
+/* История (Таймлайн) */
+.timeline { display: flex; flex-direction: column; gap: 3rem; border-left: 1px solid rgba(255,255,255,0.08); padding-left: 3rem; margin-left: 1rem; }
 .timeline-item { position: relative; }
-.timeline-item::before { content: ''; position: absolute; left: -3.35rem; top: 5px; width: 10px; height: 10px; background: #fff; border-radius: 50%; }
-.timeline-item .year { font-size: 2rem; font-weight: 500; color: #fff; margin-bottom: 0.5rem; }
-.timeline-item .event { font-size: 1.2rem; color: #aaa; line-height: 1.5; max-width: 600px; }
+.timeline-item::before { content: ''; position: absolute; left: -3.35rem; top: 8px; width: 8px; height: 8px; background: #fff; border-radius: 50%; }
+.timeline-item .year { font-size: 1.8rem; font-weight: 500; color: #fff; margin-bottom: 0.5rem; }
+.timeline-item .event { font-size: 1.1rem; color: #888; line-height: 1.5; max-width: 650px; }
 
+/* Ландшафт рынка акций */
 .market-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; margin-top: 4rem; }
-.market-category { background: #121413; padding: 3rem; border-radius: 10px; border: 1px solid rgba(255,255,255,0.05); }
-.market-category h3 { font-size: 1.2rem; color: #fff; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem; }
+.market-category { background: #121413; padding: 3rem; border-radius: 4px; border: 1px solid rgba(255,255,255,0.03); }
+.market-category h3 { font-size: 1.1rem; color: #fff; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 1rem; }
 .market-category ul { list-style: none; }
-.market-category li { margin-bottom: 1rem; font-size: 1.1rem; color: #aaa; display: flex; align-items: center; }
-.market-category li strong { color: #fff; width: 60px; display: inline-block; }
+.market-category li { margin-bottom: 1rem; font-size: 1.05rem; color: #777; display: flex; align-items: center; }
+.market-category li strong { color: #fff; width: 60px; display: inline-block; font-weight: 500; }
 
-.footer { height: 80vh; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: #0A0C0B; }
+/* Подвал */
+.footer { height: 80vh; display: flex; flex-direction: column; align-items: center; justify-content: center; }
 .footer h2 { font-size: 8vw; font-weight: 400; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: -1px; }
-.footer p { color: #888; letter-spacing: 2px; }
+.footer p { color: #555; letter-spacing: 2px; font-size: 0.85rem; }
 
-/* Адаптивность */
-@media (max-width: 900px) {
-    .starship-grid { grid-template-columns: 1fr; gap: 3rem; }
-    .charts-container { position: relative; top: 0; }
+/* Адаптивность для мобильных экранов */
+@media (max-width: 920px) {
+    .charts-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .interactive-wrapper { flex-direction: column; height: auto; }
+    .info-scroll-container { width: 100%; height: auto; padding: 6rem 2rem 2rem 2rem; }
+    .info-step { position: relative; width: 100%; opacity: 1 !important; transform: none !important; visibility: visible !important; margin-bottom: 4rem; }
+    .sticky-rocket-container { width: 100%; height: 60vh; }
+    .starship-svg-monochrome { height: 90%; }
     .large-text { font-size: 5vw; }
     .section-title { font-size: 7vw; }
 }
 @media (max-width: 768px) {
-    .section-padding { padding: 5rem 1.5rem; }
+    .section-padding { padding: 6rem 1.5rem; }
     .hero-text h1 { font-size: 20vw; }
     .timeline { padding-left: 1.5rem; }
     .timeline-item::before { left: -1.85rem; }
