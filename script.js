@@ -245,3 +245,61 @@ revTl.to(".starlink-segment", {
     ease: "power2.out"
 }, "-=0.2")
 .to("#revStep3", { opacity: 1, x: 0, duration: 0.6 }, "-=0.4");
+
+// ==========================================================================
+// АНИМАЦИЯ IPO ТРАНСФОРМАЦИИ (GSAP FLIP + SCROLLTRIGGER)
+// ==========================================================================
+const gridContainer = document.getElementById("flipCardsGrid");
+const cards = gsap.utils.toArray(".flip-card");
+
+// Инициализируем ScrollTrigger таймлайн для фиксации экрана
+const flipTimeline = gsap.timeline({
+    scrollTrigger: {
+        trigger: "#ipoFlipSection",
+        start: "top top",
+        end: "+=2500", // Длина скролла фиксации
+        scrub: true,
+        pin: true,
+        anticipatePin: 1
+    }
+});
+
+// Шаг 1: Появление карточек по очереди (stagger) из прозрачности в центр
+flipTimeline.fromTo(cards, 
+    { opacity: 0, y: 40 },
+    { opacity: 1, y: 0, duration: 0.8, stagger: 0.2 }
+);
+
+// Шаг 2: Исчезновение подробного текста (.full-content)
+flipTimeline.to(".full-content", {
+    opacity: 0,
+    duration: 0.6,
+    stagger: 0.1
+}, "+=0.2");
+
+// Функция-прослойка для фиксации состояния макета через GSAP Flip
+flipTimeline.add(() => {
+    // Берём слепок текущих позиций элементов
+    const state = Flip.getState(cards);
+    
+    // Переключаем класс CSS (макет мгновенно перестраивается в памяти)
+    gridContainer.classList.toggle("state-grid");
+    gridContainer.classList.toggle("state-stack");
+    
+    // Заставляем Flip плавно анимировать разлет элементов из старой позиции в новую
+    Flip.from(state, {
+        duration: 1,
+        ease: "power2.inOut",
+        absolute: true, // Предотвращает дергание Grid во время анимации
+    });
+}, "+=0.1");
+
+// Шаг 3: Плавное проявление короткого текста (.short-content) внутри новых квадратов
+flipTimeline.to(".short-content", {
+    opacity: 1,
+    duration: 0.6,
+    stagger: 0.1
+}, "-=0.3");
+
+// Дополнительная задержка в конце фиксации, чтобы пользователь успел рассмотреть готовую сетку
+flipTimeline.to({}, { duration: 0.5 });
