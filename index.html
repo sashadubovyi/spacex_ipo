@@ -97,9 +97,9 @@
             </section>
 
             <section class="paradigm-charts section-padding dark-bg">
-                <div class="container">
-                    <h2 class="section-title reveal-text">Квантовый скачок возможностей</h2>
-                    <p class="subtitle reveal-text">Сравнение характеристик Falcon 9 и новой архитектуры Starship.</p>
+                <div class="container smooth-reveal">
+                    <h2 class="section-title">Квантовый скачок возможностей</h2>
+                    <p class="subtitle">Сравнение характеристик Falcon 9 и новой архитектуры Starship.</p>
                     
                     <div class="charts-grid">
                         <div class="chart-box">
@@ -175,8 +175,8 @@
             </section>
 
             <section class="mission-apps section-padding dark-bg">
-                <div class="container">
-                    <h2 class="section-title reveal-text">Области применения миссий</h2>
+                <div class="container smooth-reveal">
+                    <h2 class="section-title">Области применения миссий</h2>
                     <div class="applications-grid">
                         <div class="app-card">
                             <div class="app-icon-wrapper"><img src="earth-svgrepo-com.svg" class="svg-icon-blackwhite" alt="Starlink"></div>
@@ -202,33 +202,148 @@
                 </div>
             </section>
 
-            <section class="timeline-section section-padding">
-                <div class="container">
-                    <h2 class="section-title reveal-text">Восхождение SpaceX</h2>
-                    <p class="subtitle reveal-text">Ключевые моменты на пути к 400+ запускам и выручке более $10 млрд.</p>
+            <section class="timeline-interactive-scrub" id="timelineScrubSection">
+                <div class="timeline-scrub-wrapper">
                     
-                    <div class="timeline">
-                        <div class="timeline-item"><div class="year">2002</div><div class="event">Основание Space Exploration Technologies. Первый неудачный запуск.</div></div>
-                        <div class="timeline-item"><div class="year">2006</div><div class="event">Получение контракта NASA на программу COTS.</div></div>
-                        <div class="timeline-item"><div class="year">2007</div><div class="event">Вторая попытка запуска.</div></div>
-                        <div class="timeline-item"><div class="year">2008</div><div class="event">Контракт с NASA на $1.6 млрд. Первый успешный запуск Falcon 1 (с 4-й попытки).</div></div>
-                        <div class="timeline-item"><div class="year">2010</div><div class="event">Первый запуск Falcon 9.</div></div>
-                        <div class="timeline-item"><div class="year">2012</div><div class="event">Корабль Dragon достигает МКС — первый коммерческий аппарат в истории.</div></div>
-                        <div class="timeline-item"><div class="year">2014</div><div class="event">Оценка SpaceX достигает $12 млрд.</div></div>
-                        <div class="timeline-item"><div class="year">2015</div><div class="event">Первая успешная посадка первой ступени Falcon 9.</div></div>
-                        <div class="timeline-item"><div class="year">2018</div><div class="event">Запуски Falcon 9 Block 5 и Falcon Heavy.</div></div>
-                        <div class="timeline-item"><div class="year">2019</div><div class="event">Первые операционные запуски спутников Starlink.</div></div>
-                        <div class="timeline-item"><div class="year">2020</div><div class="event">Доставка астронавтов на МКС — первая коммерческая компания.</div></div>
-                        <div class="timeline-item"><div class="year">2021</div><div class="event">Пройден рубеж в 100 успешных запускам. Оценка достигает $100 млрд.</div></div>
-                        <div class="timeline-item"><div class="year">2023</div><div class="event">Первый тест Starship. Starlink превышает 2 млн абонентов. Оценка: $180 млрд.</div></div>
-                        <div class="timeline-item"><div class="year">2024</div><div class="event">133 успешных запуска за год (рост в 10 раз за 5 лет). Starlink > 4 млн абонентов. Оценка: $350 млрд.</div></div>
+                    <div class="timeline-center-axis">
+                        <div class="axis-glow-dot"></div>
+                    </div>
+
+                    <div class="timeline-cards-container">
+                        
+                        <div class="tl-scrub-step" id="tlStep2002">
+                            <div class="tl-side-box left-side">
+                                <span class="tl-year">2002</span>
+                            </div>
+                            <div class="tl-side-box right-side">
+                                <p class="tl-desc">Основание Space Exploration Technologies. Старт амбициозной программы и первый драматический, но необходимый для опыта неудачный запуск.</p>
+                            </div>
+                        </div>
+
+                        <div class="tl-scrub-step" id="tlStep2006">
+                            <div class="tl-side-box left-side">
+                                <span class="tl-year">2006</span>
+                            </div>
+                            <div class="tl-side-box right-side">
+                                <p class="tl-desc">Официальное признание: Получение стратегического контракта NASA на программу COTS (Commercial Orbital Transportation Services).</p>
+                            </div>
+                        </div>
+
+                        <div class="tl-scrub-step" id="tlStep2007">
+                            <div class="tl-side-box left-side">
+                                <span class="tl-year">2007</span>
+                            </div>
+                            <div class="tl-side-box right-side">
+                                <p class="tl-desc">Вторая попытка запуска прототипа. Сбор критического массива телеметрии инженерами компании.</p>
+                            </div>
+                        </div>
+
+                        <div class="tl-scrub-step" id="tlStep2008">
+                            <div class="tl-side-box left-side">
+                                <span class="tl-year">2008</span>
+                            </div>
+                            <div class="tl-side-box right-side">
+                                <p class="tl-desc">Поворотная точка: Первый успешный запуск ракеты Falcon 1 (с 4-й попытки). Заключение контракта с NASA на сумму $1.6 млрд.</p>
+                            </div>
+                        </div>
+
+                        <div class="tl-scrub-step" id="tlStep2010">
+                            <div class="tl-side-box left-side">
+                                <span class="tl-year">2010</span>
+                            </div>
+                            <div class="tl-side-box right-side">
+                                <p class="tl-desc">Начало новой эры мирового космоса: Состоялся дебютный триумфальный полет тяжелой ракеты-носителя Falcon 9.</p>
+                            </div>
+                        </div>
+
+                        <div class="tl-scrub-step" id="tlStep2012">
+                            <div class="tl-side-box left-side">
+                                <span class="tl-year">2012</span>
+                            </div>
+                            <div class="tl-side-box right-side">
+                                <p class="tl-desc">Беспилотный космический корабль Dragon успешно достигает и стыкуется с МКС — первый частный коммерческий аппарат в истории космонавтики.</p>
+                            </div>
+                        </div>
+
+                        <div class="tl-scrub-step" id="tlStep2014">
+                            <div class="tl-side-box left-side">
+                                <span class="tl-year">2014</span>
+                            </div>
+                            <div class="tl-side-box right-side">
+                                <p class="tl-desc">Инвестиционный прорыв: Рыночная оценка стоимости активов SpaceX впервые официально достигает отметки в $12 млрд.</p>
+                            </div>
+                        </div>
+
+                        <div class="tl-scrub-step" id="tlStep2015">
+                            <div class="tl-side-box left-side">
+                                <span class="tl-year">2015</span>
+                            </div>
+                            <div class="tl-side-box right-side">
+                                <p class="tl-desc">Технологическое чудо: Осуществлена первая в истории успешная вертикальная посадка первой многоразовой ступени Falcon 9 на землю.</p>
+                            </div>
+                        </div>
+
+                        <div class="tl-scrub-step" id="tlStep2018">
+                            <div class="tl-side-box left-side">
+                                <span class="tl-year">2018</span>
+                            </div>
+                            <div class="tl-side-box right-side">
+                                <p class="tl-desc">Ввод в строй финальной модификации Falcon 9 Block 5 и первый демонстрационный запуск сверхтяжелой Falcon Heavy.</p>
+                            </div>
+                        </div>
+
+                        <div class="tl-scrub-step" id="tlStep2019">
+                            <div class="tl-side-box left-side">
+                                <span class="tl-year">2019</span>
+                            </div>
+                            <div class="tl-side-box right-side">
+                                <p class="tl-desc">Запуск созвездия связи: Первые масштабные операционные выводы на орбиту партий интернет-спутников глобальной сети Starlink.</p>
+                            </div>
+                        </div>
+
+                        <div class="tl-scrub-step" id="tlStep2020">
+                            <div class="tl-side-box left-side">
+                                <span class="tl-year">2020</span>
+                            </div>
+                            <div class="tl-side-box right-side">
+                                <p class="tl-desc">Разрушение монополии государств: Успешная доставка астронавтов на МКС на корабле Crew Dragon — первая коммерческая компания в мире.</p>
+                            </div>
+                        </div>
+
+                        <div class="tl-scrub-step" id="tlStep2021">
+                            <div class="tl-side-box left-side">
+                                <span class="tl-year">2021</span>
+                            </div>
+                            <div class="tl-side-box right-side">
+                                <p class="tl-desc">Пройден исторический рубеж в 100 успешных орбитальных пусков. Капитализация взлетает до отметки $100 млрд.</p>
+                            </div>
+                        </div>
+
+                        <div class="tl-scrub-step" id="tlStep2023">
+                            <div class="tl-side-box left-side">
+                                <span class="tl-year">2023</span>
+                            </div>
+                            <div class="tl-side-box right-side">
+                                <p class="tl-desc">Первый полномасштабный интеграционный тест системы Starship. Абонентская база Starlink превышает 2 млн активных пользователей. Оценка: $180 млрд.</p>
+                            </div>
+                        </div>
+
+                        <div class="tl-scrub-step" id="tlStep2024">
+                            <div class="tl-side-box left-side">
+                                <span class="tl-year">2024</span>
+                            </div>
+                            <div class="tl-side-box right-side">
+                                <p class="tl-desc">Абсолютный мировой рекорд частоты полетов: 133 успешных запуска за год (рост в 10 раз за 5 лет). База Starlink > 4 млн клиентов. Оценка конгломерата: $350 млрд.</p>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </section>
 
             <section class="market-landscape section-padding dark-bg">
-                <div class="container">
-                    <h2 class="section-title reveal-text">Где следующая космическая акция?</h2>
+                <div class="container smooth-reveal">
+                    <h2 class="section-title">Где следующая космическая акция?</h2>
                     <div class="market-grid">
                         <div class="market-category">
                             <h3>Launch Providers</h3>
@@ -268,7 +383,7 @@
             </section>
 
             <footer class="footer">
-                <h2 data-speed="0.9">INVEST IN FUTURE</h2>
+                <h2>INVEST IN FUTURE</h2>
                 <p>SPACEX IPO PROSPECTUS</p>
             </footer>
 
