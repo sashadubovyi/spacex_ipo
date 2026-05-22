@@ -1,5 +1,11 @@
-/* Базовое сглаживание и сброс */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* ==========================================================================
+   1. БАЗОВЫЕ СБРОСЫ И СГЛАЖИВАНИЕ ПЛАВНОГО СКРОЛЛА (LENIS)
+   ========================================================================== */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
 
 body {
     font-family: "Helvetica Neue", Arial, sans-serif;
@@ -7,50 +13,165 @@ body {
     color: #E7E7E8;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-html.lenis { height: auto; }
-.lenis.lenis-smooth { scroll-behavior: auto; }
-.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
-.lenis.lenis-stopped { overflow: hidden; }
-
-.section-padding { padding: 10rem 2rem; display: flex; justify-content: center; }
-.container { max-width: 1200px; width: 100%; }
-.dark-bg { background-color: #050606; }
-
-.section-title { font-size: 4vw; font-weight: 400; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: -1px; }
-.subtitle { font-size: 1.5rem; color: #666; margin-bottom: 5rem; }
-
-/* Навигация с SVG */
-.navbar {
-    position: fixed; top: 0; width: 100%; padding: 2.5rem 4rem;
-    display: flex; justify-content: space-between; align-items: center; z-index: 100;
-    mix-blend-mode: difference; color: #fff; text-transform: uppercase;
-    font-size: 0.9rem; letter-spacing: 1.5px;
+/* Стили интеграции Lenis Smooth Scroll */
+html.lenis { 
+    height: auto; 
 }
-.nav-svg-logo {
-    height: 24px;
-    width: auto;
+.lenis.lenis-smooth { 
+    scroll-behavior: auto; 
+}
+.lenis.lenis-smooth [data-lenis-prevent] { 
+    overscroll-behavior: contain; 
+}
+.lenis.lenis-stopped { 
+    overflow: hidden; 
 }
 
-/* Мягкий базовый fade-in-up эффект для стандартных блоков */
+/* Общие утилиты для секций */
+.section-padding { 
+    padding: 10rem 2rem; 
+    display: flex; 
+    justify-content: center; 
+}
+.container { 
+    max-width: 1200px; 
+    width: 100%; 
+}
+.dark-bg { 
+    background-color: #050606; 
+}
+
+.section-title { 
+    font-size: 4vw; 
+    font-weight: 400; 
+    margin-bottom: 2rem; 
+    text-transform: uppercase; 
+    letter-spacing: -1px; 
+}
+.subtitle { 
+    font-size: 1.5rem; 
+    color: #666; 
+    margin-bottom: 5rem; 
+}
+
+/* Базовый триггер для GSAP Reveal */
 .smooth-reveal {
     opacity: 0;
     transform: translateY(50px);
 }
 
-/* HERO-PINNED СЕКЦИЯ С АНИМАЦИЕЙ СМЕНЫ SVG ЛОГОТИПОВ */
-.hero-pinned { position: relative; width: 100%; height: 100vh; overflow: hidden; background-color: #000; }
-.hero-bg-wrapper { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
-.hero-bg-wrapper img { width: 100%; height: 100%; object-fit: cover; opacity: 0.3; }
-.hero-trigger-content { position: relative; z-index: 2; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
-.hero-step-element { position: absolute; width: 90%; max-width: 1200px; text-align: center; opacity: 0; transform: translateY(50px); visibility: hidden; }
+/* ==========================================================================
+   2. НАВИГАЦИЯ (NAVBAR) + СТИЛИЗАЦИЯ ВНЕШНЕГО СПРАЙТА
+   ========================================================================== */
+.navbar {
+    position: fixed; 
+    top: 0; 
+    width: 100%; 
+    padding: 2.5rem 4rem;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    z-index: 100;
+    mix-blend-mode: difference; 
+    color: #fff; 
+    text-transform: uppercase;
+    font-size: 0.9rem; 
+    letter-spacing: 1.5px;
+}
 
-/* Размеры SVG на главном экране */
+.logo {
+    display: flex;
+    align-items: center;
+    height: 24px;
+    width: 180px; 
+}
+
+/* Стили для SVG, подгружаемых из внешнего спрайта svg/sprite.svg */
+.nav-svg-logo,
+.hero-main-svg,
+.hero-broker-svg,
+.sprite-logo-view {
+    width: 100%;
+    height: 100%;
+    filter: none !important; 
+    fill: #ffffff !important; /* Принудительно красим обертку в белый цвет */
+}
+
+/* Наследование цвета для пробития Shadow DOM внешнего спрайта */
+.nav-svg-logo use,
+.hero-main-svg use,
+.hero-broker-svg use,
+.sprite-logo-view use {
+    fill: inherit !important;
+}
+
+/* Заливка текстовых тегов и путей внутри символов */
+.nav-svg-logo text,
+.hero-broker-svg text,
+.nav-svg-logo path,
+.hero-main-svg path,
+.hero-broker-svg path,
+.sprite-logo-view path {
+    fill: inherit !important;
+}
+
+/* ==========================================================================
+   3. HERO БЛОК (ФИКСАЦИЯ И СМЕНА ЛОГОТИПОВ)
+   ========================================================================== */
+.hero-pinned { 
+    position: relative; 
+    width: 100%; 
+    height: 100vh; 
+    overflow: hidden; 
+    background-color: #000; 
+}
+.hero-bg-wrapper { 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    z-index: 1; 
+}
+.hero-bg-wrapper img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    opacity: 0.3; 
+}
+.hero-trigger-content { 
+    position: relative; 
+    z-index: 2; 
+    width: 100%; 
+    height: 100%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+}
+.hero-step-element { 
+    position: absolute; 
+    width: 90%; 
+    max-width: 1200px; 
+    text-align: center; 
+    opacity: 0; 
+    transform: translateY(50px); 
+    visibility: hidden; 
+}
+
+/* Адаптивные контейнеры главных логотипов */
 .hero-main-svg {
     width: 65vw;
     max-width: 800px;
     height: auto;
+}
+.broker-identity {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 .hero-broker-svg {
     width: 50vw;
@@ -58,25 +179,105 @@ html.lenis { height: auto; }
     height: auto;
 }
 
-.event-announcement .event-tag { font-size: 1rem; letter-spacing: 4px; color: #666; display: block; margin-bottom: 1rem; }
-.event-announcement h2 { font-size: 8vw; font-weight: 400; letter-spacing: -2px; line-height: 1; margin-bottom: 1.5rem; color: #fff; }
-.event-date { font-size: 3rem; font-weight: 300; letter-spacing: 6px; color: #fff; border-top: 1px solid rgba(255,255,255,0.1); display: inline-block; padding-top: 1.5rem; }
+.event-announcement .event-tag { 
+    font-size: 1rem; 
+    letter-spacing: 4px; 
+    color: #666; 
+    display: block; 
+    margin-bottom: 1rem; 
+}
+.event-announcement h2 { 
+    font-size: 8vw; 
+    font-weight: 400; 
+    letter-spacing: -2px; 
+    line-height: 1; 
+    margin-bottom: 1.5rem; 
+    color: #fff; 
+}
+.event-date { 
+    font-size: 3rem; 
+    font-weight: 300; 
+    letter-spacing: 6px; 
+    color: #fff; 
+    border-top: 1px solid rgba(255,255,255,0.1); 
+    display: inline-block; 
+    padding-top: 1.5rem; 
+}
 
-/* VALUATION SCRUB СЕКЦИЯ */
-.valuation-scrub { position: relative; width: 100%; background-color: #0A0C0B; overflow: hidden; }
-.valuation-wrapper { display: flex; width: 100%; max-width: 1200px; margin: 0 auto; height: 100vh; align-items: center; position: relative; padding: 0 2rem; }
-.valuation-info-container { position: relative; width: 100%; height: 100%; display: flex; align-items: center; }
-.val-step { position: absolute; width: 100%; opacity: 0; transform: translateY(40px); visibility: hidden; }
+/* ==========================================================================
+   4. БЛОК ОЦЕНКИ И МОНОХРОМНАЯ СЕТКА ПАРТНЕРОВ
+   ========================================================================== */
+.valuation-scrub { 
+    position: relative; 
+    width: 100%; 
+    background-color: #0A0C0B; 
+    overflow: hidden; 
+}
+.valuation-wrapper { 
+    display: flex; 
+    width: 100%; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    height: 100vh; 
+    align-items: center; 
+    position: relative; 
+    padding: 0 2rem; 
+}
+.valuation-info-container { 
+    position: relative; 
+    width: 100%; 
+    height: 100%; 
+    display: flex; 
+    align-items: center; 
+}
+.val-step { 
+    position: absolute; 
+    width: 100%; 
+    opacity: 0; 
+    transform: translateY(40px); 
+    visibility: hidden; 
+}
 
-.val-number { font-size: 0.85rem; letter-spacing: 3px; color: #555; display: block; margin-bottom: 2rem; }
-.val-step h3 { font-size: 4vw; font-weight: 400; text-transform: uppercase; margin-bottom: 1.5rem; color: #fff; letter-spacing: -1px; }
-.val-text { font-size: 2.8vw; line-height: 1.4; font-weight: 300; color: #ccc; max-width: 1000px; }
-.val-text-large { font-size: 3.5vw; line-height: 1.3; font-weight: 300; color: #fff; margin-bottom: 3rem; }
+.val-number { 
+    font-size: 0.85rem; 
+    letter-spacing: 3px; 
+    color: #555; 
+    display: block; 
+    margin-bottom: 2rem; 
+}
+.val-step h3 { 
+    font-size: 4vw; 
+    font-weight: 400; 
+    text-transform: uppercase; 
+    margin-bottom: 1.5rem; 
+    color: #fff; 
+    letter-spacing: -1px; 
+}
+.val-text { 
+    font-size: 2.8vw; 
+    line-height: 1.4; 
+    font-weight: 300; 
+    color: #ccc; 
+    max-width: 1000px; 
+}
+.val-text-large { 
+    font-size: 3.5vw; 
+    line-height: 1.3; 
+    font-weight: 300; 
+    color: #fff; 
+    margin-bottom: 3rem; 
+}
 
-/* Сетка оборонных компаний с интеграцией SVG */
-.defense-primes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; width: 100%; }
+/* Монохромная сетка оборонных компаний */
+.defense-primes-grid { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 1rem; 
+    width: 100%; 
+}
+
 .prime-logo-card { 
-    background: #111111 !important; /* Принудительно возвращаем благородный темный фон */
+    background: #111111 !important; 
     height: 90px; 
     display: flex; 
     align-items: center; 
@@ -85,72 +286,151 @@ html.lenis { height: auto; }
     padding: 1.5rem;
     transition: background 0.3s ease;
 }
-.prime-logo-card svg, 
-.inline-svg-logo {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-    filter: none !important; 
-    fill: #ffffff !important; 
-    opacity: 0.3;
+
+.prime-logo-card:hover {
+    background: #161817 !important; 
+}
+
+/* Настройка матовости логотипов по умолчанию */
+.sprite-logo-view {
+    max-width: 85%;
+    max-height: 65%;
+    opacity: 0.3; 
     transition: opacity 0.3s ease;
 }
-.prime-logo-card:hover svg,
-.prime-logo-card:hover .inline-svg-logo {
+
+/* При наведении карточки логотип загорается белым */
+.prime-logo-card:hover .sprite-logo-view {
     opacity: 1 !important;
 }
-/* Стили для встроенных Inline SVG (Финальное исправление) */
-.inline-svg-logo {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    /* Управляем цветом через fill, а не filter */
-    fill: #ffffff; 
-    opacity: 0.4;  /* По умолчанию матовые */
-    transition: opacity 0.3s ease, fill 0.3s ease;
-}
-/* Эффект наведения на карточку */
-.prime-logo-card:hover {
-    background: #161817 !important; /* Слегка подсвечиваем карточку при наведении */
-}
-
-/* ЧБ СТИЛЬ ДЛЯ ГРАФИКОВ CHART.JS */
-.charts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
-.chart-box { background: #0d0f0e; padding: 2.5rem; border-radius: 4px; border: 1px solid rgba(255,255,255,0.02); }
-.chart-box h4 { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; color: #fff; }
-.chart-highlight { font-size: 0.9rem; color: #555; margin-bottom: 2rem; }
-.canvas-wrapper { position: relative; width: 100%; height: 240px; }
-
-/* ИНТЕРАКТИВНЫЙ SCRUB-БЛОК РАКЕТЫ */
-.starship-interactive { position: relative; width: 100%; background-color: #050606; overflow: hidden; }
-.interactive-wrapper { display: flex; width: 100%; max-width: 1400px; margin: 0 auto; height: 100vh; position: relative; }
-.info-scroll-container { width: 50%; height: 100%; position: relative; display: flex; align-items: center; padding-left: 4rem; padding-right: 2rem; z-index: 5; }
-.info-step { position: absolute; width: 85%; opacity: 0; transform: translateY(60px); visibility: hidden; }
-
-.info-step .step-number { font-size: 0.85rem; letter-spacing: 3px; color: #555; display: block; margin-bottom: 1.5rem; }
-.info-step h2 { font-size: 5vw; font-weight: 400; line-height: 0.95; text-transform: uppercase; letter-spacing: -2px; margin-bottom: 0.5rem; color: #fff; }
-.info-step .subtitle-caps { font-size: 1rem; letter-spacing: 1px; color: #666; margin-bottom: 3rem; text-transform: uppercase; }
-
-.spec-meta { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 2rem; display: flex; flex-direction: column; gap: 1.2rem; }
-.meta-line { font-size: 1.05rem; line-height: 1.5; color: #999; }
-.meta-line strong { color: #fff; font-weight: 500; }
-
-.sticky-rocket-container { width: 50%; height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; }
-.rocket-matrix { width: 100%; height: 90vh; display: flex; justify-content: center; align-items: center; position: relative; }
-.starship-svg-monochrome { height: 115%; width: auto; opacity: 0.85; }
-
-/* Применения и ЧБ Иконки */
-.applications-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; margin-top: 2rem; }
-.app-card { text-align: center; padding: 3rem 2rem; background: #0d0f0e; border-radius: 4px; border: 1px solid rgba(255,255,255,0.02); }
-.app-icon-wrapper { width: 60px; height: 60px; margin: 0 auto 2rem auto; display: flex; align-items: center; justify-content: center; }
-.svg-icon-blackwhite { width: 100%; height: 100%; object-fit: contain; filter: brightness(0) invert(1) opacity(0.5); transition: filter 0.3s; }
-.app-card:hover .svg-icon-blackwhite { filter: brightness(0) invert(1) opacity(1); }
-.app-card h5 { font-size: 1.2rem; margin-bottom: 0.7rem; font-weight: 400; color: #fff; }
-.app-card p { font-size: 0.95rem; color: #666; line-height: 1.5; }
 
 /* ==========================================================================
-   ИНТЕРАКТИВНАЯ СЕКЦИЯ ТАЙМЛАЙНА С ЦЕНТРАЛЬНОЙ ОСЬЮ
+   5. СЕКЦИЯ ЧБ ГРАФИКОВ (CHART.JS CONFIG)
+   ========================================================================== */
+.charts-grid { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 3rem; 
+}
+.chart-box { 
+    background: #0d0f0e; 
+    padding: 2.5rem; 
+    border-radius: 4px; 
+    border: 1px solid rgba(255,255,255,0.02); 
+}
+.chart-box h4 { 
+    font-size: 1.1rem; 
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
+    margin-bottom: 0.5rem; 
+    color: #fff; 
+}
+.chart-highlight { 
+    font-size: 0.9rem; 
+    color: #555; 
+    margin-bottom: 2rem; 
+}
+.canvas-wrapper { 
+    position: relative; 
+    width: 100%; 
+    height: 240px; 
+}
+
+/* ==========================================================================
+   6. SCRUB-БЛОК РАКЕТЫ (STARSHIP DETAILED)
+   ========================================================================== */
+.starship-interactive { 
+    position: relative; 
+    width: 100%; 
+    background-color: #050606; 
+    overflow: hidden; 
+}
+.interactive-wrapper { 
+    display: flex; 
+    width: 100%; 
+    max-width: 1400px; 
+    margin: 0 auto; 
+    height: 100vh; 
+    position: relative; 
+}
+.info-scroll-container { 
+    width: 50%; 
+    height: 100%; 
+    position: relative; 
+    display: flex; 
+    align-items: center; 
+    padding-left: 4rem; 
+    padding-right: 2rem; 
+    z-index: 5; 
+}
+.info-step { 
+    position: absolute; 
+    width: 85%; 
+    opacity: 0; 
+    transform: translateY(60px); 
+    visibility: hidden; 
+}
+
+.info-step .step-number { 
+    font-size: 0.85rem; 
+    letter-spacing: 3px; 
+    color: #555; 
+    display: block; 
+    margin-bottom: 1.5rem; 
+}
+.info-step h2 { 
+    font-size: 5vw; 
+    font-weight: 400; 
+    line-height: 0.95; 
+    text-transform: uppercase; 
+    letter-spacing: -2px; 
+    margin-bottom: 0.5rem; 
+    color: #fff; 
+}
+.info-step .subtitle-caps { 
+    font-size: 1rem; 
+    letter-spacing: 1px; 
+    color: #666; 
+    margin-bottom: 3rem; 
+    text-transform: uppercase; 
+}
+
+.spec-meta { 
+    border-top: 1px solid rgba(255,255,255,0.08); 
+    padding-top: 2rem; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 1.2rem; 
+}
+.meta-line { 
+    font-size: 1.05rem; 
+    line-height: 1.5; 
+    color: #999; 
+}
+.meta-line strong { 
+    color: #fff; 
+    font-weight: 500; 
+}
+
+.sticky-rocket-container { 
+    width: 50%; 
+    height: 100vh; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    position: relative; 
+}
+.rocket-matrix { 
+    width: 100%; 
+    height: 90vh; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    position: relative; 
+}
+
+/* ==========================================================================
+   7. ИНТЕРАКТИВНЫЙ ЦЕНТРАЛЬНЫЙ ТАЙМЛАЙН SCRUB С ЛИНИЕЙ
    ========================================================================== */
 .timeline-interactive-scrub {
     position: relative;
@@ -165,7 +445,6 @@ html.lenis { height: auto; }
     margin: 0 auto;
     height: 100vh;
 }
-/* Центральная вертикальная линия */
 .timeline-center-axis {
     position: absolute;
     left: 50%;
@@ -176,7 +455,6 @@ html.lenis { height: auto; }
     transform: translateX(-50%);
     z-index: 2;
 }
-/* Статичная центральная точка фокусировки на линии */
 .axis-glow-dot {
     position: absolute;
     left: 50%;
@@ -189,7 +467,6 @@ html.lenis { height: auto; }
     box-shadow: 0 0 15px rgba(255,255,255,0.8);
     z-index: 3;
 }
-/* Контейнер шагов */
 .timeline-cards-container {
     position: relative;
     width: 100%;
@@ -236,52 +513,98 @@ html.lenis { height: auto; }
     max-width: 480px;
 }
 
-/* Сетка рынка */
-.market-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; margin-top: 4rem; }
-.market-category { background: #121413; padding: 3rem; border-radius: 4px; border: 1px solid rgba(255,255,255,0.03); }
-.market-category h3 { font-size: 1.1rem; color: #fff; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 1rem; }
-.market-category ul { list-style: none; }
-.market-category li { margin-bottom: 1rem; font-size: 1.05rem; color: #777; display: flex; align-items: center; }
-.market-category li strong { color: #fff; width: 60px; display: inline-block; font-weight: 500; }
+/* ==========================================================================
+   8. ЛАНДШАФТ РЫНКА & FOOTER
+   ========================================================================== */
+.market-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
+    gap: 2rem; 
+    margin-top: 4rem; 
+}
+.market-category { 
+    background: #121413; 
+    padding: 3rem; 
+    border-radius: 4px; 
+    border: 1px solid rgba(255,255,255,0.03); 
+}
+.market-category h3 { 
+    font-size: 1.1rem; 
+    color: #fff; 
+    margin-bottom: 2rem; 
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
+    border-bottom: 1px solid rgba(255,255,255,0.08); 
+    padding-bottom: 1rem; 
+}
+.market-category ul { 
+    list-style: none; 
+}
+.market-category li { 
+    margin-bottom: 1rem; 
+    font-size: 1.05rem; 
+    color: #777; 
+    display: flex; 
+    align-items: center; 
+}
+.market-category li strong { 
+    color: #fff; 
+    width: 60px; 
+    display: inline-block; 
+    font-weight: 500; 
+}
 
-.footer { height: 80vh; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-.footer h2 { font-size: 8vw; font-weight: 400; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: -1px; }
-.footer p { color: #555; letter-spacing: 2px; font-size: 0.85rem; }
+.footer { 
+    height: 80vh; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+}
+.footer h2 { 
+    font-size: 8vw; 
+    font-weight: 400; 
+    margin-bottom: 1rem; 
+    text-transform: uppercase; 
+    letter-spacing: -1px; 
+}
+.footer p { 
+    color: #555; 
+    letter-spacing: 2px; 
+    font-size: 0.85rem; 
+}
 
 /* ==========================================================================
-   БЕЗУПРЕЧНАЯ МОБИЛЬНАЯ АДАПТАЦИЯ (ПОЛНЫЙ СКРОЛЛ СЕКЦИЙ НА СМАРТФОНАХ)
+   9. АДАПТИВНОСТЬ: МОБИЛЬНЫЙ И ПЛАНШЕТНЫЙ РЕЖИМ (ПОЛНЫЙ СКРОЛЛ)
    ========================================================================== */
 @media (max-width: 920px) {
     .section-padding { padding: 5rem 1.2rem; }
     .charts-grid { grid-template-columns: 1fr; gap: 2rem; }
     .navbar { padding: 1.5rem 2rem; }
-    .nav-svg-logo { height: 18px; }
+    .logo { width: 130px; }
 
-    /* Главный экран */
     .hero-main-svg { width: 85vw; }
     .hero-broker-svg { width: 75vw; }
     .event-announcement h2 { font-size: 3.2rem; }
     .event-date { font-size: 1.8rem; }
 
-    /* Секция оценки и сетка SVG-логотипов */
     .val-text { font-size: 1.4rem; }
     .val-text-large { font-size: 1.7rem; }
     .val-step h3 { font-size: 2.2rem; }
     .defense-primes-grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
     .prime-logo-card { height: 75px; padding: 1rem; }
 
-    /* Интерактивная ракета */
-    .interactive-wrapper { flex-direction: column-reverse; } /* Ракета внизу, текст сверху */
+    .interactive-wrapper { flex-direction: column-reverse; }
     .info-scroll-container { width: 100%; padding-left: 1.5rem; padding-right: 1.5rem; }
+    .info-step { width: 100%; }
     .info-step h2 { font-size: 2.8rem; }
     .sticky-rocket-container { width: 100%; height: 45vh; }
-    .starship-svg-monochrome { height: 100%; width: auto; }
 
-    /* Смещенная адаптивная ось для таймлайна */
+    /* Перестроение оси таймлайна (смещаем влево на мобильных) */
     .timeline-center-axis { left: 15%; }
     .axis-glow-dot { left: 15%; }
     .tl-scrub-step { flex-direction: column; align-items: flex-start; justify-content: center; }
-    .tl-side-box { width: 100%; padding: 0 1.5rem 0 22%; } /* Отступ слева, чтобы текст не пересекал ось */
+    .tl-side-box { width: 100%; padding: 0 1.5rem 0 22%; }
     .tl-side-box.left-side { justify-content: flex-start; text-align: left; margin-bottom: 0.5rem; }
     .tl-year { font-size: 3.5rem; }
     .tl-desc { font-size: 1.1rem; max-width: 100%; }
