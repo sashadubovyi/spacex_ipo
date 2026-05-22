@@ -1,7 +1,7 @@
-// Регистрируем ScrollTrigger
+// Активация плагинов
 gsap.registerPlugin(ScrollTrigger);
 
-// 1. Плавный скролл Lenis
+// 1. Инициализация плавного скролла Lenis
 const lenis = new Lenis({
     duration: 1.2,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -12,45 +12,30 @@ lenis.on('scroll', ScrollTrigger.update);
 gsap.ticker.add((time) => { lenis.raf(time * 1000); });
 gsap.ticker.lagSmoothing(0);
 
-// 2. Глобальный базовый параллакс для элементов с data-speed (только для десктопов)
-if (window.innerWidth > 920) {
-    document.querySelectorAll('[data-speed]').forEach((el) => {
-        const speed = parseFloat(el.getAttribute('data-speed'));
-        const yValue = (1 - speed) * 250; 
-        gsap.to(el, {
-            y: yValue,
-            ease: "none",
-            scrollTrigger: { trigger: el, start: "top bottom", end: "bottom top", scrub: true }
-        });
-    });
-}
-
-// 3. Эффект плавного раскрытия текста по словам
-document.querySelectorAll('.reveal-text').forEach((textBlock) => {
-    const textContent = textBlock.textContent;
-    textBlock.innerHTML = '';
-    const words = textContent.trim().split(' ');
-    words.forEach(word => {
-        const span = document.createElement('span');
-        span.textContent = word + ' ';
-        span.style.opacity = 0.15; 
-        textBlock.appendChild(span);
-    });
-    const spans = textBlock.querySelectorAll('span');
-    gsap.to(spans, {
-        opacity: 1,
-        stagger: 0.04,
-        ease: "none",
-        scrollTrigger: { trigger: textBlock, start: "top 85%", end: "bottom 65%", scrub: true }
-    });
+// 2. Глобальное интерактивное появление контента на страницах (Fade-In-Up со скролл-зависимостью)
+document.querySelectorAll('.smooth-reveal').forEach((block) => {
+    gsap.fromTo(block, 
+        { opacity: 0, y: 60 },
+        {
+            opacity: 1, 
+            y: 0,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: block,
+                start: "top 88%",   // Начинает проявляться, когда верх блока пересекает 88% экрана
+                end: "top 60%",     // Полностью проявляется к 60% высоты экрана
+                scrub: 1            // Мягко следует за движением мыши
+            }
+        }
+    );
 });
 
 // ==========================================================================
-// ДЕСКТОПНЫЕ СЦЕНАРИИ ФИКСАЦИИ (ОТКЛЮЧЕНЫ НА МОБИЛЬНЫХ ДЛЯ СТАБИЛЬНОСТИ)
+// ИНТЕРАКТИВНЫЕ БЛОКИ ФИКСАЦИИ ЭКРАНА (ДЛЯ ДЕСКТОПОВ ШИРЕ 920px)
 // ==========================================================================
 if (window.innerWidth > 920) {
     
-    // Анимация шагов в Hero блоке
+    // Анимация в Hero блоке
     const heroTl = gsap.timeline({
         scrollTrigger: {
             trigger: "#heroSection",
@@ -69,12 +54,12 @@ if (window.innerWidth > 920) {
         .to("#heroEventData", { opacity: 1, y: 0, visibility: "visible", duration: 0.4 })
         .to({}, { duration: 0.4 });
 
-    // Анимация 5 шагов в блоке Scrub-оценки стоимости
+    // Анимация 5 шагов в блоке Оценки стоимости
     const valuationTl = gsap.timeline({
         scrollTrigger: {
             trigger: "#valuationScrubSection",
             start: "top top",
-            end: "+=4500", // Большая глубина прокрутки для 5 шагов
+            end: "+=4500",
             scrub: 1,
             pin: true,
             anticipatePin: 1
@@ -82,21 +67,17 @@ if (window.innerWidth > 920) {
     });
     valuationTl
         .to("#valStep1", { opacity: 1, y: 0, visibility: "visible", duration: 0.4 })
-        .to("#valStep1", { opacity: 0, y: -30, visibility: "hidden", duration: 0.4 }, "+=0.4")
-        
+        .to("#valStep1", { opacity: 0, y: -40, visibility: "hidden", duration: 0.4 }, "+=0.4")
         .to("#valStep2", { opacity: 1, y: 0, visibility: "visible", duration: 0.4 })
-        .to("#valStep2", { opacity: 0, y: -30, visibility: "hidden", duration: 0.4 }, "+=0.4")
-        
+        .to("#valStep2", { opacity: 0, y: -40, visibility: "hidden", duration: 0.4 }, "+=0.4")
         .to("#valStep3", { opacity: 1, y: 0, visibility: "visible", duration: 0.4 })
-        .to("#valStep3", { opacity: 0, y: -30, visibility: "hidden", duration: 0.4 }, "+=0.4")
-        
+        .to("#valStep3", { opacity: 0, y: -40, visibility: "hidden", duration: 0.4 }, "+=0.4")
         .to("#valStep4", { opacity: 1, y: 0, visibility: "visible", duration: 0.4 })
-        .to("#valStep4", { opacity: 0, y: -30, visibility: "hidden", duration: 0.4 }, "+=0.4")
-        
+        .to("#valStep4", { opacity: 0, y: -40, visibility: "hidden", duration: 0.4 }, "+=0.4")
         .to("#valStep5", { opacity: 1, y: 0, visibility: "visible", duration: 0.4 })
         .to({}, { duration: 0.4 });
 
-    // Анимация интерактивной ракетной стойки
+    // Анимация интерактивной стойки ракеты Starship
     const starshipTl = gsap.timeline({
         scrollTrigger: {
             trigger: "#starshipScrubSection",
@@ -116,19 +97,47 @@ if (window.innerWidth > 920) {
         .to("#step3", { opacity: 1, y: 0, visibility: "visible", duration: 0.4 })
         .to({}, { duration: 0.4 });
 
+    // ==========================================================================
+    // НОВАЯ АНИМАЦИЯ НАПЛЫВА КАРТОЧЕК В ТАЙМЛАЙНЕ (ПОДЪЕМ СНИЗУ ВВЕРХ С УХОДОМ СТАРОГО)
+    // ==========================================================================
+    const timelineScrubTl = gsap.timeline({
+        scrollTrigger: {
+            trigger: "#timelineScrubSection",
+            start: "top top",
+            end: "+=9000",   // Длинный скролл, так как шагов много (14 шагов)
+            scrub: 1,
+            pin: true,
+            anticipatePin: 1
+        }
+    });
+
+    const steps = ["2002", "2006", "2007", "2008", "2010", "2012", "2014", "2015", "2018", "2019", "2020", "2021", "2023", "2024"];
+    
+    steps.forEach((year, index) => {
+        // Появление текущего года
+        timelineScrubTl.to(`#tlStep${year}`, { opacity: 1, y: 0, visibility: "visible", duration: 0.4 });
+        
+        // Если это не самый последний год, заставляем его подняться выше и исчезнуть, уступая место следующему
+        if (index < steps.length - 1) {
+            timelineScrubTl.to(`#tlStep${year}`, { opacity: 0, y: -60, visibility: "hidden", duration: 0.4 }, "+=0.5");
+        }
+    });
+    // Финальное удержание
+    timelineScrubTl.to({}, { duration: 0.4 });
+
 } else {
-    // Мягкое проявление элементов на мобильных устройствах без фиксации экрана (Pin)
-    const mobileSteps = document.querySelectorAll('.hero-step-element, .val-step, .info-step');
-    mobileSteps.forEach(step => {
-        gsap.fromTo(step, { opacity: 0, y: 30 }, {
+    // ДЛЯ ТЕЛЕФОНОВ: Мягкое проявление элементов в порядке прокрутки (без жестких Pin-фиксаций)
+    const mobileElements = document.querySelectorAll('.hero-step-element, .val-step, .info-step, .tl-scrub-step');
+    mobileElements.forEach(el => {
+        gsap.fromTo(el, { opacity: 0, y: 30 }, {
             opacity: 1, y: 0, duration: 0.8,
-            scrollTrigger: { trigger: step, start: "top 85%", toggleActions: "play none none none" }
+            scrollTrigger: { trigger: el, start: "top 85%", toggleActions: "play none none none" }
         });
     });
 }
 
 // ==========================================================================
-// СТРОГИЕ ЧБ ДИНАМИЧЕСКИЕ ГРАФИКИ (CHART.JS)
+// ЧБ ГРАФИКИ CHART.JS
 // ==========================================================================
 const monochromeOptions = {
     responsive: true,
