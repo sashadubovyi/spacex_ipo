@@ -5,11 +5,141 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SPACEX IPO | OTKRITIE LTD</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Размеры для inline SVG логотипов (заменяют img-классы из style.css) */
+        .nav-svg-logo        { display:block; height:24px; width:auto; fill:#ffffff; }
+        .hero-main-svg       { display:block; width:65vw; max-width:800px; height:auto; fill:#ffffff; }
+        .hero-broker-svg     { display:block; width:50vw; max-width:600px; height:auto; fill:#ffffff; }
+        /* Иконки приложений inline */
+        .svg-icon-inline     { width:100%; height:100%; color:#ffffff; opacity:0.5; transition:opacity 0.3s; }
+        .app-card:hover .svg-icon-inline { opacity:1; }
+        @media (max-width:920px) {
+            .nav-svg-logo    { height:18px; }
+            .hero-main-svg   { width:85vw; }
+            .hero-broker-svg { width:75vw; }
+        }
+    </style>
 </head>
 <body>
+
+<!-- =====================================================
+     SVG СПРАЙТ — скрытый блок со всеми символами
+     ===================================================== -->
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+     style="position:absolute;width:0;height:0;overflow:hidden;">
+    <defs>
+
+        <!-- SPACEX WORDMARK -->
+        <symbol id="logo-spacex" viewBox="0 0 1060 180">
+            <!-- S -->
+            <path d="M0 130 C0 157 18 173 48 173 C79 173 97 156 97 132
+                     C97 104 76 94 57 86 C42 79 32 74 32 60
+                     C32 48 40 40 54 40 C68 40 76 48 76 60 L97 60
+                     C97 37 81 22 54 22 C27 22 11 37 11 60
+                     C11 87 32 97 50 105 C66 112 76 119 76 133
+                     C76 146 66 155 48 155 C30 155 21 146 21 133 Z"/>
+            <!-- P -->
+            <path d="M117 24 L117 170 L138 170 L138 114 L162 114
+                     C194 114 214 96 214 69 C214 42 194 24 162 24 Z
+                     M138 42 L161 42 C181 42 193 52 193 69
+                     C193 86 181 96 161 96 L138 96 Z"/>
+            <!-- A -->
+            <path d="M300 24 L247 170 L269 170 L281 132 L339 132 L351 170 L373 170 L320 24 Z
+                     M287 114 L310 45 L333 114 Z"/>
+            <!-- C -->
+            <path d="M490 126 C485 146 471 157 452 157
+                     C427 157 411 138 411 97 C411 56 427 37 452 37
+                     C471 37 485 48 490 68 L511 62
+                     C503 34 483 18 452 18 C415 18 389 43 389 97
+                     C389 151 415 176 452 176 C483 176 503 159 512 131 Z"/>
+            <!-- E -->
+            <path d="M531 24 L531 170 L636 170 L636 152 L552 152 L552 104 L629 104
+                     L629 86 L552 86 L552 42 L636 42 L636 24 Z"/>
+            <!-- X -->
+            <path d="M660 24 L703 88 L660 170 L684 170 L717 107 L750 170 L774 170
+                     L731 88 L774 24 L750 24 L717 70 L684 24 Z"/>
+        </symbol>
+
+        <!-- ОТКРЫТИЕ WORDMARK -->
+        <symbol id="logo-otkritie" viewBox="0 0 880 140">
+            <!-- О -->
+            <path d="M0 70 C0 31 25 6 64 6 C103 6 128 31 128 70
+                     C128 109 103 134 64 134 C25 134 0 109 0 70 Z
+                     M22 70 C22 97 40 114 64 114 C88 114 106 97 106 70
+                     C106 43 88 26 64 26 C40 26 22 43 22 70 Z"/>
+            <!-- Т -->
+            <path d="M140 10 L140 30 L184 30 L184 130 L206 130 L206 30 L250 30 L250 10 Z"/>
+            <!-- К -->
+            <path d="M264 10 L264 130 L286 130 L286 80 L330 130 L357 130
+                     L307 76 L354 10 L327 10 L286 70 L286 10 Z"/>
+            <!-- Р -->
+            <path d="M370 10 L370 130 L392 130 L392 88 L418 88
+                     C449 88 468 72 468 49 C468 26 449 10 418 10 Z
+                     M392 30 L417 30 C435 30 446 37 446 49
+                     C446 61 435 68 417 68 L392 68 Z"/>
+            <!-- Ы -->
+            <path d="M480 10 L480 130 L502 130 L502 84 L516 84
+                     C545 84 562 69 562 48 C562 27 545 10 516 10 Z
+                     M502 30 L515 30 C532 30 540 37 540 48
+                     C540 59 532 64 515 64 L502 64 Z
+                     M576 10 L576 130 L598 130 L598 10 Z"/>
+            <!-- Т -->
+            <path d="M612 10 L612 30 L656 30 L656 130 L678 130 L678 30 L722 30 L722 10 Z"/>
+            <!-- И -->
+            <path d="M736 10 L736 130 L758 130 L758 52 L808 130 L830 130 L830 10 L808 10
+                     L808 88 L758 10 Z"/>
+            <!-- Е -->
+            <path d="M844 10 L844 130 L880 130 L880 110 L866 110 L866 78 L878 78 L878 58
+                     L866 58 L866 30 L880 30 L880 10 Z"/>
+        </symbol>
+
+        <!-- Иконка: Глобус / Спутник -->
+        <symbol id="icon-satellite" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="9.5" stroke="currentColor" stroke-width="1.4" fill="none"/>
+            <ellipse cx="12" cy="12" rx="3.5" ry="9.5" stroke="currentColor" stroke-width="1.4" fill="none"/>
+            <line x1="2.5" y1="12" x2="21.5" y2="12" stroke="currentColor" stroke-width="1.4"/>
+            <line x1="4.5" y1="7"  x2="19.5" y2="7"  stroke="currentColor" stroke-width="0.9"/>
+            <line x1="4.5" y1="17" x2="19.5" y2="17" stroke="currentColor" stroke-width="0.9"/>
+        </symbol>
+
+        <!-- Иконка: Луна -->
+        <symbol id="icon-moon" viewBox="0 0 24 24">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+                  stroke="currentColor" stroke-width="1.4" fill="none"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+        </symbol>
+
+        <!-- Иконка: Ракета (Марс) -->
+        <symbol id="icon-rocket" viewBox="0 0 24 24">
+            <path d="M12 2 C12 2 7 7 7 13 L7 17 L12 19.5 L17 17 L17 13 C17 7 12 2 12 2 Z"
+                  stroke="currentColor" stroke-width="1.4" fill="none" stroke-linejoin="round"/>
+            <path d="M7 14 L4 17 L5 21 L7.5 19"
+                  stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+            <path d="M17 14 L20 17 L19 21 L16.5 19"
+                  stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+            <circle cx="12" cy="11" r="1.8" stroke="currentColor" stroke-width="1.2" fill="none"/>
+        </symbol>
+
+        <!-- Иконка: Самолёт / Грузы -->
+        <symbol id="icon-plane" viewBox="0 0 24 24">
+            <path d="M21 16 L13 12 L13 4.5 C13 3.67 12.33 3 11.5 3 C10.67 3 10 3.67 10 4.5
+                     L10 12 L2 16 L2 18 L10 15.5 L10 19.5 L7.5 21 L7.5 22.5 L11.5 21.5
+                     L15.5 22.5 L15.5 21 L13 19.5 L13 15.5 L21 18 Z"
+                  stroke="currentColor" stroke-width="1.2" fill="none" stroke-linejoin="round"/>
+        </symbol>
+
+    </defs>
+</svg>
+<!-- =====================================================
+     КОНЕЦ SVG СПРАЙТА
+     ===================================================== -->
+
+
     <nav class="navbar">
         <div class="logo">
-            <img src="svg/otkritie.svg" alt="Otkritie Broker" class="nav-svg-logo">
+            <svg class="nav-svg-logo" aria-label="Открытие Брокер">
+                <use href="#logo-otkritie"/>
+            </svg>
         </div>
         <div class="menu">MENU</div>
     </nav>
@@ -23,23 +153,32 @@
                 </div>
                 
                 <div class="hero-trigger-content">
+
+                    <!-- ШАГ 1: SpaceX Logo -->
                     <div class="hero-step-element active-step" id="heroLogoSpaceX">
-                        <img src="svg/spacex.svg" alt="SpaceX" class="hero-main-svg">
+                        <svg class="hero-main-svg" aria-label="SpaceX">
+                            <use href="#logo-spacex"/>
+                        </svg>
                     </div>
 
+                    <!-- ШАГ 2: Otkritie Logo -->
                     <div class="hero-step-element" id="heroLogoBroker">
                         <div class="broker-identity">
-                            <img src="svg/otkritie.svg" alt="Otkritie Broker" class="hero-broker-svg">
+                            <svg class="hero-broker-svg" aria-label="Открытие Брокер">
+                                <use href="#logo-otkritie"/>
+                            </svg>
                         </div>
                     </div>
 
+                    <!-- ШАГ 3: Дата события -->
                     <div class="hero-step-element" id="heroEventData">
                         <div class="event-announcement">
-                            <span class="event-tag">ГРЕДУЩЕЕ СОБЫТИЕ</span>
+                            <span class="event-tag">ГРЯДУЩЕЕ СОБЫТИЕ</span>
                             <h2>IPO SPACEX</h2>
                             <div class="event-date">12 ИЮНЯ 2026</div>
                         </div>
                     </div>
+
                 </div>
             </section>
 
@@ -85,31 +224,37 @@
                             </p>
                             
                             <div class="defense-primes-grid">
+                                <!-- Raytheon -->
                                 <div class="prime-logo-card">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 50" class="inline-svg-logo">
                                         <path d="M10 10h25c8 0 13 4 13 11 0 5-3 9-8 11l10 13H36l-9-12H20v12H10V10zm10 10v10h14c3 0 5-2 5-5s-2-5-5-5H20zm45-10h30v8H80v10h12v8H80v10h15v8H65V10zm50 0l12 18 12-18h11l-17 24 17 21h-11l-12-17-12 17h-11l17-21-17-24h11z"/>
                                     </svg>
                                 </div>
+                                <!-- Boeing -->
                                 <div class="prime-logo-card">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 40" class="inline-svg-logo">
                                         <path d="M15 8h22c5 0 8 2 8 6 0 3-2 5-5 6 4 1 6 3 6 7 0 5-4 7-9 7H15V8zm8 6v4h12c2 0 3-1 3-2s-1-2-3-2H23zm0 9v5h14c2 0 3-1 3-2.5s-1-2.5-3-2.5H23zm42-7c0-6 5-10 11-10s11 4 11 10-5 10-11 10-11-4-11-10zm8 0c0 3 1.5 5 3 5s3-2 3-5-1.5-5-3-5-3 2-3 5zm33-7h22v5h-14v4h12v5h-12v4h14v5h-22V8zm35 0h8v24h-8V8zm15 0h7l12 14V8h8v24h-6L143 17v15h-8V8zm40 12v4h8v3c0 5-4 8-10 8-7 0-11-4-11-10s4-10 11-10c5 0 8 2 9 5l-7 2c-1-1-1.5-2-2.5-2-2.5 0-3.5 2-3.5 5s1 5 3.5 5c2.5 0 3.5-1 3.5-3h-2v-2h4z"/>
                                     </svg>
                                 </div>
+                                <!-- Lockheed Martin -->
                                 <div class="prime-logo-card">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 45" class="inline-svg-logo">
                                         <path d="M10 5h8v28h14v7H10V5zm35 0h30v7H53v9h18v7H53v10h23v7H45V5zm42 0h10l11 15L119 5h10v35h-8V17l-10 14h-6l-10-14v23h-8V5zm52 0h18c7 0 11 4 11 10 0 4-2 7-6 9l8 16h-9l-7-14h-7v14h-8V5zm8 7v10h9c2.5 0 4-1.5 4-5s-1.5-5-4-5h-9zm40-7h8v35h-8V5zm15 0h8l16 21V5h8v35h-6l-18-23v23h-8V5z"/>
                                     </svg>
                                 </div>
+                                <!-- Northrop Grumman -->
                                 <div class="prime-logo-card">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 45" class="inline-svg-logo">
                                         <path d="M15 5h20c12 0 18 7 18 17.5S47 40 35 40H15V5zm10 7v21h10c6 0 9-3 9-10.5S41 12 35 12H25zm42-7h30v7H77v9h16v7H77v10h18v7H67V5zm40 0h7l16 21V5h8v35h-6l-18-23v23h-8V5z"/>
                                     </svg>
                                 </div>
+                                <!-- General Dynamics -->
                                 <div class="prime-logo-card">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 40" class="inline-svg-logo">
                                         <path d="M10 5h7l15 20V5h8v30h-6L19 14v21h-9V5zm43 0h7l15 13L90 5h7v30h-8V16l-11 10h-6L61 16v19h-8V5zm52 0h18c6 0 10 3 10 8.5 0 4-2.5 7-6.5 8l8 13.5h-9l-7-12h-5v12h-8V5zm8 6v7h9c2 0 3-1 3-3.5s-1-3.5-3-3.5h-9z"/>
                                     </svg>
                                 </div>
+                                <!-- L3Harris -->
                                 <div class="prime-logo-card">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 45" class="inline-svg-logo">
                                         <path d="M10 5h8v28h16v7H10V5zm36 23h12v7H46v-7zm18-23h26v7H74v8h10v7H74v11h14v7H64V5z"/>
@@ -135,7 +280,6 @@
                                 <canvas id="payloadChart"></canvas>
                             </div>
                         </div>
-
                         <div class="chart-box">
                             <h4>Стоимость одного запуска, $ млн</h4>
                             <p class="chart-highlight">Целевой ориентир: снижение стоимости до $2M - $10M</p>
@@ -184,6 +328,7 @@
 
                     <div class="sticky-rocket-container">
                         <div class="rocket-matrix">
+                            <!-- SVG ракеты — не трогаем (управляется из script.js) -->
                             <svg class="starship-svg-monochrome" viewBox="0 0 100 800" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M46 40 C48 20, 52 20, 54 40 L56 220 L57 450 L57 760 L43 760 L43 450 L44 220 Z" stroke="rgba(255,255,255,0.9)" stroke-width="1.2" />
                                 <line x1="44" y1="220" x2="56" y2="220" stroke="rgba(255,255,255,0.3)" stroke-width="2" />
@@ -203,26 +348,47 @@
                 <div class="container smooth-reveal">
                     <h2 class="section-title">Области применения миссий</h2>
                     <div class="applications-grid">
+
                         <div class="app-card">
-                            <div class="app-icon-wrapper"><img src="earth-svgrepo-com.svg" class="svg-icon-blackwhite" alt="Starlink"></div>
+                            <div class="app-icon-wrapper">
+                                <svg class="svg-icon-inline" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <use href="#icon-satellite"/>
+                                </svg>
+                            </div>
                             <h5>Развертывание спутников</h5>
                             <p>Обеспечение глобального покрытия высокоскоростной сети Starlink нового поколения.</p>
                         </div>
+
                         <div class="app-card">
-                            <div class="app-icon-wrapper"><img src="fit-svgrepo-com.svg" class="svg-icon-blackwhite" alt="Lunar"></div>
+                            <div class="app-icon-wrapper">
+                                <svg class="svg-icon-inline" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <use href="#icon-moon"/>
+                                </svg>
+                            </div>
                             <h5>Луна и глубокий космос</h5>
                             <p>Исследовательские правительственные миссии и высадка экипажа на лунную поверхность.</p>
                         </div>
+
                         <div class="app-card">
-                            <div class="app-icon-wrapper"><img src="rocket-svgrepo-com.svg" class="svg-icon-blackwhite" alt="Mars"></div>
+                            <div class="app-icon-wrapper">
+                                <svg class="svg-icon-inline" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <use href="#icon-rocket"/>
+                                </svg>
+                            </div>
                             <h5>Колонизация Марса</h5>
                             <p>Транспортировка тяжелых грузов для создания независимого мультипланетарного общества.</p>
                         </div>
+
                         <div class="app-card">
-                            <div class="app-icon-wrapper"><img src="rocket-svgrepo-com (1).svg" class="svg-icon-blackwhite" alt="Cargo"></div>
+                            <div class="app-icon-wrapper">
+                                <svg class="svg-icon-inline" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <use href="#icon-plane"/>
+                                </svg>
+                            </div>
                             <h5>Грузы и пассажиры</h5>
                             <p>Сверхбыстрая суборбитальная транспортировка в любую точку Земли за считанные минуты.</p>
                         </div>
+
                     </div>
                 </div>
             </section>
@@ -237,126 +403,98 @@
                     <div class="timeline-cards-container">
                         
                         <div class="tl-scrub-step" id="tlStep2002">
-                            <div class="tl-side-box left-side">
-                                <span class="tl-year">2002</span>
-                            </div>
+                            <div class="tl-side-box left-side"><span class="tl-year">2002</span></div>
                             <div class="tl-side-box right-side">
                                 <p class="tl-desc">Основание Space Exploration Technologies. Старт амбициозной программы и первый драматический, но необходимый для опыта неудачный запуск.</p>
                             </div>
                         </div>
 
                         <div class="tl-scrub-step" id="tlStep2006">
-                            <div class="tl-side-box left-side">
-                                <span class="tl-year">2006</span>
-                            </div>
+                            <div class="tl-side-box left-side"><span class="tl-year">2006</span></div>
                             <div class="tl-side-box right-side">
                                 <p class="tl-desc">Официальное признание: Получение стратегического контракта NASA на программу COTS (Commercial Orbital Transportation Services).</p>
                             </div>
                         </div>
 
                         <div class="tl-scrub-step" id="tlStep2007">
-                            <div class="tl-side-box left-side">
-                                <span class="tl-year">2007</span>
-                            </div>
+                            <div class="tl-side-box left-side"><span class="tl-year">2007</span></div>
                             <div class="tl-side-box right-side">
                                 <p class="tl-desc">Вторая попытка запуска прототипа. Сбор критического массива телеметрии инженерами компании.</p>
                             </div>
                         </div>
 
                         <div class="tl-scrub-step" id="tlStep2008">
-                            <div class="tl-side-box left-side">
-                                <span class="tl-year">2008</span>
-                            </div>
+                            <div class="tl-side-box left-side"><span class="tl-year">2008</span></div>
                             <div class="tl-side-box right-side">
                                 <p class="tl-desc">Поворотная точка: Первый успешный запуск ракеты Falcon 1 (с 4-й попытки). Заключение контракта с NASA на сумму $1.6 млрд.</p>
                             </div>
                         </div>
 
                         <div class="tl-scrub-step" id="tlStep2010">
-                            <div class="tl-side-box left-side">
-                                <span class="tl-year">2010</span>
-                            </div>
+                            <div class="tl-side-box left-side"><span class="tl-year">2010</span></div>
                             <div class="tl-side-box right-side">
                                 <p class="tl-desc">Начало новой эры мирового космоса: Состоялся дебютный триумфальный полет тяжелой ракеты-носителя Falcon 9.</p>
                             </div>
                         </div>
 
                         <div class="tl-scrub-step" id="tlStep2012">
-                            <div class="tl-side-box left-side">
-                                <span class="tl-year">2012</span>
-                            </div>
+                            <div class="tl-side-box left-side"><span class="tl-year">2012</span></div>
                             <div class="tl-side-box right-side">
                                 <p class="tl-desc">Беспилотный космический корабль Dragon успешно достигает и стыкуется с МКС — первый частный коммерческий аппарат в истории космонавтики.</p>
                             </div>
                         </div>
 
                         <div class="tl-scrub-step" id="tlStep2014">
-                            <div class="tl-side-box left-side">
-                                <span class="tl-year">2014</span>
-                            </div>
+                            <div class="tl-side-box left-side"><span class="tl-year">2014</span></div>
                             <div class="tl-side-box right-side">
                                 <p class="tl-desc">Инвестиционный прорыв: Рыночная оценка стоимости активов SpaceX впервые официально достигает отметки в $12 млрд.</p>
                             </div>
                         </div>
 
                         <div class="tl-scrub-step" id="tlStep2015">
-                            <div class="tl-side-box left-side">
-                                <span class="tl-year">2015</span>
-                            </div>
+                            <div class="tl-side-box left-side"><span class="tl-year">2015</span></div>
                             <div class="tl-side-box right-side">
                                 <p class="tl-desc">Технологическое чудо: Осуществлена первая в истории успешная вертикальная посадка первой многоразовой ступени Falcon 9 на землю.</p>
                             </div>
                         </div>
 
                         <div class="tl-scrub-step" id="tlStep2018">
-                            <div class="tl-side-box left-side">
-                                <span class="tl-year">2018</span>
-                            </div>
+                            <div class="tl-side-box left-side"><span class="tl-year">2018</span></div>
                             <div class="tl-side-box right-side">
                                 <p class="tl-desc">Ввод в строй финальной модификации Falcon 9 Block 5 и первый демонстрационный запуск сверхтяжелой Falcon Heavy.</p>
                             </div>
                         </div>
 
                         <div class="tl-scrub-step" id="tlStep2019">
-                            <div class="tl-side-box left-side">
-                                <span class="tl-year">2019</span>
-                            </div>
+                            <div class="tl-side-box left-side"><span class="tl-year">2019</span></div>
                             <div class="tl-side-box right-side">
                                 <p class="tl-desc">Запуск созвездия связи: Первые масштабные операционные выводы на орбиту партий интернет-спутников глобальной сети Starlink.</p>
                             </div>
                         </div>
 
                         <div class="tl-scrub-step" id="tlStep2020">
-                            <div class="tl-side-box left-side">
-                                <span class="tl-year">2020</span>
-                            </div>
+                            <div class="tl-side-box left-side"><span class="tl-year">2020</span></div>
                             <div class="tl-side-box right-side">
                                 <p class="tl-desc">Разрушение монополии государств: Успешная доставка астронавтов на МКС на корабле Crew Dragon — первая коммерческая компания в мире.</p>
                             </div>
                         </div>
 
                         <div class="tl-scrub-step" id="tlStep2021">
-                            <div class="tl-side-box left-side">
-                                <span class="tl-year">2021</span>
-                            </div>
+                            <div class="tl-side-box left-side"><span class="tl-year">2021</span></div>
                             <div class="tl-side-box right-side">
                                 <p class="tl-desc">Пройден исторический рубеж в 100 успешных орбитальных пусков. Капитализация взлетает до отметки $100 млрд.</p>
                             </div>
                         </div>
 
                         <div class="tl-scrub-step" id="tlStep2023">
-                            <div class="tl-side-box left-side">
-                                <span class="tl-year">2023</span>
-                            </div>
+                            <div class="tl-side-box left-side"><span class="tl-year">2023</span></div>
                             <div class="tl-side-box right-side">
                                 <p class="tl-desc">Первый полномасштабный интеграционный тест системы Starship. Абонентская база Starlink превышает 2 млн активных пользователей. Оценка: $180 млрд.</p>
                             </div>
                         </div>
 
                         <div class="tl-scrub-step" id="tlStep2024">
-                            <div class="tl-side-box left-side">
-                                <span class="tl-year">2024</span>
-                            </div>
+                            <div class="tl-side-box left-side"><span class="tl-year">2024</span></div>
                             <div class="tl-side-box right-side">
                                 <p class="tl-desc">Абсолютный мировой рекорд частоты полетов: 133 успешных запуска за год (рост в 10 раз за 5 лет). База Starlink > 4 млн клиентов. Оценка конгломерата: $350 млрд.</p>
                             </div>
