@@ -8,7 +8,199 @@ body {
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
 }
+/* Базовые стили */
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
+body {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    background-color: #0A0C0B;
+    color: #E7E7E8;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+html.lenis { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+.section-padding { padding: 10rem 2rem; display: flex; justify-content: center; }
+.container { max-width: 1200px; width: 100%; }
+.dark-bg { background-color: #050606; }
+
+.section-title { font-size: 4vw; font-weight: 400; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: -1px; }
+.subtitle { font-size: 1.5rem; color: #666; margin-bottom: 5rem; }
+
+/* Навигация */
+.navbar {
+    position: fixed; top: 0; width: 100%; padding: 2.5rem 4rem;
+    display: flex; justify-content: space-between; z-index: 100;
+    mix-blend-mode: difference; color: #fff; text-transform: uppercase;
+    font-size: 0.9rem; letter-spacing: 1.5px;
+}
+
+.smooth-reveal { opacity: 0; transform: translateY(50px); }
+
+/* HERO */
+.hero-pinned { position: relative; width: 100%; height: 100vh; overflow: hidden; background-color: #000; }
+.hero-bg-wrapper { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+.hero-bg-wrapper img { width: 100%; height: 100%; object-fit: cover; opacity: 0.3; }
+.hero-trigger-content { position: relative; z-index: 2; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+.hero-step-element { position: absolute; width: 90%; max-width: 1200px; text-align: center; opacity: 0; transform: translateY(50px); visibility: hidden; display: flex; justify-content: center; align-items: center; }
+
+.hero-logo-img { width: 60vw; max-width: 800px; height: auto; object-fit: contain; filter: brightness(0) invert(1); }
+.broker-logo-img { width: 45vw; max-width: 600px; height: auto; object-fit: contain; filter: brightness(0) invert(1) opacity(0.9); }
+
+.event-announcement .event-tag { font-size: 1rem; letter-spacing: 4px; color: #666; display: block; margin-bottom: 1rem; }
+.event-announcement h2 { font-size: 8vw; font-weight: 400; letter-spacing: -2px; line-height: 1; margin-bottom: 1.5rem; color: #fff; }
+.event-date { font-size: 3rem; font-weight: 300; letter-spacing: 6px; color: #fff; border-top: 1px solid rgba(255,255,255,0.1); display: inline-block; padding-top: 1.5rem; }
+
+/* VALUATION */
+.valuation-scrub { position: relative; width: 100%; background-color: #0A0C0B; overflow: hidden; }
+.valuation-wrapper { display: flex; width: 100%; max-width: 1200px; margin: 0 auto; height: 100vh; align-items: center; position: relative; padding: 0 2rem; }
+.valuation-info-container { position: relative; width: 100%; height: 100%; display: flex; align-items: center; }
+.val-step { position: absolute; width: 100%; opacity: 0; transform: translateY(40px); visibility: hidden; }
+
+.val-number { font-size: 0.85rem; letter-spacing: 3px; color: #555; display: block; margin-bottom: 2rem; }
+.val-step h3 { font-size: 4vw; font-weight: 400; text-transform: uppercase; margin-bottom: 1.5rem; color: #fff; letter-spacing: -1px; }
+.val-text { font-size: 2.8vw; line-height: 1.4; font-weight: 300; color: #ccc; max-width: 1000px; }
+.val-text-large { font-size: 3.5vw; line-height: 1.3; font-weight: 300; color: #fff; margin-bottom: 3rem; }
+
+.defense-primes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; width: 100%; }
+.prime-logo-card { background: #111; height: 80px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.03); padding: 1rem; }
+.prime-logo-card img { max-width: 100%; max-height: 100%; object-fit: contain; filter: grayscale(1) brightness(0.8); opacity: 0.5; }
+.prime-logo-card img.invert-filter { filter: brightness(0) invert(1) opacity(0.5); }
+
+/* CHARTS */
+.charts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+.chart-box { background: #0d0f0e; padding: 2.5rem; border-radius: 4px; border: 1px solid rgba(255,255,255,0.02); }
+.chart-box h4 { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; color: #fff; }
+.chart-highlight { font-size: 0.9rem; color: #555; margin-bottom: 2rem; }
+.canvas-wrapper { position: relative; width: 100%; height: 240px; }
+
+/* STARSHIP INTERACTIVE */
+.starship-interactive { position: relative; width: 100%; background-color: #050606; overflow: hidden; }
+.interactive-wrapper { display: flex; width: 100%; max-width: 1400px; margin: 0 auto; height: 100vh; position: relative; }
+.info-scroll-container { width: 50%; height: 100%; position: relative; display: flex; align-items: center; padding-left: 4rem; padding-right: 2rem; }
+.info-step { position: absolute; width: 85%; opacity: 0; transform: translateY(60px); visibility: hidden; }
+
+.info-step .step-number { font-size: 0.85rem; letter-spacing: 3px; color: #555; display: block; margin-bottom: 1.5rem; }
+.info-step h2 { font-size: 5vw; font-weight: 400; line-height: 0.95; text-transform: uppercase; letter-spacing: -2px; margin-bottom: 0.5rem; color: #fff; }
+.info-step .subtitle-caps { font-size: 1rem; letter-spacing: 1px; color: #666; margin-bottom: 3rem; text-transform: uppercase; }
+.spec-meta { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 2rem; display: flex; flex-direction: column; gap: 1.2rem; color: #999; }
+
+.sticky-rocket-container { width: 50%; height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; }
+.rocket-matrix { width: 100%; height: 90vh; display: flex; justify-content: center; align-items: center; }
+.starship-svg-monochrome { height: 115%; width: auto; opacity: 0.85; }
+
+/* MISSION APPS */
+.applications-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; margin-top: 2rem; }
+.app-card { padding: 3rem 2rem; background: #0d0f0e; border-radius: 4px; border: 1px solid rgba(255,255,255,0.02); }
+.app-card h5 { font-size: 1.2rem; margin-bottom: 0.7rem; color: #fff; font-weight: 400; }
+.app-card p { font-size: 0.95rem; color: #666; line-height: 1.5; }
+
+/* TIMELINE */
+.timeline-interactive-scrub { position: relative; width: 100%; background-color: #0A0C0B; overflow: hidden; }
+.timeline-scrub-wrapper { position: relative; width: 100%; max-width: 1200px; margin: 0 auto; height: 100vh; }
+.timeline-center-axis { position: absolute; left: 50%; top: 0; width: 1px; height: 100%; background: linear-gradient(to bottom, rgba(255,255,255,0.02), rgba(255,255,255,0.2) 20%, rgba(255,255,255,0.2) 80%, rgba(255,255,255,0.02)); transform: translateX(-50%); z-index: 2; }
+.axis-glow-dot { position: absolute; left: 50%; top: 50%; width: 9px; height: 9px; background-color: #fff; border-radius: 50%; transform: translate(-50%, -50%); box-shadow: 0 0 15px #fff; z-index: 3; }
+.timeline-cards-container { position: relative; width: 100%; height: 100%; }
+.tl-scrub-step { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; opacity: 0; transform: translateY(60px); visibility: hidden; z-index: 4; }
+.tl-side-box { width: 50%; padding: 0 3.5rem; }
+.tl-side-box.left-side { text-align: right; justify-content: flex-end; display: flex; }
+.tl-year { font-size: 6vw; font-weight: 300; color: #fff; }
+.tl-desc { font-size: 1.3rem; color: #aaa; line-height: 1.6; max-width: 480px; }
+
+/* MARKET */
+.market-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; margin-top: 4rem; }
+.market-category { background: #121413; padding: 3rem; border: 1px solid rgba(255,255,255,0.03); }
+.market-category h3 { font-size: 1.1rem; color: #fff; margin-bottom: 2rem; text-transform: uppercase; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 1rem; }
+.market-category ul { list-style: none; }
+.market-category li { margin-bottom: 1rem; color: #777; }
+.market-category li strong { color: #fff; width: 60px; display: inline-block; }
+
+/* НОВАЯ СЕКЦИЯ: ДИНАМИКА КАПИТАЛИЗАЦИИ */
+.capitalization-dynamics { background-color: #050606; width: 100%; }
+.metrics-timeline { display: flex; flex-direction: column; gap: 1.5rem; width: 100%; margin-top: 2rem; }
+.metric-row { display: flex; align-items: center; width: 100%; }
+.metric-label { width: 220px; font-size: 1.1rem; color: #888; text-transform: uppercase; letter-spacing: 1px; flex-shrink: 0; }
+.metric-progress-wrapper { flex-grow: 1; background: rgba(255, 255, 255, 0.02); height: 45px; border-radius: 4px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.03); position: relative; }
+.metric-bar { height: 100%; width: 0%; background: linear-gradient(90deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.15) 100%); display: flex; align-items: center; padding-left: 1.5rem; }
+.metric-bar span { color: #fff; font-weight: 700; font-size: 1rem; }
+.highlight-row .metric-label { color: #fff; }
+.metric-bar.target-bar { background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.8) 100%); box-shadow: 0 0 20px rgba(255, 255, 255, 0.15); }
+.metric-bar.target-bar span { color: #000; }
+
+.footer { height: 80vh; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.footer h2 { font-size: 8vw; text-transform: uppercase; }
+.footer p { color: #555; letter-spacing: 2px; }
+
+/* ==========================================================================
+   ЖЕСТКАЯ МОБИЛЬНАЯ ОПТИМИЗАЦИЯ (ПЕРЕЗАПИСЬ АБСОЛЮТОВ ДЛЯ ТЕЛЕФОНОВ)
+   ========================================================================== */
+@media (max-width: 920px) {
+    .section-padding { padding: 5rem 1.2rem; }
+    .section-title { font-size: 2.5rem; }
+    .subtitle { font-size: 1.1rem; margin-bottom: 3rem; }
+    .navbar { padding: 1.5rem 2rem; }
+
+    /* Отключаем десктопное наложение шагов */
+    .hero-pinned, .valuation-scrub, .starship-interactive, .timeline-interactive-scrub { 
+        height: auto !important; 
+        overflow: visible !important; 
+    }
+    .hero-trigger-content, .valuation-wrapper, .interactive-wrapper, .timeline-scrub-wrapper { 
+        display: flex !important;
+        flex-direction: column !important; 
+        height: auto !important; 
+        padding: 0 !important;
+    }
+    
+    /* Сброс абсолютного позиционирования, из-за которого ломался экран */
+    .hero-step-element, .val-step, .info-step, .tl-scrub-step {
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        opacity: 1 !important;
+        transform: none !important;
+        visibility: visible !important;
+        margin-bottom: 4rem !important;
+        left: auto !important;
+        top: auto !important;
+    }
+
+    .hero-pinned { padding: 8rem 1.2rem 2rem 1.2rem; }
+    .hero-logo-img { width: 85vw; }
+    .broker-logo-img { width: 75vw; }
+    .event-announcement h2 { font-size: 3.5rem; }
+    .event-date { font-size: 1.8rem; }
+
+    .val-text { font-size: 1.3rem; line-height: 1.5; }
+    .val-text-large { font-size: 1.6rem; }
+    .val-step h3 { font-size: 2rem; }
+    .defense-primes-grid { grid-template-columns: repeat(2, 1fr); }
+
+    .charts-grid { grid-template-columns: 1fr; gap: 2rem; }
+
+    .info-scroll-container { width: 100%; padding: 0; }
+    .info-step h2 { font-size: 2.2rem; }
+    .sticky-rocket-container { width: 100%; height: 45vh; margin-top: 2rem; }
+    .rocket-matrix { height: 100%; }
+    .starship-svg-monochrome { height: 100%; }
+
+    /* Сброс таймлайна */
+    .timeline-center-axis, .axis-glow-dot { display: none !important; }
+    .tl-scrub-step { flex-direction: column !important; align-items: flex-start !important; margin-bottom: 3rem !important; }
+    .tl-side-box { width: 100% !important; padding: 0 !important; text-align: left !important; }
+    .tl-side-box.left-side { justify-content: flex-start !important; }
+    .tl-year { font-size: 3rem; margin-bottom: 0.5rem; }
+    .tl-desc { font-size: 1.1rem; }
+
+    /* Капитализация на мобильном */
+    .metric-row { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+    .metric-label { width: 100%; font-size: 0.95rem; }
+    .metric-progress-wrapper { width: 100%; height: 38px; }
+}
 html.lenis { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto; }
 .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
