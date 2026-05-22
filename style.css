@@ -556,3 +556,58 @@ html.lenis { height: auto; }
         font-size: 0.85rem;
     }
 }
+
+/* СЕКЦИЯ ВЫРУЧКИ */
+.revenue-structure { background-color: #0A0C0B; overflow: hidden; }
+.revenue-flex-container { 
+    display: flex; 
+    align-items: center; 
+    gap: 5rem; 
+    margin-top: 3rem;
+}
+
+/* График */
+.revenue-chart-box { flex: 1; display: flex; justify-content: center; }
+.svg-chart-container { position: relative; width: 400px; height: 400px; }
+.doughnut-svg { transform: rotate(-90deg); filter: drop-shadow(0 0 15px rgba(0, 163, 255, 0.2)); }
+
+.segment {
+    fill: none;
+    stroke-width: 12;
+    stroke-dasharray: 251.2; /* 2 * PI * R (40) */
+    stroke-dashoffset: 251.2; /* Скрыто изначально */
+    transition: stroke 0.3s;
+}
+.base-circle { fill: none; stroke: rgba(255,255,255,0.03); stroke-width: 12; }
+
+/* Цвета как на скрине */
+.starlink-segment { stroke: #00A3FF; }
+.launch-segment { stroke: #0057FF; }
+.gov-segment { stroke: #1A2B4D; }
+
+.chart-inner-text {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.total-val { font-size: 3.5rem; font-weight: 700; color: #fff; letter-spacing: -2px; }
+
+/* Текстовые блоки */
+.revenue-steps-container { flex: 1; display: flex; flex-direction: column; gap: 3rem; }
+.rev-step { opacity: 0; transform: translateX(30px); }
+.rev-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+.rev-header h3 { font-size: 1.5rem; color: #fff; text-transform: uppercase; }
+.rev-step p { color: #888; line-height: 1.6; font-size: 1.1rem; }
+
+.dot { width: 14px; height: 14px; border-radius: 2px; }
+.starlink-dot { background: #00A3FF; box-shadow: 0 0 10px #00A3FF; }
+.launch-dot { background: #0057FF; }
+.gov-dot { background: #1A2B4D; }
+
+/* Мобильная версия */
+@media (max-width: 920px) {
+    .revenue-flex-container { flex-direction: column; gap: 3rem; }
+    .svg-chart-container { width: 280px; height: 280px; }
+    .total-val { font-size: 2.2rem; }
+    .rev-step { transform: translateY(20px); }
+}
