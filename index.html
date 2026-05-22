@@ -3,43 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SPACEX IPO</title>
+    <title>SPACEX IPO | OTKRITIE BROKER</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <nav class="navbar">
-        <div class="logo">SPACEX IPO</div>
+        <div class="logo">OTKRITIE BROKER</div>
         <div class="menu">MENU</div>
     </nav>
 
     <main id="smooth-wrapper">
         <div id="smooth-content">
             
-            <section class="hero">
-                <div class="hero-image" data-speed="0.6">
+            <section class="hero-pinned" id="heroSection">
+                <div class="hero-bg-wrapper">
                     <img src="https://images.unsplash.com/photo-1517976487492-5750f3195933?q=80&w=2070&auto=format&fit=crop" alt="SpaceX Rocket">
                 </div>
-                <div class="hero-text">
-                    <h1 data-speed="0.85">SPACEX <br> IPO</h1>
+                
+                <div class="hero-trigger-content">
+                    <div class="hero-step-element active-step" id="heroLogoSpaceX">
+                        <span class="spacex-logo-text">SPACE X</span>
+                    </div>
+
+                    <div class="hero-step-element" id="heroLogoBroker">
+                        <div class="broker-identity">
+                            <span class="broker-title">OTKRITIE BROKER <span class="ltd">LTD.</span></span>
+                        </div>
+                    </div>
+
+                    <div class="hero-step-element" id="heroEventData">
+                        <div class="event-announcement">
+                            <span class="event-tag">ГРЕДУЩЕЕ СОБЫТИЕ</span>
+                            <h2>IPO SPACEX</h2>
+                            <div class="event-date">12 ИЮНЯ 2026</div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
-            <section class="valuation section-padding">
-                <div class="container">
-                    <h2 class="section-title reveal-text">Беспрецедентная оценка</h2>
-                    <p class="large-text reveal-text">
-                        При оценке в $800 миллиардов капитализация SpaceX (Private) превышает совокупную рыночную стоимость 6 крупнейших оборонных подрядчиков США ($709 млрд).
-                    </p>
-                    
-                    <div class="defense-primes">
-                        <div class="prime-item-box"><span class="logo-stub">RTX</span></div>
-                        <div class="prime-item-box"><span class="logo-stub">BOEING</span></div>
-                        <div class="prime-item-box"><span class="logo-stub">LOCKHEED MARTIN</span></div>
-                        <div class="prime-item-box"><span class="logo-stub">GENERAL DYNAMICS</span></div>
-                        <div class="prime-item-box"><span class="logo-stub">NORTHROP GRUMMAN</span></div>
-                        <div class="prime-item-box"><span class="logo-stub">L3HARRIS</span></div>
+            <section class="valuation-scrub" id="valuationScrubSection">
+                <div class="valuation-wrapper">
+                    <div class="valuation-info-container">
+                        
+                        <div class="val-step" id="valStep1">
+                            <span class="val-number">01 / МАСШТАБ</span>
+                            <p class="val-text">
+                                SpaceX — это больше не просто аэрокосмическая компания. Сегодня это вертикально-интегрированный технологический конгломерат, который фактически монополизировал доступ к околоземной орбите и формирует фундамент для экономики будущего стоимостью $1.1 трлн к 2040 году.
+                            </p>
+                        </div>
+
+                        <div class="val-step" id="valStep2">
+                            <span class="val-number">02 / ТЕЛЕКОММУНИКАЦИИ</span>
+                            <h3>STARLINK</h3>
+                            <p class="val-text">
+                                Первая в мире глобальная высокоскоростная сеть, имеющая более 10,000 спутников на орбите. Это не просто интернет, а магистраль для передачи данных нового поколения, обеспечивающая связность в любой точке планеты, включая авиацию, морской флот и военный сектор (Starshield).
+                            </p>
+                        </div>
+
+                        <div class="val-step" id="valStep3">
+                            <span class="val-number">03 / ТРАНСПОРТНАЯ СИСТЕМА</span>
+                            <h3>STARSHIP</h3>
+                            <p class="val-text">
+                                Самая мощная ракетная система в истории человечества, находящаяся в шаге от полной готовности. Её цель — радикальное снижение стоимости доставки грузов на орбиту (в 100 раз) и обеспечение межпланетной логистики. Starship — это "грузовой корабль", который сделает Луну и Марс частью нашей экономики.
+                            </p>
+                        </div>
+
+                        <div class="val-step" id="valStep4">
+                            <span class="val-number">04 / ЭКОСИСТЕМА</span>
+                            <h3>СИНЕРГИЯ ИННОВАЦИЙ</h3>
+                            <p class="val-text">
+                                SpaceX объединяет транспорт (Falcon/Starship), телеком (Starlink) и ИИ (синергия с xAI), создавая замкнутый цикл инноваций, защищенный непревзойденными технологическими барьерами.
+                            </p>
+                        </div>
+
+                        <div class="val-step" id="valStep5">
+                            <span class="val-number">05 / КАПИТАЛИЗАЦИЯ</span>
+                            <p class="val-text-large">
+                                При оценке в $800 миллиардов капитализация SpaceX (Private) превышает совокупную рыночную стоимость 6 крупнейших оборонных подрядчиков США ($709 млрд).
+                            </p>
+                            
+                            <div class="defense-primes-grid">
+                                <div class="prime-logo-card"><span>RTX</span></div>
+                                <div class="prime-logo-card"><span>BOEING</span></div>
+                                <div class="prime-logo-card"><span>LOCKHEED MARTIN</span></div>
+                                <div class="prime-logo-card"><span>GENERAL DYNAMICS</span></div>
+                                <div class="prime-logo-card"><span>NORTHROP GRUMMAN</span></div>
+                                <div class="prime-logo-card"><span>L3HARRIS</span></div>
+                            </div>
+                        </div>
+
                     </div>
-                    <p class="footnote">Данные на 05.12.2025. Источник: FactSet, Morgan Stanley Research.</p>
                 </div>
             </section>
 
@@ -72,7 +125,6 @@
                 <div class="interactive-wrapper">
                     
                     <div class="info-scroll-container">
-                        
                         <div class="info-step" id="step1">
                             <span class="step-number">01 / ВТОРАЯ СТУПЕНЬ</span>
                             <h2>STARSHIP</h2>
@@ -80,7 +132,6 @@
                             <div class="spec-meta">
                                 <div class="meta-line"><strong>Концепция:</strong> Полностью и быстро многоразовый дизайн.</div>
                                 <div class="meta-line"><strong>Двигатели:</strong> 6x двигателей Raptor, обеспечивающих эффективное движение в космическом вакууме.</div>
-                                <div class="meta-line"><strong>Конфигурация:</strong> 3x Raptor Vacuum для работы в космосе, 3x стандартных Raptor для маневров.</div>
                             </div>
                         </div>
 
@@ -90,8 +141,7 @@
                             <p class="subtitle-caps">Ракета-носитель (Версии B7/B10)</p>
                             <div class="spec-meta">
                                 <div class="meta-line"><strong>Силовая установка:</strong> 33x двигателя Raptor, создающих беспрецедентную тягу на старте.</div>
-                                <div class="meta-line"><strong>Эффективность:</strong> Полностью многоразовая система возврата и плавной посадки.</div>
-                                <div class="meta-line"><strong>Управление:</strong> Решетчатые рули (Grid Fins) из высокопрочного титана для филигранного контроля при входе в атмосферу.</div>
+                                <div class="meta-line"><strong>Управление:</strong> Решетчатые рули (Grid Fins) из высокопрочного титана.</div>
                             </div>
                         </div>
 
@@ -101,11 +151,9 @@
                             <p class="subtitle-caps">Двигатели нового поколения</p>
                             <div class="spec-meta">
                                 <div class="meta-line"><strong>Инновация:</strong> Работает на жидком метане (CH4) и жидком кислороде (LOX).</div>
-                                <div class="meta-line"><strong>Давление:</strong> Рекордное давление в камере сгорания для максимальной эффективности.</div>
-                                <div class="meta-line"><strong>Оптимизация:</strong> Спроектирован с прицелом на быстрое повторное использование без сложного межполетного сервиса.</div>
+                                <div class="meta-line"><strong>Давление:</strong> Рекордное давление в камере сгорания.</div>
                             </div>
                         </div>
-
                     </div>
 
                     <div class="sticky-rocket-container">
@@ -130,39 +178,26 @@
                 <div class="container">
                     <h2 class="section-title reveal-text">Области применения миссий</h2>
                     <div class="applications-grid">
-                        
                         <div class="app-card">
-                            <div class="app-icon-wrapper">
-                                <img src="earth-svgrepo-com.svg" class="svg-icon-blackwhite" alt="Starlink">
-                            </div>
+                            <div class="app-icon-wrapper"><img src="earth-svgrepo-com.svg" class="svg-icon-blackwhite" alt="Starlink"></div>
                             <h5>Развертывание спутников</h5>
                             <p>Обеспечение глобального покрытия высокоскоростной сети Starlink нового поколения.</p>
                         </div>
-
                         <div class="app-card">
-                            <div class="app-icon-wrapper">
-                                <img src="fit-svgrepo-com.svg" class="svg-icon-blackwhite" alt="Lunar">
-                            </div>
+                            <div class="app-icon-wrapper"><img src="fit-svgrepo-com.svg" class="svg-icon-blackwhite" alt="Lunar"></div>
                             <h5>Луна и глубокий космос</h5>
                             <p>Исследовательские правительственные миссии и высадка экипажа на лунную поверхность.</p>
                         </div>
-
                         <div class="app-card">
-                            <div class="app-icon-wrapper">
-                                <img src="rocket-svgrepo-com.svg" class="svg-icon-blackwhite" alt="Mars">
-                            </div>
+                            <div class="app-icon-wrapper"><img src="rocket-svgrepo-com.svg" class="svg-icon-blackwhite" alt="Mars"></div>
                             <h5>Колонизация Марса</h5>
                             <p>Транспортировка тяжелых грузов для создания независимого мультипланетарного общества.</p>
                         </div>
-
                         <div class="app-card">
-                            <div class="app-icon-wrapper">
-                                <img src="rocket-svgrepo-com (1).svg" class="svg-icon-blackwhite" alt="Cargo">
-                            </div>
+                            <div class="app-icon-wrapper"><img src="rocket-svgrepo-com (1).svg" class="svg-icon-blackwhite" alt="Cargo"></div>
                             <h5>Грузы и пассажиры</h5>
                             <p>Сверхбыстрая суборбитальная транспортировка в любую точку Земли за считанные минуты.</p>
                         </div>
-
                     </div>
                 </div>
             </section>
@@ -184,7 +219,7 @@
                         <div class="timeline-item"><div class="year">2018</div><div class="event">Запуски Falcon 9 Block 5 и Falcon Heavy.</div></div>
                         <div class="timeline-item"><div class="year">2019</div><div class="event">Первые операционные запуски спутников Starlink.</div></div>
                         <div class="timeline-item"><div class="year">2020</div><div class="event">Доставка астронавтов на МКС — первая коммерческая компания.</div></div>
-                        <div class="timeline-item"><div class="year">2021</div><div class="event">Пройден рубеж в 100 успешных запусков. Оценка достигает $100 млрд.</div></div>
+                        <div class="timeline-item"><div class="year">2021</div><div class="event">Пройден рубеж в 100 успешных запускам. Оценка достигает $100 млрд.</div></div>
                         <div class="timeline-item"><div class="year">2023</div><div class="event">Первый тест Starship. Starlink превышает 2 млн абонентов. Оценка: $180 млрд.</div></div>
                         <div class="timeline-item"><div class="year">2024</div><div class="event">133 успешных запуска за год (рост в 10 раз за 5 лет). Starlink > 4 млн абонентов. Оценка: $350 млрд.</div></div>
                     </div>
@@ -194,7 +229,6 @@
             <section class="market-landscape section-padding dark-bg">
                 <div class="container">
                     <h2 class="section-title reveal-text">Где следующая космическая акция?</h2>
-                    
                     <div class="market-grid">
                         <div class="market-category">
                             <h3>Launch Providers</h3>
@@ -245,7 +279,6 @@
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    
     <script src="script.js"></script>
 </body>
 </html>
