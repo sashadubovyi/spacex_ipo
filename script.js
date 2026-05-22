@@ -207,3 +207,41 @@ gsap.utils.toArray('.metric-bar').forEach((bar) => {
         }
     });
 });
+
+// ==========================================================================
+// АНИМАЦИЯ СЕКЦИИ ВЫРУЧКИ (КРУГ + ТЕКСТ)
+// ==========================================================================
+const revTl = gsap.timeline({
+    scrollTrigger: {
+        trigger: "#revenueSection",
+        start: "top 70%",
+        toggleActions: "play none none none"
+    }
+});
+
+// Длина окружности для r=40 составляет ~251.2
+const fullCircle = 251.2;
+
+// Анимация Starlink (77%)
+revTl.to(".starlink-segment", {
+    strokeDashoffset: fullCircle * (1 - 0.77),
+    duration: 1.2,
+    ease: "power2.out"
+})
+.to("#revStep1", { opacity: 1, x: 0, duration: 0.6 }, "-=0.8")
+
+// Анимация Launch (15%)
+.to(".launch-segment", {
+    strokeDashoffset: fullCircle * (1 - (0.77 + 0.15)),
+    duration: 0.8,
+    ease: "power2.out"
+}, "-=0.2")
+.to("#revStep2", { opacity: 1, x: 0, duration: 0.6 }, "-=0.4")
+
+// Анимация Gov (8%)
+.to(".gov-segment", {
+    strokeDashoffset: 0, // 100% окружности
+    duration: 0.6,
+    ease: "power2.out"
+}, "-=0.2")
+.to("#revStep3", { opacity: 1, x: 0, duration: 0.6 }, "-=0.4");
