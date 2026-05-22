@@ -39,6 +39,15 @@ html.lenis { height: auto; }
     transform: translateY(50px);
 }
 
+/* --- --- --- */
+.nav-svg-logo, .hero-main-svg, .hero-broker-svg, .prime-svg-logo {
+    fill: currentColor;
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+}
+/* --- --- --- */
+
 /* HERO-PINNED СЕКЦИЯ С АНИМАЦИЕЙ СМЕНЫ SVG ЛОГОТИПОВ */
 .hero-pinned { position: relative; width: 100%; height: 100vh; overflow: hidden; background-color: #000; }
 .hero-bg-wrapper { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
