@@ -188,3 +188,21 @@ ScrollTrigger.create({
         costChart.update();
     }
 });
+
+// ==========================================================================
+// АНИМАЦИЯ ВЫЕЗДА БЛОКОВ КАПИТАЛИЗАЦИИ (НОВЫЙ КОД)
+// ==========================================================================
+gsap.utils.toArray('.metric-bar').forEach((bar) => {
+    const targetWidth = bar.getAttribute('data-width');
+    
+    gsap.to(bar, {
+        width: targetWidth,
+        duration: 1.8,
+        ease: "back.out(1.2)", 
+        scrollTrigger: {
+            trigger: "#capitalizationSection",
+            start: "top 75%", 
+            toggleActions: "play none none none" 
+        }
+    });
+});
