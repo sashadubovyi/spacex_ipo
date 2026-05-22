@@ -1,31 +1,52 @@
 /* Базовые настройки */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
     font-family: "Helvetica Neue", Arial, sans-serif;
-    background-color: #0A0C0B; /* Глубокий темный цвет */
-    color: #E7E7E8; /* Мягкий белый */
+    background-color: #0A0C0B;
+    color: #E7E7E8;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
 }
 
-/* Обязательные стили для Lenis Smooth Scroll */
-html.lenis {
-  height: auto;
+/* Обязательные стили Lenis */
+html.lenis { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* Общие классы секций */
+.section-padding {
+    padding: 10rem 2rem;
+    display: flex;
+    justify-content: center;
 }
-.lenis.lenis-smooth {
-  scroll-behavior: auto;
+.container {
+    max-width: 1200px;
+    width: 100%;
 }
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
+.dark-bg { background-color: #050606; }
+
+/* Типографика */
+.section-title {
+    font-size: 4vw;
+    font-weight: 400;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: -1px;
 }
-.lenis.lenis-stopped {
-  overflow: hidden;
+.subtitle {
+    font-size: 1.5rem;
+    color: #888;
+    margin-bottom: 5rem;
 }
+.large-text {
+    font-size: 3.5vw;
+    line-height: 1.4;
+    font-weight: 300;
+    margin-bottom: 4rem;
+}
+.reveal-text { opacity: 1; }
 
 /* Навигация */
 .navbar {
@@ -41,7 +62,6 @@ html.lenis {
     text-transform: uppercase;
     font-size: 0.9rem;
     letter-spacing: 1.5px;
-    font-weight: 500;
 }
 
 /* Главный экран */
@@ -53,114 +73,123 @@ html.lenis {
     justify-content: center;
     overflow: hidden;
 }
-
 .hero-image {
     position: absolute;
-    top: -15%;
-    left: 0;
-    width: 100%;
-    height: 130%;
-    z-index: 1;
+    top: -15%; left: 0; width: 100%; height: 130%; z-index: 1;
 }
-
-.hero-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.6;
-}
-
-.hero-text {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-}
-
+.hero-image img { width: 100%; height: 100%; object-fit: cover; opacity: 0.5; }
+.hero-text { position: relative; z-index: 2; text-align: center; }
 .hero-text h1 {
-    font-size: 14vw;
-    line-height: 0.85;
-    font-weight: 400;
+    font-size: 14vw; line-height: 0.85; font-weight: 400; text-transform: uppercase; letter-spacing: -3px;
+}
+
+/* Секция: Оценка */
+.defense-primes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+.prime-item {
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
     text-transform: uppercase;
-    letter-spacing: -3px;
 }
+.footnote { font-size: 0.8rem; color: #666; }
 
-/* Секция с текстом */
-.about {
-    padding: 15rem 2rem;
+/* Секция: Таймлайн */
+.timeline {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    gap: 3rem;
+    border-left: 1px solid rgba(255,255,255,0.1);
+    padding-left: 3rem;
+    margin-left: 1rem;
+}
+.timeline-item { position: relative; }
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -3.35rem;
+    top: 5px;
+    width: 10px; height: 10px;
+    background: #fff;
+    border-radius: 50%;
+}
+.timeline-item .year {
+    font-size: 2rem;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+.timeline-item .event {
+    font-size: 1.2rem;
+    color: #aaa;
+    line-height: 1.5;
+    max-width: 600px;
 }
 
-.container {
-    max-width: 1000px;
+/* Секция: Рынок (Сетка) */
+.market-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
 }
-
-.reveal-text {
-    font-size: 3.5vw;
-    line-height: 1.4;
-    font-weight: 300;
+.market-category {
+    background: #121413;
+    padding: 3rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.05);
 }
-
-/* Галерея с параллаксом */
-.parallax-gallery {
+.market-category h3 {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 1rem;
+}
+.market-category ul { list-style: none; }
+.market-category li {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: #aaa;
     display: flex;
-    padding: 10rem 5rem;
-    gap: 5rem;
-    justify-content: center;
     align-items: center;
 }
-
-.gallery-item {
-    width: 35vw;
-    height: 70vh;
-    overflow: hidden;
+.market-category li strong {
+    color: #fff;
+    width: 60px;
+    display: inline-block;
 }
 
-/* Изображения делаем больше контейнера, чтобы было место для эффекта параллакса */
-.gallery-item img {
-    width: 100%;
-    height: 130%;
-    object-fit: cover;
+/* Параллакс галерея */
+.parallax-gallery {
+    display: flex; padding: 5rem; justify-content: center; align-items: center;
 }
+.gallery-item { width: 100%; height: 60vh; overflow: hidden; max-width: 1200px;}
+.gallery-item img { width: 100%; height: 130%; object-fit: cover; }
 
 /* Подвал */
 .footer {
-    height: 80vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #121413;
+    height: 80vh; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: #0A0C0B;
 }
-
 .footer h2 {
-    font-size: 8vw;
-    font-weight: 400;
-    margin-bottom: 2rem;
-    text-transform: uppercase;
-    letter-spacing: -1px;
+    font-size: 8vw; font-weight: 400; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: -1px;
 }
+.footer p { color: #888; letter-spacing: 2px; }
 
-/* Адаптив для мобильных */
+/* Адаптив */
 @media (max-width: 768px) {
-    .navbar {
-        padding: 1.5rem 2rem;
-    }
-    .hero-text h1 {
-        font-size: 20vw;
-    }
-    .reveal-text {
-        font-size: 6vw;
-    }
-    .parallax-gallery {
-        flex-direction: column;
-        padding: 5rem 2rem;
-    }
-    .gallery-item {
-        width: 100%;
-        height: 50vh;
-    }
-    .footer h2 {
-        font-size: 12vw;
-    }
+    .section-padding { padding: 5rem 1.5rem; }
+    .hero-text h1 { font-size: 20vw; }
+    .large-text { font-size: 6vw; }
+    .section-title { font-size: 8vw; }
+    .timeline { padding-left: 1.5rem; }
+    .timeline-item::before { left: -1.85rem; }
+    .gallery-item { height: 40vh; }
 }
