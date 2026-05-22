@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SPACEX IPO | Landing Page</title>
+    <title>SPACEX IPO</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -43,81 +43,127 @@
                 </div>
             </section>
 
-            <section class="starship-section section-padding dark-bg">
+            <section class="paradigm-charts section-padding dark-bg">
                 <div class="container">
-                    <h2 class="section-title reveal-text">STARSHIP: Смена Парадигмы</h2>
-                    <p class="subtitle reveal-text">Полностью многоразовая система. Квантовый скачок в возможностях выведения.</p>
+                    <h2 class="section-title reveal-text">Квантовый скачок возможностей</h2>
+                    <p class="subtitle reveal-text">Сравнение характеристик Falcon 9 и новой архитектуры Starship.</p>
+                    
+                    <div class="charts-grid">
+                        <div class="chart-box">
+                            <h4>Полезная нагрузка на НОО (LEO), тонн</h4>
+                            <p class="chart-highlight">Starship = ~7X полезной нагрузки Falcon 9</p>
+                            <div class="canvas-wrapper">
+                                <canvas id="payloadChart"></canvas>
+                            </div>
+                        </div>
 
-                    <div class="starship-grid">
+                        <div class="chart-box">
+                            <h4>Стоимость одного запуска, $ млн</h4>
+                            <p class="chart-highlight">Целевой ориентир: снижение стоимости до $2M - $10M</p>
+                            <div class="canvas-wrapper">
+                                <canvas id="costChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="starship-interactive" id="starshipScrubSection">
+                <div class="interactive-wrapper">
+                    
+                    <div class="info-scroll-container">
                         
-                        <div class="rocket-specs">
-                            <div class="spec-block" data-speed="0.8">
-                                <h3>STARSHIP (Вторая ступень)</h3>
-                                <p>Версии S24/S25. Полностью и быстро многоразовая архитектура.</p>
-                                <span class="highlight">6x Двигателей Raptor</span>
-                                <p class="desc">Эффективное движение в вакууме: 3x Raptor Vacuum, 3x Raptor.</p>
-                            </div>
-
-                            <div class="rocket-vector-container" data-speed="1.1">
-                                <svg class="rocket-svg" viewBox="0 0 100 500" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M45,450 L55,450 L55,150 L50,100 L45,150 Z" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
-                                    <line x1="35" y1="450" x2="65" y2="450" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
-                                    <path d="M40,160 L45,165 M60,160 L55,165" stroke="#fff" stroke-width="1.5"/>
-                                    <text x="50" y="480" fill="#888" font-size="10" text-anchor="middle">FALCON 9 СИЛУЭТ</text>
-                                </svg>
-                            </div>
-
-                            <div class="spec-block" data-speed="0.9">
-                                <h3>SUPER HEAVY (Первая ступень)</h3>
-                                <p>Бустер версий B7/B10. Полностью многоразовый.</p>
-                                <span class="highlight">33x Двигателя Raptor</span>
-                                <p class="desc">Колоссальная тяга при старте. Решетчатые рули (Grid Fins) из титана для точного управления при возврате.</p>
+                        <div class="info-step" id="step1">
+                            <span class="step-number">01 / ВТОРАЯ СТУПЕНЬ</span>
+                            <h2>STARSHIP</h2>
+                            <p class="subtitle-caps">Корабль (Версии S24/S25)</p>
+                            <div class="spec-meta">
+                                <div class="meta-line"><strong>Концепция:</strong> Полностью и быстро многоразовый дизайн.</div>
+                                <div class="meta-line"><strong>Двигатели:</strong> 6x двигателей Raptor, обеспечивающих эффективное движение в космическом вакууме.</div>
+                                <div class="meta-line"><strong>Конфигурация:</strong> 3x Raptor Vacuum для работы в космосе, 3x стандартных Raptor для маневров.</div>
                             </div>
                         </div>
 
-                        <div class="charts-container">
-                            <div class="chart-box">
-                                <h4>Полезная нагрузка на НОО (LEO), тонн</h4>
-                                <p class="chart-highlight">Starship = ~7X мощности Falcon 9</p>
-                                <div class="canvas-wrapper">
-                                    <canvas id="payloadChart"></canvas>
-                                </div>
+                        <div class="info-step" id="step2">
+                            <span class="step-number">02 / ПЕРВАЯ СТУПЕНЬ</span>
+                            <h2>SUPER HEAVY</h2>
+                            <p class="subtitle-caps">Ракета-носитель (Версии B7/B10)</p>
+                            <div class="spec-meta">
+                                <div class="meta-line"><strong>Силовая установка:</strong> 33x двигателя Raptor, создающих беспрецедентную тягу на старте.</div>
+                                <div class="meta-line"><strong>Эффективность:</strong> Полностью многоразовая система возврата и плавной посадки.</div>
+                                <div class="meta-line"><strong>Управление:</strong> Решетчатые рули (Grid Fins) из высокопрочного титана для филигранного контроля при входе в атмосферу.</div>
                             </div>
+                        </div>
 
-                            <div class="chart-box">
-                                <h4>Стоимость одного запуска, $ млн</h4>
-                                <p class="chart-highlight">Цель: снижение стоимости до $2M - $10M</p>
-                                <div class="canvas-wrapper">
-                                    <canvas id="costChart"></canvas>
-                                </div>
+                        <div class="info-step" id="step3">
+                            <span class="step-number">03 / ТЕХНОЛОГИИ</span>
+                            <h2>RAPTOR ENGINES</h2>
+                            <p class="subtitle-caps">Двигатели нового поколения</p>
+                            <div class="spec-meta">
+                                <div class="meta-line"><strong>Инновация:</strong> Работает на жидком метане (CH4) и жидком кислороде (LOX).</div>
+                                <div class="meta-line"><strong>Давление:</strong> Рекордное давление в камере сгорания для максимальной эффективности.</div>
+                                <div class="meta-line"><strong>Оптимизация:</strong> Спроектирован с прицелом на быстрое повторное использование без сложного межполетного сервиса.</div>
                             </div>
                         </div>
 
                     </div>
 
+                    <div class="sticky-rocket-container">
+                        <div class="rocket-matrix">
+                            <svg class="starship-svg-monochrome" viewBox="0 0 100 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M46 40 C48 20, 52 20, 54 40 L56 220 L57 450 L57 760 L43 760 L43 450 L44 220 Z" stroke="rgba(255,255,255,0.9)" stroke-width="1.2" />
+                                <line x1="44" y1="220" x2="56" y2="220" stroke="rgba(255,255,255,0.3)" stroke-width="2" />
+                                <path d="M44 70 L34 100 L44 130 Z" stroke="rgba(255,255,255,0.9)" stroke-width="1.2" fill="rgba(255,255,255,0.05)" />
+                                <path d="M56 70 L66 100 L56 130 Z" stroke="rgba(255,255,255,0.9)" stroke-width="1.2" fill="rgba(255,255,255,0.05)" />
+                                <path d="M43 690 L30 750 L43 750 Z" stroke="rgba(255,255,255,0.4)" stroke-width="1.2" />
+                                <path d="M57 690 L70 750 L57 750 Z" stroke="rgba(255,255,255,0.4)" stroke-width="1.2" />
+                                <line x1="44" y1="764" x2="56" y2="764" stroke="#fff" stroke-width="2" />
+                                <text x="50" y="790" fill="#555" font-size="8" text-anchor="middle" letter-spacing="1">STARSHIP СИЛУЭТ</text>
+                            </svg>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="mission-apps section-padding dark-bg">
+                <div class="container">
+                    <h2 class="section-title reveal-text">Области применения миссий</h2>
                     <div class="applications-grid">
+                        
                         <div class="app-card">
-                            <div class="app-icon">📡</div>
+                            <div class="app-icon-wrapper">
+                                <img src="earth-svgrepo-com.svg" class="svg-icon-blackwhite" alt="Starlink">
+                            </div>
                             <h5>Развертывание спутников</h5>
-                            <p>Глобальное покрытие сети Starlink нового поколения.</p>
+                            <p>Обеспечение глобального покрытия высокоскоростной сети Starlink нового поколения.</p>
                         </div>
-                        <div class="app-card">
-                            <div class="app-icon">🌙</div>
-                            <h5>Луна и глубокий космос</h5>
-                            <p>Исследовательские миссии и высадка на лунную поверхность.</p>
-                        </div>
-                        <div class="app-card">
-                            <div class="app-icon">🚀</div>
-                            <h5>Колонизация Марса</h5>
-                            <p>Обеспечение статуса мультипланетарного человечества.</p>
-                        </div>
-                        <div class="app-card">
-                            <div class="app-icon">✈️</div>
-                            <h5>Грузы и пассажиры</h5>
-                            <p>Сверхбыстрая транспортировка по всей Земле.</p>
-                        </div>
-                    </div>
 
+                        <div class="app-card">
+                            <div class="app-icon-wrapper">
+                                <img src="fit-svgrepo-com.svg" class="svg-icon-blackwhite" alt="Lunar">
+                            </div>
+                            <h5>Луна и глубокий космос</h5>
+                            <p>Исследовательские правительственные миссии и высадка экипажа на лунную поверхность.</p>
+                        </div>
+
+                        <div class="app-card">
+                            <div class="app-icon-wrapper">
+                                <img src="rocket-svgrepo-com.svg" class="svg-icon-blackwhite" alt="Mars">
+                            </div>
+                            <h5>Колонизация Марса</h5>
+                            <p>Транспортировка тяжелых грузов для создания независимого мультипланетарного общества.</p>
+                        </div>
+
+                        <div class="app-card">
+                            <div class="app-icon-wrapper">
+                                <img src="rocket-svgrepo-com (1).svg" class="svg-icon-blackwhite" alt="Cargo">
+                            </div>
+                            <h5>Грузы и пассажиры</h5>
+                            <p>Сверхбыстрая суборбитальная транспортировка в любую точку Земли за считанные минуты.</p>
+                        </div>
+
+                    </div>
                 </div>
             </section>
 
