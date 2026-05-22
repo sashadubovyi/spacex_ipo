@@ -9,20 +9,17 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* Настройки плавного скролла Lenis */
 html.lenis { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto; }
 .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
 .lenis.lenis-stopped { overflow: hidden; }
 
-/* Общие секции */
 .section-padding { padding: 10rem 2rem; display: flex; justify-content: center; }
 .container { max-width: 1200px; width: 100%; }
 .dark-bg { background-color: #050606; }
 
 .section-title { font-size: 4vw; font-weight: 400; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: -1px; }
 .subtitle { font-size: 1.5rem; color: #666; margin-bottom: 5rem; }
-.large-text { font-size: 3.5vw; line-height: 1.4; font-weight: 300; margin-bottom: 4rem; }
 
 /* Навигация */
 .navbar {
@@ -32,78 +29,118 @@ html.lenis { height: auto; }
     font-size: 0.9rem; letter-spacing: 1.5px;
 }
 
-/* Главный экран */
-.hero { position: relative; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-.hero-image { position: absolute; top: -15%; left: 0; width: 100%; height: 130%; z-index: 1; }
-.hero-image img { width: 100%; height: 100%; object-fit: cover; opacity: 0.35; }
-.hero-text { position: relative; z-index: 2; text-align: center; }
-.hero-text h1 { font-size: 14vw; line-height: 0.85; font-weight: 400; text-transform: uppercase; letter-spacing: -3px; }
-
-/* ЧБ Сетка логотипов подрядчиков */
-.defense-primes { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
-.prime-item-box {
-    background: #111; height: 80px; display: flex; align-items: center; justify-content: center;
-    border: 1px solid rgba(255,255,255,0.04); opacity: 0.4; transition: opacity 0.3s;
+/* ==========================================================================
+   НОВАЯ HERO-PINNED СЕКЦИЯ С АНИМАЦИЕЙ СМЕНЫ ЛОГО
+   ========================================================================== */
+.hero-pinned {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #000;
 }
-.prime-item-box:hover { opacity: 0.9; }
-.logo-stub { font-size: 0.85rem; font-weight: 700; letter-spacing: 2px; color: #fff; }
-.footnote { font-size: 0.8rem; color: #555; }
+.hero-bg-wrapper {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;
+}
+.hero-bg-wrapper img {
+    width: 100%; height: 100%; object-fit: cover; opacity: 0.3;
+}
+.hero-trigger-content {
+    position: relative; z-index: 2; width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+}
+.hero-step-element {
+    position: absolute; width: 90%; max-width: 1200px; text-align: center;
+    opacity: 0; transform: translateY(50px); visibility: hidden;
+}
+/* Стартовый логотип SpaceX (Фирменный стиль) */
+.spacex-logo-text {
+    font-size: 11vw; font-weight: 300; letter-spacing: 12px; color: #fff;
+    text-transform: uppercase; display: inline-block; line-height: 1;
+}
+/* Идентичность Брокера */
+.broker-title {
+    font-size: 5vw; font-weight: 400; letter-spacing: 2px; color: #fff; text-transform: uppercase;
+}
+.broker-title .ltd { font-weight: 300; color: #666; }
 
-/* Секция графиков */
+/* Анонс даты */
+.event-announcement .event-tag {
+    font-size: 1rem; letter-spacing: 4px; color: #666; display: block; margin-bottom: 1rem;
+}
+.event-announcement h2 {
+    font-size: 8vw; font-weight: 400; letter-spacing: -2px; line-height: 1; margin-bottom: 1.5rem; color: #fff;
+}
+.event-date {
+    font-size: 3rem; font-weight: 300; letter-spacing: 6px; color: #fff; border-top: 1px solid rgba(255,255,255,0.1); display: inline-block; padding-top: 1.5rem;
+}
+
+/* ==========================================================================
+   НОВАЯ VALUATION SCRUB СЕКЦИЯ (5 ЧАСТЕЙ ТЕКСТА)
+   ========================================================================== */
+.valuation-scrub { position: relative; width: 100%; background-color: #0A0C0B; overflow: hidden; }
+.valuation-wrapper { display: flex; width: 100%; max-width: 1200px; margin: 0 auto; height: 100vh; align-items: center; position: relative; padding: 0 2rem; }
+.valuation-info-container { position: relative; width: 100%; height: 100%; display: flex; align-items: center; }
+.val-step { position: absolute; width: 100%; opacity: 0; transform: translateY(40px); visibility: hidden; }
+
+.val-number { font-size: 0.85rem; letter-spacing: 3px; color: #555; display: block; margin-bottom: 2rem; }
+.val-step h3 { font-size: 4vw; font-weight: 400; text-transform: uppercase; margin-bottom: 1.5rem; color: #fff; letter-spacing: -1px; }
+.val-text { font-size: 2.8vw; line-height: 1.4; font-weight: 300; color: #ccc; max-width: 1000px; }
+.val-text-large { font-size: 3.5vw; line-height: 1.3; font-weight: 300; color: #fff; margin-bottom: 3rem; }
+
+/* Сетка чистых логотипов в конце скруб-блока оценки */
+.defense-primes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; width: 100%; }
+.prime-logo-card {
+    background: #111; height: 70px; display: flex; align-items: center; justify-content: center;
+    border: 1px solid rgba(255,255,255,0.03); color: #fff; font-size: 0.8rem; font-weight: 700; letter-spacing: 2px; opacity: 0.4;
+}
+
+/* ==========================================================================
+   ЧБ СТИЛЬ ДЛЯ ГРАФИКОВ CHART.JS
+   ========================================================================== */
 .charts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
-.chart-box { background: #0d0f0e; padding: 2.5rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.02); }
+.chart-box { background: #0d0f0e; padding: 2.5rem; border-radius: 4px; border: 1px solid rgba(255,255,255,0.02); }
 .chart-box h4 { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; color: #fff; }
-.chart-highlight { font-size: 0.9rem; color: #666; margin-bottom: 2rem; }
+.chart-highlight { font-size: 0.9rem; color: #555; margin-bottom: 2rem; }
 .canvas-wrapper { position: relative; width: 100%; height: 240px; }
 
 /* ==========================================================================
-   ИНТЕРАКТИВНЫЙ SCRUB-БЛОК (РАКЕТА И СКРОЛЛ ТЕКСТА)
+   ИНТЕРАКТИВНЫЙ SCRUB-БЛОК (РАКЕТА СПРАВА)
    ========================================================================== */
 .starship-interactive { position: relative; width: 100%; background-color: #050606; overflow: hidden; }
 .interactive-wrapper { display: flex; width: 100%; max-width: 1400px; margin: 0 auto; height: 100vh; position: relative; }
-
-/* Левая сторона с контентом */
 .info-scroll-container { width: 50%; height: 100%; position: relative; display: flex; align-items: center; padding-left: 4rem; padding-right: 2rem; }
 .info-step { position: absolute; width: 85%; opacity: 0; transform: translateY(60px); visibility: hidden; }
 
 .info-step .step-number { font-size: 0.85rem; letter-spacing: 3px; color: #555; display: block; margin-bottom: 1.5rem; }
 .info-step h2 { font-size: 5vw; font-weight: 400; line-height: 0.95; text-transform: uppercase; letter-spacing: -2px; margin-bottom: 0.5rem; color: #fff; }
-.info-step .subtitle-caps { font-size: 1rem; letter-spacing: 1px; color: #888; margin-bottom: 3rem; text-transform: uppercase; }
+.info-step .subtitle-caps { font-size: 1rem; letter-spacing: 1px; color: #666; margin-bottom: 3rem; text-transform: uppercase; }
 
 .spec-meta { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 2rem; display: flex; flex-direction: column; gap: 1.2rem; }
 .meta-line { font-size: 1.05rem; line-height: 1.5; color: #999; }
 .meta-line strong { color: #fff; font-weight: 500; }
 
-/* Правая фиксированная часть с большой ракетой */
 .sticky-rocket-container { width: 50%; height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; }
 .rocket-matrix { width: 100%; height: 90vh; display: flex; justify-content: center; align-items: center; position: relative; }
 .starship-svg-monochrome { height: 115%; width: auto; opacity: 0.85; }
 
-/* ========================================================================== */
-
-/* Области применения и ЧБ иконки */
+/* Применения и ЧБ Иконки */
 .applications-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; margin-top: 2rem; }
 .app-card { text-align: center; padding: 3rem 2rem; background: #0d0f0e; border-radius: 4px; border: 1px solid rgba(255,255,255,0.02); }
-.app-icon-wrapper { width: 70px; height: 70px; margin: 0 auto 2rem auto; display: flex; align-items: center; justify-content: center; }
-
-/* Наш фильтр, превращающий цветной SVG в чистый элегантный монохром */
-.svg-icon-blackwhite {
-    width: 100%; height: 100%; object-fit: contain;
-    filter: brightness(0) invert(1) opacity(0.7); /* Делает иконку бело-серой */
-    transition: filter 0.3s;
-}
+.app-icon-wrapper { width: 60px; height: 60px; margin: 0 auto 2rem auto; display: flex; align-items: center; justify-content: center; }
+.svg-icon-blackwhite { width: 100%; height: 100%; object-fit: contain; filter: brightness(0) invert(1) opacity(0.5); transition: filter 0.3s; }
 .app-card:hover .svg-icon-blackwhite { filter: brightness(0) invert(1) opacity(1); }
 .app-card h5 { font-size: 1.2rem; margin-bottom: 0.7rem; font-weight: 400; color: #fff; }
 .app-card p { font-size: 0.95rem; color: #666; line-height: 1.5; }
 
-/* История (Таймлайн) */
+/* Таймлайн */
 .timeline { display: flex; flex-direction: column; gap: 3rem; border-left: 1px solid rgba(255,255,255,0.08); padding-left: 3rem; margin-left: 1rem; }
 .timeline-item { position: relative; }
 .timeline-item::before { content: ''; position: absolute; left: -3.35rem; top: 8px; width: 8px; height: 8px; background: #fff; border-radius: 50%; }
 .timeline-item .year { font-size: 1.8rem; font-weight: 500; color: #fff; margin-bottom: 0.5rem; }
 .timeline-item .event { font-size: 1.1rem; color: #888; line-height: 1.5; max-width: 650px; }
 
-/* Ландшафт рынка акций */
+/* Сетка рынка */
 .market-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; margin-top: 4rem; }
 .market-category { background: #121413; padding: 3rem; border-radius: 4px; border: 1px solid rgba(255,255,255,0.03); }
 .market-category h3 { font-size: 1.1rem; color: #fff; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 1rem; }
@@ -111,25 +148,45 @@ html.lenis { height: auto; }
 .market-category li { margin-bottom: 1rem; font-size: 1.05rem; color: #777; display: flex; align-items: center; }
 .market-category li strong { color: #fff; width: 60px; display: inline-block; font-weight: 500; }
 
-/* Подвал */
 .footer { height: 80vh; display: flex; flex-direction: column; align-items: center; justify-content: center; }
 .footer h2 { font-size: 8vw; font-weight: 400; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: -1px; }
 .footer p { color: #555; letter-spacing: 2px; font-size: 0.85rem; }
 
-/* Адаптивность для мобильных экранов */
+/* ==========================================================================
+   АДАПТИВНАЯ МОБИЛЬНАЯ ОПТИМИЗАЦИЯ (ОТКЛЮЧЕНИЕ ОСЕЙ ФИКСАЦИИ НА ТЕЛЕФОНАХ)
+   ========================================================================== */
 @media (max-width: 920px) {
-    .charts-grid { grid-template-columns: 1fr; gap: 2rem; }
-    .interactive-wrapper { flex-direction: column; height: auto; }
-    .info-scroll-container { width: 100%; height: auto; padding: 6rem 2rem 2rem 2rem; }
-    .info-step { position: relative; width: 100%; opacity: 1 !important; transform: none !important; visibility: visible !important; margin-bottom: 4rem; }
-    .sticky-rocket-container { width: 100%; height: 60vh; }
-    .starship-svg-monochrome { height: 90%; }
-    .large-text { font-size: 5vw; }
-    .section-title { font-size: 7vw; }
-}
-@media (max-width: 768px) {
     .section-padding { padding: 6rem 1.5rem; }
-    .hero-text h1 { font-size: 20vw; }
+    .charts-grid { grid-template-columns: 1fr; gap: 2rem; }
+    
+    /* Перевод Hero-блока в читаемый мобильный поток */
+    .hero-pinned { height: auto; padding: 8rem 1.5rem 4rem 1.5rem; }
+    .hero-trigger-content { flex-direction: column; height: auto; gap: 4rem; }
+    .hero-step-element { position: relative; width: 100%; opacity: 1 !important; transform: none !important; visibility: visible !important; }
+    .spacex-logo-text { font-size: 14vw; }
+    .broker-title { font-size: 8vw; }
+    .event-announcement h2 { font-size: 12vw; }
+    .event-date { font-size: 2.2rem; }
+
+    /* Перевод Scrub-оценки в мобильный поток */
+    .valuation-scrub { height: auto; }
+    .valuation-wrapper { height: auto; padding: 6rem 1.5rem; }
+    .valuation-info-container { flex-direction: column; height: auto; }
+    .val-step { position: relative; width: 100%; opacity: 1 !important; transform: none !important; visibility: visible !important; margin-bottom: 5rem; }
+    .val-step:last-child { margin-bottom: 0; }
+    .val-text { font-size: 1.3rem; }
+    .val-text-large { font-size: 1.6rem; }
+    .val-step h3 { font-size: 2rem; }
+
+    /* Перевод интерактивной ракеты в мобильный поток */
+    .interactive-wrapper { flex-direction: column; height: auto; }
+    .info-scroll-container { width: 100%; height: auto; padding: 4rem 1.5rem 1rem 1.5rem; }
+    .info-step { position: relative; width: 100%; opacity: 1 !important; transform: none !important; visibility: visible !important; margin-bottom: 4rem; }
+    .info-step h2 { font-size: 3rem; }
+    .sticky-rocket-container { width: 100%; height: 50vh; }
+    .starship-svg-monochrome { height: 95%; }
+
+    .section-title { font-size: 2.5rem; }
     .timeline { padding-left: 1.5rem; }
     .timeline-item::before { left: -1.85rem; }
 }
