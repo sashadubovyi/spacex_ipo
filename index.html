@@ -30,93 +30,124 @@
                     <p class="large-text reveal-text">
                         При оценке в $800 миллиардов капитализация SpaceX (Private) превышает совокупную рыночную стоимость 6 крупнейших оборонных подрядчиков США ($709 млрд).
                     </p>
+                    
                     <div class="defense-primes">
-                        <div class="prime-item">RTX</div>
-                        <div class="prime-item">Boeing</div>
-                        <div class="prime-item">Lockheed Martin</div>
-                        <div class="prime-item">General Dynamics</div>
-                        <div class="prime-item">Northrop Grumman</div>
-                        <div class="prime-item">L3Harris</div>
+                        <div class="prime-item-box"><span class="logo-stub">RTX</span></div>
+                        <div class="prime-item-box"><span class="logo-stub">BOEING</span></div>
+                        <div class="prime-item-box"><span class="logo-stub">LOCKHEED MARTIN</span></div>
+                        <div class="prime-item-box"><span class="logo-stub">GENERAL DYNAMICS</span></div>
+                        <div class="prime-item-box"><span class="logo-stub">NORTHROP GRUMMAN</span></div>
+                        <div class="prime-item-box"><span class="logo-stub">L3HARRIS</span></div>
                     </div>
                     <p class="footnote">Данные на 05.12.2025. Источник: FactSet, Morgan Stanley Research.</p>
                 </div>
             </section>
 
-            <section class="timeline-section section-padding dark-bg">
+            <section class="starship-section section-padding dark-bg">
+                <div class="container">
+                    <h2 class="section-title reveal-text">STARSHIP: Смена Парадигмы</h2>
+                    <p class="subtitle reveal-text">Полностью многоразовая система. Квантовый скачок в возможностях выведения.</p>
+
+                    <div class="starship-grid">
+                        
+                        <div class="rocket-specs">
+                            <div class="spec-block" data-speed="0.8">
+                                <h3>STARSHIP (Вторая ступень)</h3>
+                                <p>Версии S24/S25. Полностью и быстро многоразовая архитектура.</p>
+                                <span class="highlight">6x Двигателей Raptor</span>
+                                <p class="desc">Эффективное движение в вакууме: 3x Raptor Vacuum, 3x Raptor.</p>
+                            </div>
+
+                            <div class="rocket-vector-container" data-speed="1.1">
+                                <svg class="rocket-svg" viewBox="0 0 100 500" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M45,450 L55,450 L55,150 L50,100 L45,150 Z" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
+                                    <line x1="35" y1="450" x2="65" y2="450" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
+                                    <path d="M40,160 L45,165 M60,160 L55,165" stroke="#fff" stroke-width="1.5"/>
+                                    <text x="50" y="480" fill="#888" font-size="10" text-anchor="middle">FALCON 9 СИЛУЭТ</text>
+                                </svg>
+                            </div>
+
+                            <div class="spec-block" data-speed="0.9">
+                                <h3>SUPER HEAVY (Первая ступень)</h3>
+                                <p>Бустер версий B7/B10. Полностью многоразовый.</p>
+                                <span class="highlight">33x Двигателя Raptor</span>
+                                <p class="desc">Колоссальная тяга при старте. Решетчатые рули (Grid Fins) из титана для точного управления при возврате.</p>
+                            </div>
+                        </div>
+
+                        <div class="charts-container">
+                            <div class="chart-box">
+                                <h4>Полезная нагрузка на НОО (LEO), тонн</h4>
+                                <p class="chart-highlight">Starship = ~7X мощности Falcon 9</p>
+                                <div class="canvas-wrapper">
+                                    <canvas id="payloadChart"></canvas>
+                                </div>
+                            </div>
+
+                            <div class="chart-box">
+                                <h4>Стоимость одного запуска, $ млн</h4>
+                                <p class="chart-highlight">Цель: снижение стоимости до $2M - $10M</p>
+                                <div class="canvas-wrapper">
+                                    <canvas id="costChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="applications-grid">
+                        <div class="app-card">
+                            <div class="app-icon">📡</div>
+                            <h5>Развертывание спутников</h5>
+                            <p>Глобальное покрытие сети Starlink нового поколения.</p>
+                        </div>
+                        <div class="app-card">
+                            <div class="app-icon">🌙</div>
+                            <h5>Луна и глубокий космос</h5>
+                            <p>Исследовательские миссии и высадка на лунную поверхность.</p>
+                        </div>
+                        <div class="app-card">
+                            <div class="app-icon">🚀</div>
+                            <h5>Колонизация Марса</h5>
+                            <p>Обеспечение статуса мультипланетарного человечества.</p>
+                        </div>
+                        <div class="app-card">
+                            <div class="app-icon">✈️</div>
+                            <h5>Грузы и пассажиры</h5>
+                            <p>Сверхбыстрая транспортировка по всей Земле.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="timeline-section section-padding">
                 <div class="container">
                     <h2 class="section-title reveal-text">Восхождение SpaceX</h2>
                     <p class="subtitle reveal-text">Ключевые моменты на пути к 400+ запускам и выручке более $10 млрд.</p>
                     
                     <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="year">2002</div>
-                            <div class="event">Основание Space Exploration Technologies. Первый неудачный запуск.</div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="year">2006</div>
-                            <div class="event">Получение контракта NASA на программу COTS.</div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="year">2007</div>
-                            <div class="event">Вторая попытка запуска.</div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="year">2008</div>
-                            <div class="event">Контракт с NASA на $1.6 млрд. Первый успешный запуск Falcon 1 (с 4-й попытки).</div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="year">2010</div>
-                            <div class="event">Первый запуск Falcon 9.</div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="year">2012</div>
-                            <div class="event">Корабль Dragon достигает МКС — первый коммерческий аппарат в истории.</div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="year">2014</div>
-                            <div class="event">Оценка SpaceX достигает $12 млрд.</div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="year">2015</div>
-                            <div class="event">Первая успешная посадка первой ступени Falcon 9.</div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="year">2018</div>
-                            <div class="event">Запуски Falcon 9 Block 5 и Falcon Heavy.</div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="year">2019</div>
-                            <div class="event">Первые операционные запуски спутников Starlink.</div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="year">2020</div>
-                            <div class="event">Доставка астронавтов на МКС — первая коммерческая компания.</div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="year">2021</div>
-                            <div class="event">Пройден рубеж в 100 успешных запусков. Оценка достигает $100 млрд.</div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="year">2023</div>
-                            <div class="event">Первый тест Starship. Starlink превышает 2 млн абонентов. Оценка: $180 млрд.</div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="year">2024</div>
-                            <div class="event">133 успешных запуска за год (рост в 10 раз за 5 лет). Starlink > 4 млн абонентов. Оценка: $350 млрд.</div>
-                        </div>
+                        <div class="timeline-item"><div class="year">2002</div><div class="event">Основание Space Exploration Technologies. Первый неудачный запуск.</div></div>
+                        <div class="timeline-item"><div class="year">2006</div><div class="event">Получение контракта NASA на программу COTS.</div></div>
+                        <div class="timeline-item"><div class="year">2007</div><div class="event">Вторая попытка запуска.</div></div>
+                        <div class="timeline-item"><div class="year">2008</div><div class="event">Контракт с NASA на $1.6 млрд. Первый успешный запуск Falcon 1 (с 4-й попытки).</div></div>
+                        <div class="timeline-item"><div class="year">2010</div><div class="event">Первый запуск Falcon 9.</div></div>
+                        <div class="timeline-item"><div class="year">2012</div><div class="event">Корабль Dragon достигает МКС — первый коммерческий аппарат в истории.</div></div>
+                        <div class="timeline-item"><div class="year">2014</div><div class="event">Оценка SpaceX достигает $12 млрд.</div></div>
+                        <div class="timeline-item"><div class="year">2015</div><div class="event">Первая успешная посадка первой ступени Falcon 9.</div></div>
+                        <div class="timeline-item"><div class="year">2018</div><div class="event">Запуски Falcon 9 Block 5 и Falcon Heavy.</div></div>
+                        <div class="timeline-item"><div class="year">2019</div><div class="event">Первые операционные запуски спутников Starlink.</div></div>
+                        <div class="timeline-item"><div class="year">2020</div><div class="event">Доставка астронавтов на МКС — первая коммерческая компания.</div></div>
+                        <div class="timeline-item"><div class="year">2021</div><div class="event">Пройден рубеж в 100 успешных запусков. Оценка достигает $100 млрд.</div></div>
+                        <div class="timeline-item"><div class="year">2023</div><div class="event">Первый тест Starship. Starlink превышает 2 млн абонентов. Оценка: $180 млрд.</div></div>
+                        <div class="timeline-item"><div class="year">2024</div><div class="event">133 успешных запуска за год (рост в 10 раз за 5 лет). Starlink > 4 млн абонентов. Оценка: $350 млрд.</div></div>
                     </div>
                 </div>
             </section>
 
-            <section class="parallax-gallery">
-                <div class="gallery-item" data-speed="0.9">
-                    <img src="https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?q=80&w=2070&auto=format&fit=crop" alt="Space">
-                </div>
-            </section>
-
-            <section class="market-landscape section-padding">
+            <section class="market-landscape section-padding dark-bg">
                 <div class="container">
-                    <h2 class="section-title reveal-text">Когда ИИ встречает Космос: Где следующая космическая акция?</h2>
+                    <h2 class="section-title reveal-text">Где следующая космическая акция?</h2>
                     
                     <div class="market-grid">
                         <div class="market-category">
@@ -126,7 +157,6 @@
                                 <li><strong>SPCE</strong> Virgin Galactic</li>
                             </ul>
                         </div>
-                        
                         <div class="market-category">
                             <h3>Orbital Infrastructure & Services</h3>
                             <ul>
@@ -137,7 +167,6 @@
                                 <li><strong>LUNR</strong> Intuitive Machines</li>
                             </ul>
                         </div>
-
                         <div class="market-category">
                             <h3>Satellite Communications</h3>
                             <ul>
@@ -146,7 +175,6 @@
                                 <li><strong>SATS</strong> Echostar</li>
                             </ul>
                         </div>
-
                         <div class="market-category">
                             <h3>Earth Observation & Imaging</h3>
                             <ul>
@@ -167,6 +195,7 @@
         </div>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
