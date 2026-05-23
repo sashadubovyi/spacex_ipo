@@ -74,14 +74,17 @@ const monochromeOptions = {
     scales: {
         y: {
             grid: { color: 'rgba(255,255,255,0.03)' },
-            ticks: { color: '#444', font: { size: 10, family: 'Space Mono' } }
+            ticks: { color: '#444', font: { size: 10 } },
+            beginAtZero: true,
         },
         x: {
             grid: { display: false },
-            ticks: { color: '#888', font: { size: 10, family: 'Space Mono' } }
+            ticks: { color: '#888', font: { size: 10 } }
         }
     },
-    animation: { duration: 0 }
+    animation: {
+        duration: 0  // отключено по умолчанию, запустим вручную
+    }
 };
 
 const payloadChart = new Chart(
@@ -91,7 +94,7 @@ const payloadChart = new Chart(
         data: {
             labels: ['FALCON 9', 'STARSHIP'],
             datasets: [{
-                data: [22.8, 150],
+                data: [0, 0],  // старт с нуля
                 backgroundColor: ['rgba(255,255,255,0.1)', 'rgba(255,255,255,0.85)'],
                 borderColor: ['rgba(139,191,255,0.2)', 'rgba(255,255,255,0.3)'],
                 borderWidth: 1,
@@ -109,7 +112,7 @@ const costChart = new Chart(
         data: {
             labels: ['FALCON 9', 'STARSHIP'],
             datasets: [{
-                data: [67, 10],
+                data: [0, 0],  // старт с нуля
                 backgroundColor: ['rgba(255,255,255,0.7)', 'rgba(139,191,255,0.3)'],
                 borderColor: ['rgba(255,255,255,0.3)', 'rgba(139,191,255,0.4)'],
                 borderWidth: 1,
@@ -120,16 +123,39 @@ const costChart = new Chart(
     }
 );
 
-// Запускаем анимацию графиков при первом появлении
+// Запускаем анимацию при скролле: GSAP меняет данные от 0 до целевых значений
+const payloadTarget = [22.8, 150];
+const costTarget    = [67, 10];
+
 ScrollTrigger.create({
     trigger: ".paradigm-charts",
     start: "top 80%",
     once: true,
     onEnter: () => {
-        payloadChart.options.animation.duration = 1400;
-        costChart.options.animation.duration = 1400;
-        payloadChart.update();
-        costChart.update();
+        // Анимируем через GSAP proxy-объект
+        const payloadProxy = { v0: 0, v1: 0 };
+        gsap.to(payloadProxy, {
+            v0: payloadTarget[0],
+            v1: payloadTarget[1],
+            duration: 1.6,
+            ease: "expo.out",
+            onUpdate: () => {
+                payloadChart.data.datasets[0].data = [payloadProxy.v0, payloadProxy.v1];
+                payloadChart.update('none');
+            }
+        });
+
+        const costProxy = { v0: 0, v1: 0 };
+        gsap.to(costProxy, {
+            v0: costTarget[0],
+            v1: costTarget[1],
+            duration: 1.6,
+            ease: "expo.out",
+            onUpdate: () => {
+                costChart.data.datasets[0].data = [costProxy.v0, costProxy.v1];
+                costChart.update('none');
+            }
+        });
     }
 });
 
