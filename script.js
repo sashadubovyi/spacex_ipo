@@ -35,8 +35,8 @@ menuBtn.addEventListener('click', () => {
     }
 });
 
-// Close on link click
-document.querySelectorAll('.menu-link').forEach(link => {
+// Close on link click (only internal anchors)
+document.querySelectorAll('.menu-link:not(.menu-link-external)').forEach(link => {
     link.addEventListener('click', () => {
         menuOverlay.classList.remove('is-open');
         navbar.classList.remove('menu-open');
