@@ -4,390 +4,607 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SPACEX IPO | OTKRITIE LTD</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Barlow+Condensed:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">OTKRITIE BROKER</div>
-        <div class="menu">MENU</div>
+
+    <!-- НАВИГАЦИЯ -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-logo">
+            <img src="img/otkritie.png" alt="Otkritie Broker" class="nav-logo-img">
+        </div>
+        <button class="menu-btn" id="menuBtn" aria-label="Menu">
+            <span>MENU</span>
+            <div class="burger">
+                <span></span><span></span>
+            </div>
+        </button>
     </nav>
 
-    <main id="smooth-wrapper">
-        <div id="smooth-content">
-            
-            <section class="hero-pinned" id="heroSection">
-                <div class="hero-bg-wrapper">
-                    <img src="https://images.unsplash.com/photo-1517976487492-5750f3195933?q=80&w=2070&auto=format&fit=crop" alt="SpaceX Rocket">
-                </div>
-                
-                <div class="hero-trigger-content">
-                    <div class="hero-step-element active-step" id="heroLogoSpaceX">
-                        <img src="https://cdn.freebiesupply.com/logos/large/2x/spacex-logo-black-and-white.png" alt="SpaceX" class="hero-logo-img">
-                    </div>
-
-                    <div class="hero-step-element" id="heroLogoBroker">
-                        <div class="broker-identity">
-                            <img src="https://letmoney.ru/media/images/logo_UXkZtkL.original.png" alt="Otkritie Broker" class="broker-logo-img">
-                        </div>
-                    </div>
-
-                    <div class="hero-step-element" id="heroEventData">
-                        <div class="event-announcement">
-                            <span class="event-tag">ГРЕДУЩЕЕ СОБЫТИЕ</span>
-                            <h2>IPO SPACEX</h2>
-                            <div class="event-date">12 ИЮНЯ 2026</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="valuation-scrub" id="valuationScrubSection">
-                <div class="valuation-wrapper">
-                    <div class="valuation-info-container">
-                        
-                        <div class="val-step" id="valStep1">
-                            <span class="val-number">01 / МАСШТАБ</span>
-                            <p class="val-text">
-                                SpaceX — это больше не просто аэрокосмическая компания. Сегодня это вертикально-интегрированный технологический конгломерат, который фактически монополизировал доступ к околоземной орбите и формирует фундамент для экономики будущего стоимостью $1.1 трлн к 2040 году.
-                            </p>
-                        </div>
-
-                        <div class="val-step" id="valStep2">
-                            <span class="val-number">02 / ТЕЛЕКОММУНИКАЦИИ</span>
-                            <h3>STARLINK</h3>
-                            <p class="val-text">
-                                Первая в мире глобальная высокоскоростная сеть, имеющая более 10,000 спутников на орбите. Это не просто интернет, а магистраль для передачи данных нового поколения, обеспечивающая связность в любой точке планеты, включая авиацию, морской флот и военный сектор (Starshield).
-                            </p>
-                        </div>
-
-                        <div class="val-step" id="valStep3">
-                            <span class="val-number">03 / ТРАНСПОРТНАЯ СИСТЕМА</span>
-                            <h3>STARSHIP</h3>
-                            <p class="val-text">
-                                Самая мощная ракетная система в истории человечества, находящаяся в шаге от полной готовности. Её цель — радикальное снижение стоимости доставки грузов на орбиту (в 100 раз) и обеспечение межпланетной логистики. Starship — это "грузовой корабль", который сделает Луну и Марс частью нашей экономики.
-                            </p>
-                        </div>
-
-                        <div class="val-step" id="valStep4">
-                            <span class="val-number">04 / ЭКОСИСТЕМА</span>
-                            <h3>СИНЕРГИЯ ИННОВАЦИЙ</h3>
-                            <p class="val-text">
-                                SpaceX объединяет транспорт (Falcon/Starship), телеком (Starlink) и ИИ (синергия с xAI), создавая замкнутый цикл инноваций, защищенный непревзойденными технологическими барьерами.
-                            </p>
-                        </div>
-
-                        <div class="val-step" id="valStep5">
-                            <span class="val-number">05 / КАПИТАЛИЗАЦИЯ</span>
-                            <p class="val-text-large">
-                                При оценке в $800 миллиардов капитализация SpaceX (Private) превышает совокупную рыночную стоимость 6 крупнейших оборонных подрядчиков США ($709 млрд).
-                            </p>
-                            
-                            <div class="defense-primes-grid">
-                                <div class="prime-logo-card"><img src="https://companieslogo.com/img/orig/RTX_BIG.D-e27330eb.png?t=1720880000" alt="RTX"></div>
-                                <div class="prime-logo-card"><img src="https://pngimg.com/uploads/boeing/boeing_PNG6.png" alt="BOEING" class="invert-filter"></div>
-                                <div class="prime-logo-card"><img src="https://www.cloudfoundry.org/wp-content/uploads/2017/12/lockheed-martin.png" alt="LOCKHEED MARTIN"></div>
-                                <div class="prime-logo-card"><img src="https://companieslogo.com/img/orig/GD.D-18841bdb.png?t=1720244492" alt="GENERAL DYNAMICS"></div>
-                                <div class="prime-logo-card"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Northrop_Grumman_logo_white-on-clear.svg/1280px-Northrop_Grumman_logo_white-on-clear.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail" alt="NORTHROP GRUMMAN"></div>
-                                <div class="prime-logo-card"><img src="https://companieslogo.com/img/orig/LHX_BIG.D-dcbc833f.png?t=1720244492" alt="L3HARRIS"></div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </section>
-
-            <section class="paradigm-charts section-padding dark-bg">
-                <div class="container smooth-reveal">
-                    <h2 class="section-title">Квантовый скачок возможностей</h2>
-                    <p class="subtitle">Сравнение характеристик Falcon 9 и новой архитектуры Starship.</p>
-                    
-                    <div class="charts-grid">
-                        <div class="chart-box">
-                            <h4>Полезная нагрузка на LEO, тонн</h4>
-                            <p class="chart-highlight">Starship = ~7X полезной нагрузки Falcon 9</p>
-                            <div class="canvas-wrapper"><canvas id="payloadChart"></canvas></div>
-                        </div>
-                        <div class="chart-box">
-                            <h4>Стоимость одного запуска, $ млн</h4>
-                            <p class="chart-highlight">Целевой ориентир: снижение стоимости до $2M - $10M</p>
-                            <div class="canvas-wrapper"><canvas id="costChart"></canvas></div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="starship-interactive" id="starshipScrubSection">
-                <div class="interactive-wrapper">
-                    <div class="info-scroll-container">
-                        <div class="info-step" id="step1">
-                            <span class="step-number">01 / ВТОРАЯ СТУПЕНЬ</span>
-                            <h2>STARSHIP</h2>
-                            <p class="subtitle-caps">Корабль (Версии S24/S25)</p>
-                            <div class="spec-meta">
-                                <div class="meta-line"><strong>Концепция:</strong> Полностью и быстро многоразовый дизайн.</div>
-                                <div class="meta-line"><strong>Двигатели:</strong> 6x двигателей Raptor, обеспечивающих эффективное движение в космическом вакууме.</div>
-                            </div>
-                        </div>
-                        <div class="info-step" id="step2">
-                            <span class="step-number">02 / ПЕРВАЯ СТУПЕНЬ</span>
-                            <h2>SUPER HEAVY</h2>
-                            <p class="subtitle-caps">Ракета-носитель (Версии B7/B10)</p>
-                            <div class="spec-meta">
-                                <div class="meta-line"><strong>Силовая установка:</strong> 33x двигателя Raptor, создающих беспрецедентную тягу на старте.</div>
-                                <div class="meta-line"><strong>Управление:</strong> Решетчатые рули из высокопрочного титана.</div>
-                            </div>
-                        </div>
-                        <div class="info-step" id="step3">
-                            <span class="step-number">03 / ТЕХНОЛОГИИ</span>
-                            <h2>RAPTOR ENGINES</h2>
-                            <p class="subtitle-caps">Двигатели нового поколения</p>
-                            <div class="spec-meta">
-                                <div class="meta-line"><strong>Инновация:</strong> Работает на жидком метане (CH4) и жидком кислороде (LOX).</div>
-                                <div class="meta-line"><strong>Давление:</strong> Рекордное давление в камере сгорания.</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="sticky-rocket-container">
-                        <div class="rocket-matrix">
-                            <svg class="starship-svg-monochrome" viewBox="0 0 100 800" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M46 40 C48 20, 52 20, 54 40 L56 220 L57 450 L57 760 L43 760 L43 450 L44 220 Z" stroke="rgba(255,255,255,0.9)" stroke-width="1.2" />
-                                <line x1="44" y1="220" x2="56" y2="220" stroke="rgba(255,255,255,0.3)" stroke-width="2" />
-                                <path d="M44 70 L34 100 L44 130 Z" stroke="rgba(255,255,255,0.9)" stroke-width="1.2" fill="rgba(255,255,255,0.05)" />
-                                <path d="M56 70 L66 100 L56 130 Z" stroke="rgba(255,255,255,0.9)" stroke-width="1.2" fill="rgba(255,255,255,0.05)" />
-                                <path d="M43 690 L30 750 L43 750 Z" stroke="rgba(255,255,255,0.4)" stroke-width="1.2" />
-                                <path d="M57 690 L70 750 L57 750 Z" stroke="rgba(255,255,255,0.4)" stroke-width="1.2" />
-                                <line x1="44" y1="764" x2="56" y2="764" stroke="#fff" stroke-width="2" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="mission-apps section-padding dark-bg">
-                <div class="container smooth-reveal">
-                    <h2 class="section-title">Области применения миссий</h2>
-                    <div class="applications-grid">
-                        <div class="app-card">
-                            <h5>Развертывание спутников</h5>
-                            <p>Обеспечение глобального покрытия высокоскоростной сети Starlink нового поколения.</p>
-                        </div>
-                        <div class="app-card">
-                            <h5>Луна и глубокий космос</h5>
-                            <p>Исследовательские правительственные миссии и высадка экипажа на лунную поверхность.</p>
-                        </div>
-                        <div class="app-card">
-                            <h5>Колонизация Марса</h5>
-                            <p>Транспортировка тяжелых грузов для создания независимого мультипланетарного общества.</p>
-                        </div>
-                        <div class="app-card">
-                            <h5>Грузы и пассажиры</h5>
-                            <p>Сверхбыстрая суборбитальная транспортировка в любую точку Земли за считанные минуты.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="timeline-interactive-scrub" id="timelineScrubSection">
-                <div class="timeline-scrub-wrapper">
-                    <div class="timeline-center-axis"><div class="axis-glow-dot"></div></div>
-                    <div class="timeline-cards-container">
-                        <div class="tl-scrub-step" id="tlStep2002">
-                            <div class="tl-side-box left-side"><span class="tl-year">2002</span></div>
-                            <div class="tl-side-box right-side"><p class="tl-desc">Основание SpaceX. Старт амбициозной программы разработки многоразовых ракет.</p></div>
-                        </div>
-                        <div class="tl-scrub-step" id="tlStep2008">
-                            <div class="tl-side-box left-side"><span class="tl-year">2008</span></div>
-                            <div class="tl-side-box right-side"><p class="tl-desc">Первый успешный частный орбитальный запуск Falcon 1 и первый контракт с NASA.</p></div>
-                        </div>
-                        <div class="tl-scrub-step" id="tlStep2015">
-                            <div class="tl-side-box left-side"><span class="tl-year">2015</span></div>
-                            <div class="tl-side-box right-side"><p class="tl-desc">Историческая первая вертикальная посадка первой ступени Falcon 9 на землю.</p></div>
-                        </div>
-                        <div class="tl-scrub-step" id="tlStep2020">
-                            <div class="tl-side-box left-side"><span class="tl-year">2020</span></div>
-                            <div class="tl-side-box right-side"><p class="tl-desc">Первый в истории запуск астронавтов на МКС на частном корабле Crew Dragon.</p></div>
-                        </div>
-                        <div class="tl-scrub-step" id="tlStep2024">
-                            <div class="tl-side-box left-side"><span class="tl-year">2024</span></div>
-                            <div class="tl-side-box right-side"><p class="tl-desc">Мировой рекорд пусков за год (133 полета). Оценка компании достигает $350 млрд.</p></div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="market-landscape section-padding dark-bg">
-                <div class="container smooth-reveal">
-                    <h2 class="section-title">Космический ландшафт</h2>
-                    <div class="market-grid">
-                        <div class="market-category">
-                            <h3>Launch Providers</h3>
-                            <ul><li><strong>RKLB</strong> Rocket Lab</li><li><strong>SPCE</strong> Virgin Galactic</li></ul>
-                        </div>
-                        <div class="market-category">
-                            <h3>Infrastructure</h3>
-                            <ul><li><strong>RDW</strong> Redwire</li><li><li><strong>LUNR</strong> Intuitive Machines</li></ul>
-                        </div>
-                        <div class="market-category">
-                            <h3>Satellite</h3>
-                            <ul><li><strong>ASTS</strong> AST SpaceMobile</li><li><strong>VSAT</strong> Viasat</li></ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="capitalization-dynamics section-padding" id="capitalizationSection">
-                <div class="container">
-                    <h2 class="section-title">Динамика капитализации</h2>
-                    <p class="subtitle">Инвесторы IPO 2026 года входят в капитал на пике технологического прорыва.</p>
-                    
-                    <div class="metrics-timeline">
-                        <div class="metric-row">
-                            <div class="metric-label">2010 (Start)</div>
-                            <div class="metric-progress-wrapper"><div class="metric-bar" data-width="12%"><span>$1B</span></div></div>
-                        </div>
-                        <div class="metric-row">
-                            <div class="metric-label">2015 (Series G)</div>
-                            <div class="metric-progress-wrapper"><div class="metric-bar" data-width="25%"><span>$12B</span></div></div>
-                        </div>
-                        <div class="metric-row">
-                            <div class="metric-label">2020 (Falcon Re-use)</div>
-                            <div class="metric-progress-wrapper"><div class="metric-bar" data-width="45%"><span>$46B</span></div></div>
-                        </div>
-                        <div class="metric-row">
-                            <div class="metric-label">2024 (Starlink Boom)</div>
-                            <div class="metric-progress-wrapper"><div class="metric-bar" data-width="65%"><span>$350B</span></div></div>
-                        </div>
-                        <div class="metric-row highlight-row">
-                            <div class="metric-label">2026 (IPO Target)</div>
-                            <div class="metric-progress-wrapper"><div class="metric-bar target-bar" data-width="100%"><span>$800B+</span></div></div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-           <section class="revenue-structure section-padding" id="revenueSection">
-                <div class="container">
-                    <h2 class="section-title">Структура выручки (2025E)</h2>
-                    
-                    <div class="revenue-flex-container">
-                        <div class="revenue-chart-box">
-                            <div class="svg-chart-container">
-                                <svg viewBox="0 0 100 100" class="doughnut-svg">
-                                    <circle class="base-circle" cx="50" cy="50" r="40"></circle>
-                                    <circle class="segment gov-segment" cx="50" cy="50" r="40" data-percent="8"></circle>
-                                    <circle class="segment launch-segment" cx="50" cy="50" r="40" data-percent="15"></circle>
-                                    <circle class="segment starlink-segment" cx="50" cy="50" r="40" data-percent="77"></circle>
-                                </svg>
-                                <div class="chart-inner-text">
-                                    <span class="total-val">$16.0B</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="revenue-steps-container">
-                            <div class="rev-step" id="revStep1">
-                                <div class="rev-header">
-                                    <span class="dot starlink-dot"></span>
-                                    <h3>Starlink Data — 77%</h3>
-                                </div>
-                                <p>Основной драйвер капитализации конгломерата. К 2025 году Starlink превращается из стартапа в глобального телеком-гиганта. Высокомаржинальный доход от более чем 5 миллионов активных абонентов и корпоративных контрактов обеспечивает $12.3 млрд годовой выручки, формируя фундамент для межпланетных миссий.</p>
-                            </div>
-
-                            <div class="rev-step" id="revStep2">
-                                <div class="rev-header">
-                                    <span class="dot launch-dot"></span>
-                                    <h3>Launch Services — 15%</h3>
-                                </div>
-                                <p>Абсолютное доминирование на рынке запусков. Благодаря рекордному темпу полетов Falcon 9 (каждые 2.5 дня) и началу коммерческой эксплуатации Starship, SpaceX удерживает 80% мирового рынка вывода полезной нагрузки. Это приносит $2.4 млрд стабильного дохода от коммерческих заказчиков.</p>
-                            </div>
-
-                            <div class="rev-step" id="revStep3">
-                                <div class="rev-header">
-                                    <span class="dot gov-dot"></span>
-                                    <h3>Gov. Contracts — 8%</h3>
-                                </div>
-                                <p>Стратегическое партнерство с государственным сектором. Выручка в $1.3 млрд включает контракты с NASA по программе Artemis (высадка на Луну) и секретные оборонные заказы Starshield для Министерства обороны США, гарантирующие долгосрочную поддержку со стороны правительства.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="ipo-flip-section" id="ipoFlipSection">
-                <div class="flip-container">
-                    
-                    <h2 class="section-title flip-title">Спецификация IPO</h2>
-                    
-                    <div class="flip-cards-grid state-stack" id="flipCardsGrid">
-
-                        <div class="flip-card" id="fCard1">
-    <div class="card-inner-content">
-        <div class="full-content">
-            <h4>Эксклюзивный доступ</h4>
-            <p>Инвестиционная компания OTKRITIE LTD предоставляет уникальную возможность участия в первичном публичном размещении (IPO) SpaceX.</p>
+    <!-- МЕНЮ ОВЕРЛЕЙ С ЯКОРЯМИ -->
+    <div class="menu-overlay" id="menuOverlay">
+        <div class="menu-overlay-inner">
+            <nav class="menu-nav">
+                <a href="#heroSection" class="menu-link" data-num="01">
+                    <span class="menu-link-num">01</span>
+                    <span class="menu-link-text">SpaceX IPO</span>
+                </a>
+                <a href="#valuationScrubSection" class="menu-link" data-num="02">
+                    <span class="menu-link-num">02</span>
+                    <span class="menu-link-text">Масштаб компании</span>
+                </a>
+                <a href="#starshipScrubSection" class="menu-link" data-num="03">
+                    <span class="menu-link-num">03</span>
+                    <span class="menu-link-text">Starship</span>
+                </a>
+                <a href="#timelineScrubSection" class="menu-link" data-num="04">
+                    <span class="menu-link-num">04</span>
+                    <span class="menu-link-text">История</span>
+                </a>
+                <a href="#revenueSection" class="menu-link" data-num="05">
+                    <span class="menu-link-num">05</span>
+                    <span class="menu-link-text">Выручка</span>
+                </a>
+                <a href="#ipoSection" class="menu-link" data-num="06">
+                    <span class="menu-link-num">06</span>
+                    <span class="menu-link-text">Спецификация IPO</span>
+                </a>
+            </nav>
         </div>
-        <div class="short-content">OTKRITIE LTD / IPO</div>
     </div>
-</div>
-                        
-                        <div class="flip-card" id="fCard2">
-                            <div class="card-inner-content">
-                                <div class="full-content">
-                                    <h4>Дата листинга</h4>
-                                    <p>12 июня 2026. Исторический старт торгов на бирже NASDAQ.</p>
-                                </div>
-                                <div class="short-content">12.06.2026 / Листинг</div>
-                            </div>
-                        </div>
 
-                        <div class="flip-card" id="fCard3">
-                            <div class="card-inner-content">
-                                <div class="full-content">
-                                    <h4>Целевая оценка</h4>
-                                    <p>$1.75 - $2.0 Трлн. Входит в топ самых дорогих компаний планеты после поглощения xAI.</p>
-                                </div>
-                                <div class="short-content">$1.75–2.0 Трлн / Оценка</div>
-                            </div>
-                        </div>
+    <main>
 
-                        <div class="flip-card" id="fCard4">
-                            <div class="card-inner-content">
-                                <div class="full-content">
-                                    <h4>Объем размещения</h4>
-                                    <p>$75 Млрд. Абсолютный исторический рекорд на американском фондовом рынке.</p>
-                                </div>
-                                <div class="short-content">$75 Млрд / Объем</div>
-                            </div>
-                        </div>
+        <!-- ===== HERO ===== -->
+        <section class="hero-section" id="heroSection">
+            <div class="hero-bg">
+                <img src="img/hero.avif" alt="SpaceX Launch" class="hero-bg-img">
+                <div class="hero-overlay"></div>
+            </div>
 
-                        <div class="flip-card" id="fCard5">
-                            <div class="card-inner-content">
-                                <div class="full-content">
-                                    <h4>Тикер на NASDAQ</h4>
-                                    <p>SPCX</p>
-                                </div>
-                                <div class="short-content">SPCX / NASDAQ</div>
-                            </div>
-                        </div>
+            <div class="hero-content">
+                <!-- SpaceX logo - видна сразу, затухает при скролле -->
+                <div class="hero-spacex-logo" id="heroLogoSpaceX">
+                    <img src="img/spacex.png" alt="SpaceX">
+                </div>
 
+                <!-- Broker logo - появляется при скролле -->
+                <div class="hero-step-element" id="heroLogoBroker">
+                    <img src="img/otkritie.png" alt="Otkritie Broker" class="hero-broker-img">
+                </div>
+
+                <!-- Event data - появляется при скролле -->
+                <div class="hero-step-element" id="heroEventData">
+                    <div class="hero-event">
+                        <span class="hero-tag">ПРЕДСТОЯЩЕЕ <span class="accent">СОБЫТИЕ</span></span>
+                        <h1 class="hero-title">IPO <span class="accent">SPACEX</span></h1>
+                        <div class="hero-date">12 ИЮНЯ 2026</div>
+                        <div class="hero-ticker">NASDAQ: <span class="accent">SPCX</span></div>
                     </div>
                 </div>
-            </section>
+            </div>
 
-            <footer class="footer">
-                <h2>INVEST IN FUTURE</h2>
-                <p>SPACEX IPO PROSPECTUS</p>
-            </footer>
+            <div class="hero-scroll-hint">
+                <span>SCROLL</span>
+                <div class="scroll-line"></div>
+            </div>
+        </section>
 
-        </div>
+        <!-- ===== VALUATION SCRUB ===== -->
+        <section class="valuation-scrub" id="valuationScrubSection">
+            <div class="valuation-inner">
+
+                <div class="val-step" id="valStep1">
+                    <span class="val-number">01 <span class="accent">/</span> МАСШТАБ</span>
+                    <p class="val-text">
+                        SpaceX — это больше не просто аэрокосмическая компания. Сегодня это вертикально-интегрированный технологический конгломерат, который фактически монополизировал доступ к околоземной орбите и формирует фундамент для экономики будущего стоимостью <span class="accent">$1.1 трлн</span> к 2040 году.
+                    </p>
+                </div>
+
+                <div class="val-step" id="valStep2">
+                    <span class="val-number">02 <span class="accent">/</span> ТЕЛЕКОММУНИКАЦИИ</span>
+                    <h3>STARLINK</h3>
+                    <p class="val-text">
+                        Первая в мире глобальная высокоскоростная сеть с более чем <span class="accent">10,000 спутников</span> на орбите. Это не просто интернет — магистраль для передачи данных нового поколения, обеспечивающая связность в любой точке планеты, включая авиацию, морской флот и военный сектор (Starshield).
+                    </p>
+                </div>
+
+                <div class="val-step" id="valStep3">
+                    <span class="val-number">03 <span class="accent">/</span> ТРАНСПОРТНАЯ СИСТЕМА</span>
+                    <h3>STARSHIP</h3>
+                    <p class="val-text">
+                        Самая мощная ракетная система в истории человечества. Цель — радикальное снижение стоимости доставки грузов на орбиту в <span class="accent">100 раз</span> и обеспечение межпланетной логистики. Starship сделает Луну и Марс частью нашей экономики.
+                    </p>
+                </div>
+
+                <div class="val-step" id="valStep4">
+                    <span class="val-number">04 <span class="accent">/</span> ЭКОСИСТЕМА</span>
+                    <h3>СИНЕРГИЯ ИННОВАЦИЙ</h3>
+                    <p class="val-text">
+                        SpaceX объединяет транспорт (Falcon/Starship), телеком (Starlink) и ИИ (синергия с xAI), создавая замкнутый цикл инноваций, защищённый непревзойдёнными технологическими барьерами.
+                    </p>
+                </div>
+
+                <div class="val-step" id="valStep5">
+                    <span class="val-number">05 <span class="accent">/</span> КАПИТАЛИЗАЦИЯ</span>
+                    <p class="val-text-large">
+                        При оценке в <span class="accent">$800 млрд</span> капитализация SpaceX превышает совокупную рыночную стоимость 6 крупнейших оборонных подрядчиков США ($709 млрд).
+                    </p>
+                    <div class="defense-primes-grid">
+                        <div class="prime-logo-card">
+                            <img src="img/rtx.png" alt="RTX">
+                            <span>RTX</span>
+                        </div>
+                        <div class="prime-logo-card">
+                            <img src="img/ba.png" alt="Boeing">
+                            <span>BOEING</span>
+                        </div>
+                        <div class="prime-logo-card">
+                            <img src="img/lmt.png" alt="Lockheed Martin">
+                            <span>LOCKHEED</span>
+                        </div>
+                        <div class="prime-logo-card">
+                            <img src="img/gd.png" alt="General Dynamics">
+                            <span>GEN.DYN.</span>
+                        </div>
+                        <div class="prime-logo-card">
+                            <img src="img/noc.png" alt="Northrop Grumman">
+                            <span>NORTHROP</span>
+                        </div>
+                        <div class="prime-logo-card">
+                            <img src="img/l3.png" alt="L3Harris">
+                            <span>L3HARRIS</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===== CHARTS ===== -->
+        <section class="paradigm-charts section-padding dark-bg">
+            <div class="container smooth-reveal">
+                <h2 class="section-title">Квантовый скачок <span class="accent">возможностей</span></h2>
+                <p class="subtitle">Сравнение характеристик Falcon 9 и новой архитектуры Starship.</p>
+                <div class="charts-grid">
+                    <div class="chart-box">
+                        <h4>Полезная нагрузка на LEO, тонн</h4>
+                        <p class="chart-highlight">Starship = ~7X полезной нагрузки Falcon 9</p>
+                        <div class="canvas-wrapper"><canvas id="payloadChart"></canvas></div>
+                    </div>
+                    <div class="chart-box">
+                        <h4>Стоимость одного запуска, $ млн</h4>
+                        <p class="chart-highlight">Целевой ориентир: снижение стоимости до $2M–$10M</p>
+                        <div class="canvas-wrapper"><canvas id="costChart"></canvas></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== STARSHIP INTERACTIVE ===== -->
+        <section class="starship-interactive" id="starshipScrubSection">
+            <div class="starship-inner">
+
+                <div class="info-scroll-container">
+                    <div class="info-step" id="step1">
+                        <span class="step-number">01 <span class="accent">/</span> ВТОРАЯ СТУПЕНЬ</span>
+                        <h2>STARSHIP</h2>
+                        <p class="subtitle-caps">Корабль (Версии S24/S25)</p>
+                        <div class="spec-meta">
+                            <div class="meta-line"><strong>Концепция:</strong> Полностью и быстро многоразовый дизайн.</div>
+                            <div class="meta-line"><strong>Двигатели:</strong> 6× Raptor — эффективное движение в вакууме.</div>
+                            <div class="meta-line"><strong>Объём:</strong> 1,000 м³ грузового отсека.</div>
+                        </div>
+                    </div>
+                    <div class="info-step" id="step2">
+                        <span class="step-number">02 <span class="accent">/</span> ПЕРВАЯ СТУПЕНЬ</span>
+                        <h2>SUPER HEAVY</h2>
+                        <p class="subtitle-caps">Ракета-носитель (Версии B7/B10)</p>
+                        <div class="spec-meta">
+                            <div class="meta-line"><strong>Силовая установка:</strong> 33× двигателя Raptor — рекордная тяга.</div>
+                            <div class="meta-line"><strong>Управление:</strong> Решётчатые рули из высокопрочного титана.</div>
+                            <div class="meta-line"><strong>Посадка:</strong> Захват «Мехазиллой» на стартовой башне.</div>
+                        </div>
+                    </div>
+                    <div class="info-step" id="step3">
+                        <span class="step-number">03 <span class="accent">/</span> ТЕХНОЛОГИИ</span>
+                        <h2>RAPTOR ENGINES</h2>
+                        <p class="subtitle-caps">Двигатели нового поколения</p>
+                        <div class="spec-meta">
+                            <div class="meta-line"><strong>Топливо:</strong> Жидкий метан (CH4) + жидкий кислород (LOX).</div>
+                            <div class="meta-line"><strong>Давление:</strong> Рекордное давление в камере сгорания — 300+ бар.</div>
+                            <div class="meta-line"><strong>Тяга:</strong> 230+ тс на уровне моря (Raptor 3).</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sticky-rocket-container" id="rocketContainer">
+                    <svg class="starship-svg" viewBox="0 0 100 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Корпус Starship (верхняя часть) -->
+                        <path d="M46 40 C48 20, 52 20, 54 40 L56 220 L44 220 Z" stroke="rgba(180,210,255,0.8)" stroke-width="1.2" fill="rgba(180,210,255,0.03)"/>
+                        <!-- Флэп левый верх -->
+                        <path d="M44 70 L32 105 L44 130 Z" stroke="rgba(180,210,255,0.6)" stroke-width="1.0" fill="rgba(180,210,255,0.03)"/>
+                        <!-- Флэп правый верх -->
+                        <path d="M56 70 L68 105 L56 130 Z" stroke="rgba(180,210,255,0.6)" stroke-width="1.0" fill="rgba(180,210,255,0.03)"/>
+                        <!-- Стыковочный шов -->
+                        <line x1="44" y1="220" x2="56" y2="220" stroke="rgba(180,210,255,0.4)" stroke-width="1.5" stroke-dasharray="2 1"/>
+                        <!-- Корпус Super Heavy (нижняя часть) -->
+                        <path d="M44 222 L43 680 L57 680 L56 222 Z" stroke="rgba(255,255,255,0.7)" stroke-width="1.0" fill="rgba(255,255,255,0.02)"/>
+                        <!-- Решётчатые рули нижние -->
+                        <path d="M43 560 L28 620 L43 640 Z" stroke="rgba(255,255,255,0.35)" stroke-width="1.0" fill="none"/>
+                        <path d="M57 560 L72 620 L57 640 Z" stroke="rgba(255,255,255,0.35)" stroke-width="1.0" fill="none"/>
+                        <!-- Двигатели Raptor -->
+                        <ellipse cx="46" cy="682" rx="3" ry="5" stroke="rgba(255,255,255,0.5)" stroke-width="0.8" fill="rgba(255,255,255,0.05)"/>
+                        <ellipse cx="50" cy="685" rx="3" ry="5" stroke="rgba(255,255,255,0.5)" stroke-width="0.8" fill="rgba(255,255,255,0.05)"/>
+                        <ellipse cx="54" cy="682" rx="3" ry="5" stroke="rgba(255,255,255,0.5)" stroke-width="0.8" fill="rgba(255,255,255,0.05)"/>
+                        <!-- Пламя -->
+                        <path d="M44 690 L48 760 L50 780 L52 760 L56 690" stroke="rgba(180,210,255,0.15)" stroke-width="1" fill="rgba(180,210,255,0.04)"/>
+                    </svg>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===== MISSION APPS ===== -->
+        <section class="mission-apps section-padding dark-bg">
+            <div class="container smooth-reveal">
+                <h2 class="section-title">Области применения <span class="accent">миссий</span></h2>
+                <p class="subtitle">Starship открывает принципиально новую эпоху в освоении космоса.</p>
+                <div class="applications-grid">
+                    <div class="app-card">
+                        <div class="app-card-num"><span class="accent">01</span></div>
+                        <h5>Развёртывание спутников</h5>
+                        <p>Starship выводит за один пуск более 400 спутников Starlink нового поколения Gen-3. Размер орбитальной группировки вырастет до 42,000 аппаратов, обеспечив скорость до 10 Гбит/с каждому пользователю.</p>
+                    </div>
+                    <div class="app-card">
+                        <div class="app-card-num"><span class="accent">02</span></div>
+                        <h5>Лунные миссии NASA Artemis</h5>
+                        <p>По контракту с NASA на $4 млрд Starship HLS доставит астронавтов Artemis III и IV на поверхность Луны. Первая высадка запланирована на 2026–2027 год — исторически важный момент для всего человечества.</p>
+                    </div>
+                    <div class="app-card">
+                        <div class="app-card-num"><span class="accent">03</span></div>
+                        <h5>Колонизация Марса</h5>
+                        <p>Ключевой долгосрочный вектор SpaceX. Каждые 26 месяцев открывается окно для пусков к Марсу. К 2030-м годам Маск планирует отправить первые грузовые, а затем пилотируемые миссии для построения самодостаточной колонии.</p>
+                    </div>
+                    <div class="app-card">
+                        <div class="app-card-num"><span class="accent">04</span></div>
+                        <h5>Point-to-Point транспорт</h5>
+                        <p>Суборбитальные перелёты между любыми городами планеты за 30–45 минут. Нью-Йорк — Лондон за 29 мин. SpaceX ведёт переговоры с авиакомпаниями и военными о регулярном применении этого маршрута.</p>
+                    </div>
+                    <div class="app-card">
+                        <div class="app-card-num"><span class="accent">05</span></div>
+                        <h5>Orion & Deep Space</h5>
+                        <p>Транспортировка крупных научных телескопов, межпланетных зондов и компонентов будущей лунной Gateway-станции. Полезная нагрузка 150 тонн на НОО делает Starship безальтернативным для deep space миссий.</p>
+                    </div>
+                    <div class="app-card">
+                        <div class="app-card-num"><span class="accent">06</span></div>
+                        <h5>Военные операции (Starshield)</h5>
+                        <p>Военная ветвь Starlink — засекреченные спутники для Разведывательного управления США (NRO). Контракты превышают $1.8 млрд. Возможность оперативного военного переброса грузов в любую точку Земли за 1 час.</p>
+                    </div>
+                    <div class="app-card">
+                        <div class="app-card-num"><span class="accent">07</span></div>
+                        <h5>Коммерческие экипажи</h5>
+                        <p>После миссий Polaris Dawn Starship станет базовым транспортом для коммерческого туризма в космосе. Компания Space Adventures уже анонсировала продажу билетов на орбитальные полёты.</p>
+                    </div>
+                    <div class="app-card">
+                        <div class="app-card-num"><span class="accent">08</span></div>
+                        <h5>In-Space Refueling</h5>
+                        <p>Революционная технология дозаправки на орбите: один Starship-танкер переносит топливо другому кораблю для выполнения межпланетных миссий. Первые испытания стыковки успешно проведены в 2024–2025 годах.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== TIMELINE ===== -->
+        <section class="timeline-interactive-scrub" id="timelineScrubSection">
+            <div class="timeline-scrub-wrapper">
+                <div class="timeline-center-axis"><div class="axis-glow-dot"></div></div>
+                <div class="timeline-cards-container">
+                    <div class="tl-scrub-step" id="tlStep2002">
+                        <div class="tl-side-box left-side"><span class="tl-year">2002</span></div>
+                        <div class="tl-side-box right-side"><p class="tl-desc">Основание SpaceX. Элон Маск инвестирует $100 млн личных средств в амбициозную программу разработки многоразовых ракет.</p></div>
+                    </div>
+                    <div class="tl-scrub-step" id="tlStep2008">
+                        <div class="tl-side-box left-side"><span class="tl-year">2008</span></div>
+                        <div class="tl-side-box right-side"><p class="tl-desc">Первый успешный частный орбитальный запуск Falcon 1 и первый контракт с NASA на $1.6 млрд по программе CRS.</p></div>
+                    </div>
+                    <div class="tl-scrub-step" id="tlStep2015">
+                        <div class="tl-side-box left-side"><span class="tl-year">2015</span></div>
+                        <div class="tl-side-box right-side"><p class="tl-desc">Историческая первая вертикальная посадка первой ступени Falcon 9 — технология, изменившая всю отрасль.</p></div>
+                    </div>
+                    <div class="tl-scrub-step" id="tlStep2020">
+                        <div class="tl-side-box left-side"><span class="tl-year">2020</span></div>
+                        <div class="tl-side-box right-side"><p class="tl-desc">Первый в истории запуск астронавтов на МКС на частном корабле Crew Dragon. Оценка компании — $46 млрд.</p></div>
+                    </div>
+                    <div class="tl-scrub-step" id="tlStep2024">
+                        <div class="tl-side-box left-side"><span class="tl-year">2024</span></div>
+                        <div class="tl-side-box right-side"><p class="tl-desc">Мировой рекорд: 133 пуска за год. Starship поймал бустер на башню. Оценка достигла $350 млрд.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== MARKET LANDSCAPE ===== -->
+        <section class="market-landscape section-padding dark-bg" id="marketSection">
+            <div class="container smooth-reveal">
+                <h2 class="section-title">Экосистема <span class="accent">подрядчиков</span></h2>
+                <p class="subtitle">Более 30 ключевых партнёров обеспечивают цепочку создания стоимости SpaceX.</p>
+
+                <div class="partners-grid">
+
+                    <div class="partner-card">
+                        <div class="partner-logo-box">
+                            <img src="img/rtx.png" alt="RTX">
+                        </div>
+                        <div class="partner-info">
+                            <span class="partner-name">RTX (Raytheon)</span>
+                            <p>Авионика, системы наведения, радары и компоненты для Raptor. Также поставщик по контрактам Starshield для Пентагона.</p>
+                        </div>
+                    </div>
+
+                    <div class="partner-card">
+                        <div class="partner-logo-box">
+                            <img src="img/ba.png" alt="Boeing">
+                        </div>
+                        <div class="partner-info">
+                            <span class="partner-name">Boeing</span>
+                            <p>Конкурент по пилотируемым миссиям NASA, однако производит комплектующие конструкций и является совладельцем United Launch Alliance — прямого конкурента SpaceX.</p>
+                        </div>
+                    </div>
+
+                    <div class="partner-card">
+                        <div class="partner-logo-box">
+                            <img src="img/lmt.png" alt="Lockheed Martin">
+                        </div>
+                        <div class="partner-info">
+                            <span class="partner-name">Lockheed Martin</span>
+                            <p>Партнёр по ряду государственных космических программ. Поставляет системы управления, навигационное ПО и радиочастотные компоненты для Starshield.</p>
+                        </div>
+                    </div>
+
+                    <div class="partner-card">
+                        <div class="partner-logo-box">
+                            <img src="img/gd.png" alt="General Dynamics">
+                        </div>
+                        <div class="partner-info">
+                            <span class="partner-name">General Dynamics</span>
+                            <p>Поставки специализированных сплавов, защитных корпусов и компонентов топливных систем. Партнёр по оборонным контрактам Starshield для ВВС США.</p>
+                        </div>
+                    </div>
+
+                    <div class="partner-card">
+                        <div class="partner-logo-box">
+                            <img src="img/noc.png" alt="Northrop Grumman">
+                        </div>
+                        <div class="partner-info">
+                            <span class="partner-name">Northrop Grumman</span>
+                            <p>Поставщик тепловой защиты (TPS) и углеродных материалов для Starship. Контрагент по секретным оборонным программам NRO/DoD.</p>
+                        </div>
+                    </div>
+
+                    <div class="partner-card">
+                        <div class="partner-logo-box">
+                            <img src="img/l3.png" alt="L3Harris">
+                        </div>
+                        <div class="partner-info">
+                            <span class="partner-name">L3Harris Technologies</span>
+                            <p>Системы связи, электроника и бортовые датчики для спутников Starlink. Совместные разработки по программе Starshield для военного сегмента.</p>
+                        </div>
+                    </div>
+
+                    <div class="partner-card no-logo">
+                        <div class="partner-logo-box text-logo">MSCI</div>
+                        <div class="partner-info">
+                            <span class="partner-name">MSCI / Materion</span>
+                            <p>Высокотемпературные сплавы и бериллиевые компоненты для камер сгорания двигателей Raptor. Критически важный поставщик материалов.</p>
+                        </div>
+                    </div>
+
+                    <div class="partner-card no-logo">
+                        <div class="partner-logo-box text-logo">TE</div>
+                        <div class="partner-info">
+                            <span class="partner-name">TE Connectivity</span>
+                            <p>Специализированные разъёмы, кабельные жгуты и сенсоры для Falcon 9, Starship и спутниковой платформы Starlink Gen-2.</p>
+                        </div>
+                    </div>
+
+                    <div class="partner-card no-logo">
+                        <div class="partner-logo-box text-logo">HON</div>
+                        <div class="partner-info">
+                            <span class="partner-name">Honeywell</span>
+                            <p>Инерциальные навигационные системы (IMU), авионика и компоненты управления для ракет-носителей и грузовых кораблей Dragon.</p>
+                        </div>
+                    </div>
+
+                    <div class="partner-card no-logo">
+                        <div class="partner-logo-box text-logo">AMD</div>
+                        <div class="partner-info">
+                            <span class="partner-name">AMD / Xilinx</span>
+                            <p>Радиационно-стойкие FPGA-чипы и процессоры для бортовых вычислительных систем спутников Starlink и управления Starship.</p>
+                        </div>
+                    </div>
+
+                    <div class="partner-card no-logo">
+                        <div class="partner-logo-box text-logo">ISRO</div>
+                        <div class="partner-info">
+                            <span class="partner-name">Airbus Defence & Space</span>
+                            <p>Поставщик солнечных панелей и компонентов энергосистем для ранних версий спутников Starlink. Совместное участие в европейских орбитальных программах.</p>
+                        </div>
+                    </div>
+
+                    <div class="partner-card no-logo">
+                        <div class="partner-logo-box text-logo">ON</div>
+                        <div class="partner-info">
+                            <span class="partner-name">onsemi / Allegro</span>
+                            <p>Силовые полупроводники и драйверы для электронных систем спутников. Обеспечивают энергоэффективность бортового оборудования Starlink.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CAPITALIZATION ===== -->
+        <section class="capitalization-dynamics section-padding" id="capitalizationSection">
+            <div class="container smooth-reveal">
+                <h2 class="section-title">Динамика <span class="accent">капитализации</span></h2>
+                <p class="subtitle">Инвесторы IPO 2026 года входят в капитал на пике технологического прорыва.</p>
+                <div class="metrics-timeline">
+                    <div class="metric-row">
+                        <div class="metric-label">2010</div>
+                        <div class="metric-progress-wrapper">
+                            <div class="metric-bar" data-width="12%"><span>$1B</span></div>
+                        </div>
+                    </div>
+                    <div class="metric-row">
+                        <div class="metric-label">2015</div>
+                        <div class="metric-progress-wrapper">
+                            <div class="metric-bar" data-width="25%"><span>$12B</span></div>
+                        </div>
+                    </div>
+                    <div class="metric-row">
+                        <div class="metric-label">2020</div>
+                        <div class="metric-progress-wrapper">
+                            <div class="metric-bar" data-width="45%"><span>$46B</span></div>
+                        </div>
+                    </div>
+                    <div class="metric-row">
+                        <div class="metric-label">2024</div>
+                        <div class="metric-progress-wrapper">
+                            <div class="metric-bar" data-width="65%"><span>$350B</span></div>
+                        </div>
+                    </div>
+                    <div class="metric-row highlight-row">
+                        <div class="metric-label">2026 <span class="accent">IPO</span></div>
+                        <div class="metric-progress-wrapper">
+                            <div class="metric-bar target-bar" data-width="100%"><span>$800B+</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== REVENUE ===== -->
+        <section class="revenue-structure section-padding" id="revenueSection">
+            <div class="container">
+                <h2 class="section-title smooth-reveal">Структура <span class="accent">выручки</span> (2025E)</h2>
+                <div class="revenue-flex-container">
+                    <div class="revenue-chart-box smooth-reveal">
+                        <div class="svg-chart-container">
+                            <svg viewBox="0 0 100 100" class="doughnut-svg">
+                                <circle class="base-circle" cx="50" cy="50" r="40"></circle>
+                                <circle class="segment gov-segment" cx="50" cy="50" r="40" data-percent="8"></circle>
+                                <circle class="segment launch-segment" cx="50" cy="50" r="40" data-percent="15"></circle>
+                                <circle class="segment starlink-segment" cx="50" cy="50" r="40" data-percent="77"></circle>
+                            </svg>
+                            <div class="chart-inner-text">
+                                <span class="total-val">$16<span class="accent">.</span>0B</span>
+                                <span class="total-label">Total Revenue</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="revenue-steps-container">
+                        <div class="rev-step" id="revStep1">
+                            <div class="rev-header">
+                                <span class="dot starlink-dot"></span>
+                                <h3>Starlink Data — <span class="accent">77%</span></h3>
+                            </div>
+                            <p>Основной драйвер капитализации конгломерата. К 2025 году Starlink превращается из стартапа в глобального телеком-гиганта. Более 5 млн активных абонентов — $12.3 млрд годовой выручки.</p>
+                        </div>
+                        <div class="rev-step" id="revStep2">
+                            <div class="rev-header">
+                                <span class="dot launch-dot"></span>
+                                <h3>Launch Services — <span class="accent">15%</span></h3>
+                            </div>
+                            <p>Абсолютное доминирование на рынке запусков. Falcon 9 стартует каждые 2.5 дня. SpaceX удерживает 80% мирового рынка — $2.4 млрд дохода.</p>
+                        </div>
+                        <div class="rev-step" id="revStep3">
+                            <div class="rev-header">
+                                <span class="dot gov-dot"></span>
+                                <h3>Gov. Contracts — <span class="accent">8%</span></h3>
+                            </div>
+                            <p>Выручка $1.3 млрд включает контракты NASA Artemis и секретные оборонные заказы Starshield для Министерства обороны США.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== IPO SECTION (STATIC CARDS, NO FLIP ANIMATION) ===== -->
+        <section class="ipo-section section-padding dark-bg" id="ipoSection">
+            <div class="container">
+                <h2 class="section-title smooth-reveal">Спецификация <span class="accent">IPO</span></h2>
+                <p class="subtitle smooth-reveal">Исторический момент. Войдите в капитал будущего.</p>
+
+                <div class="ipo-cards-grid">
+                    <div class="ipo-card large-card smooth-reveal">
+                        <div class="ipo-card-label">ОРГАНИЗАТОР</div>
+                        <div class="ipo-card-value">OTKRITIE<br><span class="accent">LTD</span></div>
+                        <p>Инвестиционная компания OTKRITIE LTD предоставляет уникальную возможность участия в первичном публичном размещении (IPO) SpaceX для квалифицированных инвесторов.</p>
+                    </div>
+
+                    <div class="ipo-card smooth-reveal">
+                        <div class="ipo-card-label">ДАТА ЛИСТИНГА</div>
+                        <div class="ipo-card-value accent">12.06<br>.2026</div>
+                        <p>Исторический старт торгов на бирже NASDAQ.</p>
+                    </div>
+
+                    <div class="ipo-card smooth-reveal">
+                        <div class="ipo-card-label">ТИКЕР</div>
+                        <div class="ipo-card-value">SPCX</div>
+                        <p>NASDAQ. Символ будущего на крупнейшей технологической бирже мира.</p>
+                    </div>
+
+                    <div class="ipo-card smooth-reveal">
+                        <div class="ipo-card-label">ЦЕЛЕВАЯ ОЦЕНКА</div>
+                        <div class="ipo-card-value">$1.75–<br><span class="accent">2.0T</span></div>
+                        <p>Входит в топ самых дорогих компаний планеты после поглощения xAI.</p>
+                    </div>
+
+                    <div class="ipo-card smooth-reveal">
+                        <div class="ipo-card-label">ОБЪЁМ РАЗМЕЩЕНИЯ</div>
+                        <div class="ipo-card-value">$75<span class="accent">B</span></div>
+                        <p>Абсолютный исторический рекорд на американском фондовом рынке.</p>
+                    </div>
+
+                    <div class="ipo-card smooth-reveal">
+                        <div class="ipo-card-label">БИРЖА</div>
+                        <div class="ipo-card-value">NAS<span class="accent">DAQ</span></div>
+                        <p>Крупнейшая технологическая биржа. Рядом с Apple, Microsoft, Amazon, Tesla.</p>
+                    </div>
+                </div>
+
+                <div class="ipo-cta smooth-reveal">
+                    <div class="ipo-cta-inner">
+                        <span class="ipo-cta-label">Эксклюзивный доступ для клиентов</span>
+                        <div class="ipo-cta-broker">
+                            <img src="img/otkritie.png" alt="Otkritie Broker" class="ipo-cta-logo">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FOOTER ===== -->
+        <footer class="footer">
+            <div class="footer-inner">
+                <h2>INVEST IN <span class="accent">FUTURE</span></h2>
+                <p>SPACEX IPO PROSPECTUS — OTKRITIE LTD</p>
+                <div class="footer-spacex-logo">
+                    <img src="img/spacex.png" alt="SpaceX">
+                </div>
+            </div>
+        </footer>
+
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Flip.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
