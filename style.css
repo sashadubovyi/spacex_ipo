@@ -178,7 +178,26 @@ a { text-decoration: none; color: inherit; }
     font-weight: 300;
     text-transform: uppercase;
     letter-spacing: -1px;
+    display: flex;
+    align-items: baseline;
+    gap: 0.8rem;
 }
+.menu-link-external { border-top: 1px solid rgba(139,191,255,0.08); }
+.menu-link-external:hover { color: var(--accent); }
+.menu-link-external .menu-link-num { color: rgba(139,191,255,0.4); }
+.menu-ext-badge {
+    font-size: clamp(0.6rem, 1.2vw, 0.85rem);
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: var(--accent);
+    opacity: 0.6;
+    border: 1px solid rgba(139,191,255,0.25);
+    padding: 0.15rem 0.5rem;
+    vertical-align: middle;
+    transition: opacity 0.2s;
+    white-space: nowrap;
+}
+.menu-link-external:hover .menu-ext-badge { opacity: 1; }
 
 /* ============================================================
    HERO SECTION
