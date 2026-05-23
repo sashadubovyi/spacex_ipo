@@ -14,8 +14,9 @@
     --accent: #8bbfff;       /* светло-голубой акцент */
     --accent-glow: rgba(139,191,255,0.15);
     --white: #ffffff;
-    --font-display: 'Barlow Condensed', sans-serif;
-    --font-mono: 'Space Mono', monospace;
+    --font-display: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --font-mono: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    /* Helvetica Neue поддерживает кириллицу полностью */
 }
 
 html { scroll-behavior: smooth; }
