@@ -31,6 +31,8 @@ body {
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     font-size: 16px;
+    /* Запрещаем резиновый bounce-скролл который дёргает страницу на iOS */
+    overscroll-behavior: none;
 }
 
 img { display: block; max-width: 100%; }
@@ -137,8 +139,10 @@ a { text-decoration: none; color: inherit; }
     z-index: 190;
     background: rgba(4,5,5,0.97);
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.4s ease;
@@ -148,54 +152,64 @@ a { text-decoration: none; color: inherit; }
     pointer-events: all;
 }
 
+.menu-overlay-inner {
+    width: 100%;
+    max-width: 900px;
+    padding: 6rem 2rem 3rem;
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+}
+
 .menu-nav {
     display: flex;
     flex-direction: column;
-    /* gap: 0.5rem; */
-    text-align: center;
+    gap: 0;
+    width: 100%;
 }
 
 .menu-link {
     display: flex;
-    align-items: baseline;
-    gap: 1.5rem;
-    padding: 0.2rem 2rem;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 0.55rem 0;
     border-bottom: 1px solid var(--border);
     transition: color 0.2s;
 }
-.menu-link:last-child { border-bottom: none; }
+.menu-link:first-child { border-top: 1px solid var(--border); }
 .menu-link:hover { color: var(--accent); }
 
 .menu-link-num {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-size: 0.65rem;
+    letter-spacing: 1px;
     color: var(--text-muted);
-    min-width: 24px;
+    min-width: 20px;
+    font-weight: 400;
 }
 .menu-link-text {
-    font-family: var(--font-display);
-    font-size: clamp(1.4rem, 5vw, 2.5rem);
+    font-size: clamp(1.3rem, 3.5vw, 2.2rem);
     font-weight: 300;
     text-transform: uppercase;
-    letter-spacing: -1px;
+    letter-spacing: -0.5px;
     display: flex;
-    align-items: baseline;
+    align-items: center;
     gap: 0.8rem;
+    line-height: 1.1;
 }
-.menu-link-external { border-top: 1px solid rgba(139,191,255,0.08); }
+.menu-link-external { border-top: none; }
 .menu-link-external:hover { color: var(--accent); }
 .menu-link-external .menu-link-num { color: rgba(139,191,255,0.4); }
 .menu-ext-badge {
-    font-size: clamp(0.6rem, 1.2vw, 0.85rem);
+    font-size: 0.65rem;
     font-weight: 400;
     letter-spacing: 2px;
     color: var(--accent);
     opacity: 0.6;
     border: 1px solid rgba(139,191,255,0.25);
     padding: 0.15rem 0.5rem;
-    vertical-align: middle;
     transition: opacity 0.2s;
     white-space: nowrap;
+    flex-shrink: 0;
 }
 .menu-link-external:hover .menu-ext-badge { opacity: 1; }
 
