@@ -1202,3 +1202,171 @@ a { text-decoration: none; color: inherit; }
     width: auto;
     filter: brightness(0) invert(1);
 }
+
+/* ============================================================
+   RETURNS CALCULATOR (3D COVERFLOW SLIDER)
+   ============================================================ */
+.returns-calculator { background-color: var(--bg); overflow: hidden; }
+.returns-inner {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+.returns-inner .container {
+    padding: 0;
+}
+
+.tiers-swiper {
+    width: 100%;
+    padding: 3rem 0 1.5rem;
+    overflow: visible;
+}
+.tiers-swiper .swiper-wrapper {
+    align-items: stretch;
+}
+.tiers-swiper .swiper-slide {
+    width: 320px;
+    height: auto;
+    display: flex;
+    transition: opacity 0.4s ease;
+    opacity: 0.45;
+}
+@media (min-width: 768px) {
+    .tiers-swiper .swiper-slide { width: 360px; }
+}
+.tiers-swiper .swiper-slide-active {
+    opacity: 1;
+}
+.tiers-swiper .swiper-slide-prev,
+.tiers-swiper .swiper-slide-next {
+    opacity: 0.7;
+}
+
+.tier-card {
+    position: relative;
+    width: 100%;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 2rem 1.6rem 2rem;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.35s ease, background-color 0.35s ease;
+}
+.tiers-swiper .swiper-slide-active .tier-card {
+    border-color: rgba(139, 191, 255, 0.4);
+    background-color: #0f1212;
+    box-shadow: 0 30px 80px -30px rgba(139, 191, 255, 0.25);
+}
+
+.tier-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.6rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+.tier-num {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    font-weight: 400;
+}
+.tier-label {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+}
+
+.tier-amount {
+    font-size: clamp(2.2rem, 4vw, 2.8rem);
+    font-weight: 300;
+    letter-spacing: -1.5px;
+    line-height: 1;
+    margin-bottom: 0.4rem;
+}
+.tier-amount-label {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 1.8rem;
+}
+
+.tier-stats {
+    list-style: none;
+    flex-grow: 1;
+}
+.tier-stats li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.85rem;
+}
+.tier-stats li:last-child { border-bottom: none; }
+.tier-stats li span {
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.7rem;
+}
+.tier-stats li b {
+    font-weight: 400;
+    font-size: 0.95rem;
+    color: var(--text);
+}
+
+/* VIP-карточка */
+.tier-card-vip {
+    background: linear-gradient(155deg, #0d1218 0%, #0d0f0e 100%);
+    border-color: rgba(139, 191, 255, 0.35);
+}
+.tiers-swiper .swiper-slide-active .tier-card-vip {
+    border-color: var(--accent);
+    box-shadow: 0 30px 80px -30px rgba(139, 191, 255, 0.5);
+}
+.tier-badge {
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    background-color: var(--accent);
+    color: var(--bg-dark);
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    padding: 0.35rem 0.7rem;
+    font-weight: 500;
+}
+
+/* Пагинация */
+.tiers-pagination {
+    position: relative !important;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+.tiers-pagination .swiper-pagination-bullet {
+    width: 28px;
+    height: 2px;
+    border-radius: 0;
+    background-color: var(--border);
+    opacity: 1;
+    transition: background-color 0.3s, width 0.3s;
+    margin: 0 !important;
+}
+.tiers-pagination .swiper-pagination-bullet-active {
+    background-color: var(--accent);
+    width: 48px;
+}
+
+.returns-disclaimer {
+    margin-top: 2rem;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    max-width: 700px;
+    letter-spacing: 0.3px;
+}
